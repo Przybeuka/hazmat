@@ -562,7 +562,15 @@ function lbl(c){
   else if(k==='oxid')h+='<circle cx="50" cy="45" r="8.5" fill="none" stroke-width="3.2"/><path transform="translate(15 2.5) scale(.7)" d="'+FLAME+'"/><rect x="36" y="55" width="28" height="3"/>';
   else if(k==='bio')h+='<g fill="none" stroke-width="3.4"><circle cx="50" cy="27" r="8.5"/><circle cx="41.5" cy="41.5" r="8.5"/><circle cx="58.5" cy="41.5" r="8.5"/><circle cx="50" cy="36.5" r="5.2" stroke-width="2"/></g><circle cx="50" cy="36.5" r="2.4"/>';
   else if(k==='tref'){h+='<circle cx="50" cy="35" r="3.4"/>';[-150,-30,90].forEach(function(m){var a0=(m-30)*Math.PI/180,a1=(m+30)*Math.PI/180,r1=6,r2=17;function P(r,a){return (50+r*Math.cos(a)).toFixed(1)+' '+(35+r*Math.sin(a)).toFixed(1);}h+='<path d="M'+P(r1,a0)+'L'+P(r2,a0)+'A'+r2+' '+r2+' 0 0 1 '+P(r2,a1)+'L'+P(r1,a1)+'A'+r1+' '+r1+' 0 0 0 '+P(r1,a0)+'z"/>';});}
-  else if(k==='corr')h+='<g transform="rotate(35 38 24)"><rect x="33" y="17" width="5.5" height="15" rx="2.2"/></g><g transform="rotate(-35 62 24)"><rect x="61.5" y="17" width="5.5" height="15" rx="2.2"/></g><circle cx="36" cy="37" r="1.9"/><circle cx="36" cy="43" r="1.9"/><circle cx="64" cy="36" r="1.9"/><rect x="26" y="46.5" width="20" height="3.6"/><path d="M54 44h18c3 0 3 5 0 5H56c-3 0-4-5-2-5z"/><path d="M60 40l5 4h-9z"/>';
+  else if(k==='corr'){var TUBE='<rect x="-3.2" y="-11" width="6.4" height="22" rx="3.2" fill="#fff" stroke="#111" stroke-width="1.5"/><rect x="-4.6" y="8.6" width="9.2" height="2.6" rx="1" fill="#111" stroke="none"/><path d="M-3.2 3.5h6.4v4.6h-6.4z" fill="#111" stroke="none"/>',DR='M0-4.2C2.6-.6 3.4 1.2 3.4 2.4a3.4 3.4 0 1 1-6.8 0C-3.4 1.2-2.6-.6 0-4.2z',FU=function(x,y){return '<path d="M'+x+' '+y+'c-3.2-2 3.2-4 0-6s3.2-4 0-6" fill="none" stroke="#111" stroke-width="1.4" stroke-linecap="round"/>';};
+    h+='<g transform="translate(50 36) scale(1.2) translate(-50 -35)">';
+    h+='<g transform="translate(39 23) rotate(-50)">'+TUBE+'</g><g transform="translate(61 23) rotate(50)">'+TUBE+'</g>';
+    h+='<g transform="translate(43.5 35.5) scale(.8)"><path d="'+DR+'"/></g><g transform="translate(46.5 41.5) scale(.8)"><path d="'+DR+'"/></g><circle cx="41" cy="39.5" r="1.5"/>';
+    h+='<g transform="translate(56.5 35.5) scale(.8)"><path d="'+DR+'"/></g><g transform="translate(53.5 41.5) scale(.8)"><path d="'+DR+'"/></g><circle cx="59" cy="39.5" r="1.5"/>';
+    h+='<path d="M15 46.5h20c1.6 0 2.2 2.8 4.2 2.8s2.6-2.4 4.3-2.4H49V53.5H15z" stroke="none"/>';
+    h+=FU(19,43.5)+FU(26,43.5)+FU(33,43)+FU(74,42)+FU(80,42);
+    h+='<g fill="#fff" stroke="#111" stroke-width="1.3" stroke-linejoin="round"><g transform="translate(69 45) rotate(-48)"><rect x="-1.9" y="-10.5" width="3.8" height="12" rx="1.9"/></g><rect x="58" y="51.6" width="12" height="3.1" rx="1.55"/><rect x="54.5" y="49.1" width="15.5" height="3.1" rx="1.55"/><rect x="53" y="46.6" width="17" height="3.1" rx="1.55"/><rect x="55" y="44.1" width="15" height="3.1" rx="1.55"/><path d="M68 44.1H84.5V54.7H68"/></g></g>';
+  }
   var five=c.charAt(0)==='5';
   h+='</g><text x="50" y="'+(five?77:80)+'" text-anchor="middle" font-family="Archivo,Arial Black,Arial,sans-serif" font-weight="900" font-size="'+(five?13:19)+'" fill="'+nink+'">'+(five?c:c.charAt(0))+'</text></svg>';
   return h;
