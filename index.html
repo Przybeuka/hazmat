@@ -544,6 +544,7 @@ var PX={
 function pixIcon(k){var d=PX[k],g=d.g(),o='<svg class="pix" viewBox="0 0 16 16" width="36" height="36" shape-rendering="crispEdges" aria-hidden="true">',x,y;
   for(y=0;y<16;y++)for(x=0;x<16;x++){var c=g[y][x];if(c!=='.')o+='<rect x="'+x+'" y="'+y+'" width="1" height="1" fill="'+d.p[c]+'"/>';}
   return o+'</svg>';}
+var BIO="<defs><mask id=\"@m\" maskUnits=\"userSpaceOnUse\" x=\"-40\" y=\"-40\" width=\"80\" height=\"80\"><rect x=\"-40\" y=\"-40\" width=\"80\" height=\"80\" fill=\"#fff\"/><circle cx=\"0.000\" cy=\"-16.500\" r=\"10.5\" fill=\"#000\"/><circle cx=\"14.289\" cy=\"8.250\" r=\"10.5\" fill=\"#000\"/><circle cx=\"-14.289\" cy=\"8.250\" r=\"10.5\" fill=\"#000\"/><circle r=\"3\" fill=\"#000\"/><line x1=\"0\" y1=\"0\" x2=\"25.981\" y2=\"-15.000\" stroke=\"#000\" stroke-width=\"1\"/><line x1=\"0\" y1=\"0\" x2=\"0.000\" y2=\"30.000\" stroke=\"#000\" stroke-width=\"1\"/><line x1=\"0\" y1=\"0\" x2=\"-25.981\" y2=\"-15.000\" stroke=\"#000\" stroke-width=\"1\"/></mask><mask id=\"@n\" maskUnits=\"userSpaceOnUse\" x=\"-40\" y=\"-40\" width=\"80\" height=\"80\"><rect x=\"-40\" y=\"-40\" width=\"80\" height=\"80\" fill=\"#000\"/><circle cx=\"0.000\" cy=\"-16.500\" r=\"9.5\" fill=\"#fff\"/><circle cx=\"14.289\" cy=\"8.250\" r=\"9.5\" fill=\"#fff\"/><circle cx=\"-14.289\" cy=\"8.250\" r=\"9.5\" fill=\"#fff\"/></mask></defs><g mask=\"url(#@m)\"><circle cx=\"0.000\" cy=\"-11.000\" r=\"15\"/><circle cx=\"9.526\" cy=\"5.500\" r=\"15\"/><circle cx=\"-9.526\" cy=\"5.500\" r=\"15\"/></g><circle r=\"13.8\" fill=\"none\" stroke=\"#111\" stroke-width=\"3.200000000000001\" mask=\"url(#@n)\"/>";
 var lblN=0;
 function lbl(c){
   var d=LB[c];if(!d)return '';
@@ -560,15 +561,7 @@ function lbl(c){
   else if(k==='cyl')h+='<g transform="rotate(-24 50 36)"><rect x="30" y="30.5" width="32" height="11" rx="5.5"/><rect x="62" y="34" width="5" height="4"/><rect x="66" y="32.5" width="2.5" height="7"/></g>';
   else if(k==='skull')h+='<path d="M34 45l32 13M66 45L34 58" stroke-width="4.5" stroke-linecap="round" fill="none"/><circle cx="50" cy="31" r="11"/><rect x="43.5" y="37" width="13" height="9" rx="2.5"/><circle cx="45.6" cy="31" r="3" fill="#fff" stroke="none"/><circle cx="54.4" cy="31" r="3" fill="#fff" stroke="none"/><path d="M50 35l-1.8 3.4h3.6z" fill="#fff" stroke="none"/>';
   else if(k==='oxid')h+='<circle cx="50" cy="45" r="8.5" fill="none" stroke-width="3.2"/><path transform="translate(15 2.5) scale(.7)" d="'+FLAME+'"/><rect x="36" y="55" width="28" height="3"/>';
-  else if(k==='bio'){
-    function CIR(x,y,r){return 'M'+(x-r).toFixed(2)+' '+y.toFixed(2)+'a'+r+' '+r+' 0 1 0 '+(2*r)+' 0a'+r+' '+r+' 0 1 0 '+(-2*r)+' 0z';}
-    h+='<g transform="translate(50 42.5) scale(.88)" stroke="none">';
-    [-90,30,150].forEach(function(g){var r=g*Math.PI/180,c=Math.cos(r),n=Math.sin(r);
-      h+='<path fill="#111" fill-rule="evenodd" d="'+CIR(10*c,10*n,13.6)+CIR(7.4*c,7.4*n,9.8)+'"/>';});
-    h+='<circle r="7.2" fill="#fff"/>';
-    [-30,90,210].forEach(function(g){var r=g*Math.PI/180;h+='<path d="M'+(6*Math.cos(r)).toFixed(2)+' '+(6*Math.sin(r)).toFixed(2)+'L'+(19*Math.cos(r)).toFixed(2)+' '+(19*Math.sin(r)).toFixed(2)+'" stroke="#fff" stroke-width="1.5" fill="none"/>';});
-    h+='<circle r="4.6" fill="#fff" stroke="#111" stroke-width="2.2"/><circle r="1.5" fill="#111"/></g>';
-  }
+  else if(k==='bio')h+='<g transform="translate(50 39) scale(.8)" fill="#111" stroke="none">'+BIO.replace(/@/g,id)+'</g>';
   else if(k==='tref'){h+='<circle cx="50" cy="35" r="3.4"/>';[-150,-30,90].forEach(function(m){var a0=(m-30)*Math.PI/180,a1=(m+30)*Math.PI/180,r1=6,r2=17;function P(r,a){return (50+r*Math.cos(a)).toFixed(1)+' '+(35+r*Math.sin(a)).toFixed(1);}h+='<path d="M'+P(r1,a0)+'L'+P(r2,a0)+'A'+r2+' '+r2+' 0 0 1 '+P(r2,a1)+'L'+P(r1,a1)+'A'+r1+' '+r1+' 0 0 0 '+P(r1,a0)+'z"/>';});}
   else if(k==='corr'){var TUBE='<rect x="-3.2" y="-11" width="6.4" height="22" rx="3.2" fill="#fff" stroke="#111" stroke-width="1.5"/><rect x="-4.6" y="8.6" width="9.2" height="2.6" rx="1" fill="#111" stroke="none"/><path d="M-3.2 3.5h6.4v4.6h-6.4z" fill="#111" stroke="none"/>',DR='M0-4.2C2.6-.6 3.4 1.2 3.4 2.4a3.4 3.4 0 1 1-6.8 0C-3.4 1.2-2.6-.6 0-4.2z',FU=function(x,y){return '<path d="M'+x+' '+y+'c-3.2-2 3.2-4 0-6s3.2-4 0-6" fill="none" stroke="#111" stroke-width="1.4" stroke-linecap="round"/>';};
     h+='<g transform="translate(50 36) scale(1.08) translate(-50 -35)">';
