@@ -429,6 +429,25 @@ a.cta:hover,.prose a.cta:hover{transform:translateY(-2px);box-shadow:0 6px 16px 
 .prose li.fli{display:flex;gap:12px;align-items:center;list-style:none;margin:8px 0}
 .prose ul:has(> li.fli){padding-left:0}
 .prose figure.fi{margin:0;flex:none;width:58px}.prose figure.fi img{width:58px;height:auto;display:block}
+.wind.two{grid-template-columns:auto repeat(2,minmax(0,1fr))}
+.spill2{margin:0 0 12px}.spill2:last-child{margin-bottom:0}
+.spill2 h4{font-size:15px;font-weight:700;text-transform:uppercase;margin:0 0 6px}
+.spill2 h4 small{font-weight:400;text-transform:none;font-size:13px;color:var(--muted);margin-left:6px}
+.wind.two .wv b{font-size:21px}
+.wind .wv{box-shadow:inset 0 -2px 0 rgba(0,0,0,.06)}
+.t2q{width:100%;box-sizing:border-box;padding:11px 12px;border:2px solid var(--ink);border-radius:10px;font:inherit;font-size:16px;margin:0 0 12px;background:#fff}
+.t2q:focus{outline:3px solid var(--green);outline-offset:1px}
+.t2l{display:grid;gap:8px;margin:0 0 12px}
+.t2c{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;align-items:center;background:#fff;border:2px solid var(--line);border-left:6px solid var(--green);border-radius:10px;padding:9px 11px;text-decoration:none;color:var(--ink);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.t2c .un{font-family:var(--font-display);font-weight:800;font-size:20px;font-variant-numeric:tabular-nums;grid-row:1/3}
+.t2c .un small{display:block;font-family:inherit;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.t2c .nm{font-weight:600;font-size:16px;line-height:1.25;overflow-wrap:anywhere}
+.t2c .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.t2c .gd{background:var(--orange);color:#111;border:2px solid #111;border-radius:7px;padding:1px 8px;font-weight:800;font-size:14px}
+.t2c .gs{background:#e3efd3;border:1.5px solid var(--green);color:#24400f;border-radius:999px;padding:1px 9px;font-weight:700;font-size:14px}
+.t2c .gs.tox{background:#fde1dc;border-color:#c0392b;color:#7a1a10}
+@media (hover:hover) and (pointer:fine){.t2c:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.14);border-color:var(--green)}}
+.t2n{color:var(--muted);font-size:14px;margin:0 0 8px}
 </style>
 </head>
 <body data-sec="o">
@@ -779,10 +798,15 @@ function t3HTML(id){
   return h+'<p class="note" style="margin:8px 0 0">'+esc(t('plus'))+'</p></div></div>';
 }
 function t1Groups(T){var groups={},go=[];T.forEach(function(r){var k=r[3]+'|'+r[2];if(!groups[k]){groups[k]={d:DB.D[r[3]],c:r[2],n:[]};go.push(k);}groups[k].n.push(r[1]);});return go.map(function(k){return groups[k];});}
-function t1Block(g){var d=g.d,h='<div class="dgroup"><p class="who">'+g.n.map(esc).join(' · ')+(g.c?' <strong>('+esc(t('c'+g.c))+')</strong>':'')+'</p>';
-  h+='<div class="spill"><h4>'+esc(t('small'))+'<small>'+esc(t('smallD'))+'</small></h4>'+cell(t('iso'),d[0])+cell(t('day'),d[1])+cell(t('night'),d[2])+'</div><div class="spill"><h4>'+esc(t('large'))+'<small>'+esc(t('largeD'))+'</small></h4>';
-  if(d[3]==='T3')h+='<p class="note" style="grid-column:1/-1;margin:0">'+esc(t('seeT3'))+'</p>';else h+=cell(t('iso'),d[3])+cell(t('day'),d[4])+cell(t('night'),d[5]);
-  return h+'</div></div>';}
+function t1Block(g){var d=g.d,PL={pt:'Proteger',en:'Protect',es:'Proteger'}[state.lang]||'Protect';
+  function bx(v,u){return '<span class="wv"><b>'+esc(num(v[0]))+'</b><i>'+esc(imp(v[1]))+'</i></span>';}
+  function sp(title,sub,v){var h='<div class="spill2"><h4>'+esc(title)+'<small>'+esc(sub)+'</small></h4>';
+    if(!v)return h+'<p class="note" style="margin:0">'+esc(t('seeT3'))+'</p></div>';
+    return h+'<div class="wind two"><span class="wl">'+esc(t('isoS'))+'</span><span class="wv wide"><b>'+esc(num(v[0][0]))+'</b> <i>'+esc(imp(v[0][1]))+'</i></span><span class="wl"></span><span class="wh">'+esc(t('dayS'))+'</span><span class="wh">'+esc(t('nightS'))+'</span><span class="wl">'+esc(PL)+'</span>'+bx(v[1])+bx(v[2])+'</div></div>';}
+  var h='<div class="dgroup"><p class="who">'+g.n.map(esc).join(' · ')+(g.c?' <strong>('+esc(t('c'+g.c))+')</strong>':'')+'</p>';
+  h+=sp(t('small'),t('smallD'),[d[0],d[1],d[2]]);
+  h+=sp(t('large'),t('largeD'),d[3]==='T3'?null:[d[3],d[4],d[5]]);
+  return h+'</div>';}
 /* ---------- material ---------- */
 var cs={id:null};
 function copt(key,val,label,desc,dis,icon){return '<button type="button" data-ck="'+key+'" data-v="'+val+'"'+(dis?' disabled':'')+' aria-pressed="'+(!dis&&String(cs[key])===String(val)?'true':'false')+'"><b>'+(icon?pixIcon(icon):'')+'<span>'+esc(label)+'</span></b>'+(desc?'<small>'+esc(desc)+'</small>':'')+'</button>';}
@@ -959,10 +983,15 @@ function viewT1(){
   app.innerHTML=h+'</div>';wireBack();
 }
 function viewT2(){
-  setSec('g');var h=band(t('t2s')+' · '+t('t2d'))+'<div class="body"><p class="note"><a href="#info-tabela2-uso">'+esc(wsec('tabela2-uso').t[state.lang])+'</a></p><div class="tscroll prose"><table><thead><tr><th>'+esc(t('idno'))+'</th><th>'+esc(t('guide'))+'</th><th>'+esc(t('name'))+'</th><th>'+esc(t('gases'))+'</th></tr></thead><tbody>';
+  setSec('g');var L={pt:['Filtrar por nº ONU, nome ou gás','materiais'],en:['Filter by UN no., name or gas','materials'],es:['Filtrar por n.º ONU, nombre o gas','materiales']}[state.lang];
+  var h=band(t('t2s')+' · '+t('t2d'))+'<div class="body"><p class="note"><a href="#info-tabela2-uso">'+esc(wsec('tabela2-uso').t[state.lang])+'</a></p><input class="t2q" id="t2q" type="search" placeholder="'+esc(L[0])+'" autocomplete="off"><p class="t2n" id="t2n"></p><div class="t2l" id="t2l">';
   Object.keys(DB.T2).sort().forEach(function(id){var ms=DB.M[state.lang].filter(function(m){return m[0]===id&&m[3];});if(!ms.length)ms=DB.M[state.lang].filter(function(m){return m[0]===id;});if(!ms.length)return;
-    h+='<tr><td><a href="#un-'+id+'">'+id+'</a></td><td>'+esc(ms[0][1])+'</td><td>'+ms.map(function(m){return esc(m[2]);}).join('<br>')+'</td><td>'+DB.T2[id].map(sub2).join(' ')+'</td></tr>';});
-  app.innerHTML=h+'</tbody></table></div></div>';wireBack();
+    var names=ms.map(function(m){return m[2];}),gases=DB.T2[id];
+    h+='<a class="t2c" href="#un-'+id+'" data-q="'+esc(norm(id+' '+names.join(' ')+' '+gases.join(' ')))+'"><span class="un"><small>'+esc(t('idno'))+'</small>'+id+'</span><span class="nm">'+names.map(esc).join('<br>')+'</span><span class="meta" style="grid-column:2"><span class="gd">'+esc(t('guide'))+' '+esc(ms[0][1])+'</span>'+gases.map(function(g){return '<span class="gs'+(/^(HCN|H2S|NH3|PH3|HF|HBr|HI|Cl2|SO2|NO2)/.test(g)?' tox':'')+'">'+sub2(g)+'</span>';}).join('')+'</span></a>';});
+  app.innerHTML=h+'</div></div>';wireBack();
+  var q=document.getElementById('t2q'),cards=[].slice.call(document.querySelectorAll('.t2c')),n=document.getElementById('t2n');
+  function f(){var v=norm(q.value.trim()),c=0;cards.forEach(function(e){var ok=!v||e.getAttribute('data-q').indexOf(v)>-1;e.style.display=ok?'':'none';if(ok)c++;});n.textContent=c+' '+L[1];}
+  q.addEventListener('input',f);f();
 }
 function viewT3(){
   setSec('g');var h=band(t('t3s')+' · '+t('t3d'))+'<div class="body"><p class="note"><a href="#info-tabela3-uso">'+esc(wsec('tabela3-uso').t[state.lang])+'</a></p>';
