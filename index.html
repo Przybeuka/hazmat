@@ -448,6 +448,42 @@ a.cta:hover,.prose a.cta:hover{transform:translateY(-2px);box-shadow:0 6px 16px 
 .t2c .gs.tox{background:#fde1dc;border-color:#c0392b;color:#7a1a10}
 @media (hover:hover) and (pointer:fine){.t2c:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.14);border-color:var(--green)}}
 .t2n{color:var(--muted);font-size:14px;margin:0 0 8px}
+.mxcta{background:#7a1a10!important;margin-top:10px}
+.mxsearch{position:relative}
+.mxsug{display:grid;gap:4px;margin:-6px 0 10px}
+.mxsug button{display:flex;align-items:center;gap:10px;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:6px 8px;font:inherit;font-size:15px;color:var(--ink);cursor:pointer}
+.mxsug button small{color:var(--muted)}
+.mxcls{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px;margin:0 0 14px}
+.mxcls button{display:flex;flex-direction:column;align-items:center;gap:2px;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:6px 2px;font:inherit;font-weight:800;font-size:13px;color:var(--ink);cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+.mxcls .lbl,.mxchip .lbl{width:36px;height:36px}
+.mxsel{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.mxchip{display:inline-flex;align-items:center;gap:6px;background:#fff;border:2px solid var(--ink);border-radius:999px;padding:3px 4px 3px 6px;font-weight:600;font-size:14.5px;max-width:100%}
+.mxchip .lbl{width:26px;height:26px;flex:none}
+.mxchip span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mxchip button{flex:none;width:26px;height:26px;border-radius:50%;border:0;background:var(--ink);color:#fff;font-size:17px;line-height:1;cursor:pointer}
+#mxclr{background:none;border:0;color:#b42318;font:inherit;font-weight:700;cursor:pointer}
+.mxbig{display:flex;gap:12px;align-items:center;border-radius:12px;padding:12px 14px;margin:0 0 12px;border:2px solid}
+.mxbig i{font-style:normal;font-weight:900;font-size:26px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;flex:none;color:#fff}
+.mxbig b{display:block;font-family:var(--font-display);font-size:22px;text-transform:uppercase}
+.mxbig span{font-size:15px}
+.mxC{--mc:#1f7a32;--mb:#e5f4e3}.mxA{--mc:#b26a00;--mb:#fff3d6}.mxX{--mc:#b42318;--mb:#fde4e1}.mxU{--mc:#6b7280;--mb:#eef0f2}
+.mxbig,.mxp{background:var(--mb);border-color:var(--mc)}
+.mxbig i,.mxp .mxh i{background:var(--mc)}
+.mxgrid{border-collapse:separate;border-spacing:3px;margin:0 auto 6px}
+.mxgrid th{font-size:13px;color:var(--muted);padding:2px 6px}
+.mxgrid td{width:38px;height:34px;text-align:center;font-weight:900;font-size:17px;border-radius:6px;background:var(--mb);color:var(--mc);border:1.5px solid var(--mc)}
+.mxgrid td.mxd{background:none;border:0;color:var(--muted)}
+.mxleg{display:flex;flex-direction:column;gap:2px;font-size:14px;margin:0 0 12px}
+.mxleg b{display:inline-block;min-width:18px}
+.mxpairs{display:grid;gap:8px;margin:0 0 12px}
+.mxp{border:2px solid;border-left-width:7px;border-radius:10px;padding:8px 11px}
+.mxh{display:flex;align-items:center;gap:8px}
+.mxh i{font-style:normal;color:#fff;font-weight:900;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:14px}
+.mxh b{text-transform:uppercase;color:var(--mc);font-size:15px}
+.mxn{font-weight:700;margin:4px 0;font-size:15px}.mxn span{color:var(--muted)}
+.mxp ul{margin:0;padding-left:18px;font-size:14.5px}
+.mxdisc{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px;text-align:justify}
+@media (hover:hover) and (pointer:fine){.mxcls button:hover,.mxsug button:hover{transform:translateY(-2px);box-shadow:0 5px 12px rgba(0,0,0,.14)}}
 </style>
 </head>
 <body data-sec="o">
@@ -737,6 +773,7 @@ function homeBelow(){
   h+='</div><div class="sh"><h2>'+esc(t('secT'))+'</h2></div><div class="secs">';
   var sc=[['#branca','#9ca3af'],['#amarela','#eab308'],['#azul','#3b82f6'],['#laranja','#f97316'],['#verde','#22c55e'],['#assistente','#231f20']];
   t('sec').forEach(function(x,i){h+='<a class="card" href="'+sc[i][0]+'" style="--c:'+sc[i][1]+'"><b>'+esc(x[0])+'</b><small>'+esc(x[1])+'</small></a>';});
+  h+='<a class="card" href="#matriz" style="--c:#c0392b"><b>'+esc(mt('t'))+'</b><small>'+esc(mt('d'))+'</small></a>';
   h+='</div><p style="margin:18px 2px 0;font-size:13.5px;color:var(--soft)">'+esc(t('foot1'))+' <a href="#sobre">'+esc(t('about'))+'</a></p>';
   return h;
 }
@@ -970,7 +1007,7 @@ function evacHTML(n){
 function wsec(slug){for(var i=0;i<DB.W.length;i++)if(DB.W[i].s===slug)return DB.W[i];return null;}
 function viewGreen(){
   setSec('g');
-  var h=band(t('sG'))+'<div class="body"><a class="cta" href="#assistente"><div><b>'+esc(t('wz'))+'</b><span>'+esc(t('wzd'))+'</span></div><i aria-hidden="true">›</i></a><p class="eyebrow">'+esc(t('tables'))+'</p><ul class="slist">';
+  var h=band(t('sG'))+'<div class="body"><a class="cta" href="#assistente"><div><b>'+esc(t('wz'))+'</b><span>'+esc(t('wzd'))+'</span></div><i aria-hidden="true">›</i></a><a class="cta mxcta" href="#matriz"><div><b>'+esc(mt('t'))+'</b><span>'+esc(mt('d'))+'</span></div><i aria-hidden="true">›</i></a><p class="eyebrow">'+esc(t('tables'))+'</p><ul class="slist">';
   [['tabela1','t1s','t1d'],['tabela2','t2s','t2d'],['tabela3','t3s','t3d']].forEach(function(x){h+='<li><a href="#'+x[0]+'">'+sico(x[0],'var(--green)')+'<span><strong>'+esc(t(x[1]))+'</strong><br>'+esc(t(x[2]))+'</span></a></li>';});
   h+='</ul><p class="eyebrow">'+esc(t('texts'))+'</p><ul class="slist">';
   DB.W.forEach(function(s){if(s.g==='g')h+='<li><a href="#info-'+s.s+'">'+sico(s.s,'var(--green)')+esc(s.t[state.lang])+'</a></li>';});
@@ -997,6 +1034,97 @@ function viewT3(){
   setSec('g');var h=band(t('t3s')+' · '+t('t3d'))+'<div class="body"><p class="note"><a href="#info-tabela3-uso">'+esc(wsec('tabela3-uso').t[state.lang])+'</a></p>';
   DB.T3.forEach(function(g){h+='<p class="who"><strong>'+g.ids.map(function(id){var b=bestName(id);return '<a href="#un-'+id+'">'+t('un')+' '+id+'</a> '+esc(b?b[2]:'');}).join(' · ')+'</strong></p>'+t3HTML(g.ids[0]);});
   app.innerHTML=h+'</div>';wireBack();
+}
+
+/* ---------- incompatibility matrix (49 CFR 177.848) ---------- */
+var SEGK=["1.1", "1.3", "1.4", "1.5", "1.6", "2.1", "2.2", "2.3A", "2.3B", "3", "4.1", "4.2", "4.3", "5.1", "5.2", "6.1A", "7", "8"],SEGR={"1.1": "*****XXXXXXXXXXXXX", "1.3": "*****X-XXX-XXXXX-X", "1.4": "*****O-OOO-O---O-O", "1.5": "*****XXXXXXXXXXXXX", "1.6": "*****-------------", "2.1": "XXOX---XO------OO-", "2.2": "X--X--------------", "2.3A": "XXOX-X---XXXXXX--X", "2.3B": "XXOX-O---OOOOOO--O", "3": "XXOX---XO----O-X--", "4.1": "X--X---XO------X-O", "4.2": "XXOX---XO------X-X", "4.3": "XX-X---XO------X-O", "5.1": "XX-X---XOO-----X-O", "5.2": "XX-X---XO------X-O", "6.1A": "XXOX-O---XXXXXX--X", "7": "X--X-O------------", "8": "XXOX---XO-OXOOOX--"},mx=[];
+var MXT={pt:{t:'Matriz de incompatibilidade',d:'Combine 2 ou mais produtos ou classes e veja se podem ficar juntos',q:'Adicionar produto: nº ONU ou nome',cl:'Ou adicione uma classe de risco',sel:'Selecionados',none:'Adicione pelo menos 2 itens.',clr:'Limpar',res:'Resultado',pairs:'Pares avaliados',
+ C:'Compatível',A:'Atenção',X:'Incompatível',U:'Sem dados',
+ Cd:'Sem restrição de segregação entre essas classes na tabela.',Xd:'Não podem ser carregados, transportados ou armazenados juntos.',Od:'Só podem ficar juntos se separados de modo que, num vazamento, não se misturem.',Sd:'Explosivos entre si: depende do grupo de compatibilidade (letra após a divisão).',
+ z23:'Gás tóxico 2.3 tratado como zona A (pior caso).',t61:'Classe 6.1: a restrição vale só para líquidos tóxicos por inalação (GE I, zona A).',l8:'Classe 8: a restrição vale para corrosivos líquidos.',an:'Nitrato de amônio pode ficar com explosivos 1.1/1.5 (nota A), com as regras do §177.835(c).',
+ cy:'Cianeto com corrosivo: se o corrosivo for um ácido, são incompatíveis, porque a mistura libera cianeto de hidrogênio (HCN), gás muito tóxico.',sub:'via risco subsidiário',nocls:'Produto sem classe conhecida; não foi avaliado.',same:'Mesma classe.',
+ disc:'Baseado na tabela de segregação para transporte rodoviário do 49 CFR §177.848 (EUA), por classe e risco subsidiário. Não faz parte do ERG. Não avalia a reação química específica entre os produtos: “compatível” significa apenas que a tabela não exige separação, não que misturar seja seguro. Confirme na FDS e com especialistas.',
+ open:'Abrir na matriz de incompatibilidade',cls:'Classe'},
+en:{t:'Incompatibility matrix',d:'Combine 2 or more products or classes and check whether they can be kept together',q:'Add product: UN number or name',cl:'Or add a hazard class',sel:'Selected',none:'Add at least 2 items.',clr:'Clear',res:'Result',pairs:'Pairs checked',
+ C:'Compatible',A:'Caution',X:'Incompatible',U:'No data',
+ Cd:'No segregation restriction between these classes in the table.',Xd:'May not be loaded, transported or stored together.',Od:'May be together only if separated so that, in case of leakage, they will not mix.',Sd:'Explosives with each other: depends on the compatibility group (letter after the division).',
+ z23:'Toxic gas 2.3 treated as zone A (worst case).',t61:'Class 6.1: the restriction applies only to liquids toxic by inhalation (PG I, zone A).',l8:'Class 8: the restriction applies to corrosive liquids.',an:'Ammonium nitrate may be loaded with 1.1/1.5 explosives (note A), subject to §177.835(c).',
+ cy:'Cyanide with a corrosive: if the corrosive is an acid they are incompatible, because the mixture releases hydrogen cyanide (HCN), a highly toxic gas.',sub:'via subsidiary hazard',nocls:'Product with no known class; not evaluated.',same:'Same class.',
+ disc:'Based on the highway segregation table in 49 CFR §177.848 (USA), by class and subsidiary hazard. Not part of the ERG. It does not evaluate the specific chemical reaction between products: “compatible” only means the table requires no separation, not that mixing is safe. Confirm with the SDS and specialists.',
+ open:'Open in incompatibility matrix',cls:'Class'},
+es:{t:'Matriz de incompatibilidad',d:'Combine 2 o más productos o clases y vea si pueden estar juntos',q:'Agregar producto: n.º ONU o nombre',cl:'O agregue una clase de riesgo',sel:'Seleccionados',none:'Agregue al menos 2 elementos.',clr:'Limpiar',res:'Resultado',pairs:'Pares evaluados',
+ C:'Compatible',A:'Atención',X:'Incompatible',U:'Sin datos',
+ Cd:'Sin restricción de segregación entre estas clases en la tabla.',Xd:'No pueden cargarse, transportarse ni almacenarse juntos.',Od:'Solo pueden estar juntos si se separan de modo que, en una fuga, no se mezclen.',Sd:'Explosivos entre sí: depende del grupo de compatibilidad (letra después de la división).',
+ z23:'Gas tóxico 2.3 tratado como zona A (peor caso).',t61:'Clase 6.1: la restricción aplica solo a líquidos tóxicos por inhalación (GE I, zona A).',l8:'Clase 8: la restricción aplica a corrosivos líquidos.',an:'El nitrato de amonio puede ir con explosivos 1.1/1.5 (nota A), según §177.835(c).',
+ cy:'Cianuro con corrosivo: si el corrosivo es un ácido son incompatibles, porque la mezcla libera cianuro de hidrógeno (HCN), gas muy tóxico.',sub:'por riesgo subsidiario',nocls:'Producto sin clase conocida; no evaluado.',same:'Misma clase.',
+ disc:'Basado en la tabla de segregación para transporte por carretera del 49 CFR §177.848 (EE. UU.), por clase y riesgo subsidiario. No forma parte de la GRE. No evalúa la reacción química específica entre productos: “compatible” solo significa que la tabla no exige separación, no que mezclarlos sea seguro. Confirme con la FDS y especialistas.',
+ open:'Abrir en la matriz de incompatibilidad',cls:'Clase'}};
+function mt(k){return MXT[state.lang][k];}
+function mxItem(k){
+  if(/^c/.test(k)){var c=k.slice(1);return {k:k,cls:[c],main:c,label:mt('cls')+' '+c,tih:c==='2.3',zoneOpen:true,cy:false,an:false};}
+  var R=RK[k],b=bestName(k),nm=b?b[2]:k;if(!R)return {k:k,cls:[],label:'ONU '+k+' · '+nm,nocls:true};
+  var tih=DB.M[state.lang].some(function(m){return m[0]===k&&m[3];})&&!DB.T2[k];
+  return {k:k,cls:[R[0]].concat(R[1]||[]),main:R[0],label:'ONU '+k+' · '+nm,id:k,tih:tih,cy:/cianet|cyanid|cianur/.test(norm(nm)),an:/^(1942|2067|2426|3375)$/.test(k)};
+}
+function segKey(c,it){
+  if(/^1\.[12]/.test(c))return '1.1';if(/^1\.3/.test(c))return '1.3';if(/^1\.4/.test(c))return '1.4';if(/^1\.5/.test(c))return '1.5';if(/^1\.6/.test(c))return '1.6';
+  if(c==='2.3')return '2.3A';if(c==='6.1')return it.id&&!it.tih?null:'6.1A';
+  return SEGK.indexOf(c)>-1?c:null;
+}
+var MXR={'-':0,'*':1,'O':1,'X':2};
+function mxPair(a,b){
+  if(a.nocls||b.nocls)return {v:-1,why:[mt('nocls')]};
+  var best={v:0,n:{}};
+  a.cls.forEach(function(ca,ia){b.cls.forEach(function(cb,ib){
+    var ka=segKey(ca,a),kb=segKey(cb,b);if(!ka||!kb)return;
+    var x=SEGR[ka][SEGK.indexOf(kb)],v=MXR[x],n={};
+    if(x!=='-'&&(((ka==='1.1'||ka==='1.5')&&b.an)||((kb==='1.1'||kb==='1.5')&&a.an))){x='O';v=1;n.an=1;}
+    if(v>0&&((ca==='6.1'&&!a.id)||(cb==='6.1'&&!b.id))){if(x==='X')x='O';v=1;n.t61=1;}
+    if(v>0&&((ca==='2.3'&&a.id)||(cb==='2.3'&&b.id)))n.z23=1;
+    if(v>0&&(ka==='8'||kb==='8'))n.l8=1;
+    if(v>best.v){best={v:v,x:x,n:n,sub:ia>0||ib>0,pr:ca+' × '+cb};}
+  });});
+  if(((a.cy&&b.main==='8')||(b.cy&&a.main==='8'))&&best.v<2){if(best.v<1){best.v=1;best.x='O';best.sub=false;}best.n.cy=1;}
+  var w=[];if(best.v===0)w.push((a.main===b.main&&a.cls.length===1&&b.cls.length===1?mt('same')+' ':'')+mt('Cd'));
+  else if(!(best.n.cy&&best.x==='O'&&Object.keys(best.n).length===1))w.push((best.x==='*'?mt('Sd'):best.x==='X'?mt('Xd'):mt('Od'))+(best.sub?' ('+mt('sub')+': '+best.pr+')':''));
+  ['cy','an','t61','z23','l8'].forEach(function(n){if(best.n[n])w.push(mt(n));});
+  best.why=w;return best;
+}
+var MXC=['C','A','X'],MXI={C:'✓',A:'!',X:'✕',U:'?'};
+function mxRender(){
+  var box=document.getElementById('mxsel'),out=document.getElementById('mxout');if(!box)return;
+  box.innerHTML=mx.length?mx.map(function(k,i){var it=mxItem(k);return '<span class="mxchip">'+(it.main?lbl(it.main):'')+'<span>'+esc(it.label)+'</span><button type="button" data-rm="'+i+'" aria-label="×">×</button></span>';}).join(''):'';
+  [].forEach.call(box.querySelectorAll('[data-rm]'),function(b){b.onclick=function(){mx.splice(+b.getAttribute('data-rm'),1);mxSync();};});
+  if(mx.length<2){out.innerHTML='<p class="note">'+esc(mt('none'))+'</p>';return;}
+  var its=mx.map(mxItem),pairs=[],worst=0,i,j,h='';
+  for(i=0;i<its.length;i++)for(j=i+1;j<its.length;j++){var p=mxPair(its[i],its[j]);p.a=i;p.b=j;pairs.push(p);if(p.v>worst)worst=p.v;}
+  var wk=worst<0?'U':MXC[worst];
+  h+='<div class="mxbig mx'+wk+'"><i>'+MXI[wk]+'</i><div><b>'+esc(mt(wk))+'</b><span>'+esc(worst===2?mt('Xd'):worst===1?mt('Od'):mt('Cd'))+'</span></div></div>';
+  if(its.length>2){h+='<div class="tscroll"><table class="mxgrid"><tr><th></th>'+its.map(function(x,i){return '<th>'+(i+1)+'</th>';}).join('')+'</tr>';
+    its.forEach(function(x,i){h+='<tr><th>'+(i+1)+'</th>';its.forEach(function(y,j){if(i===j){h+='<td class="mxd">—</td>';return;}var p=pairs.filter(function(q){return (q.a===i&&q.b===j)||(q.a===j&&q.b===i);})[0],k=p.v<0?'U':MXC[p.v];h+='<td class="mx'+k+'" title="'+esc(mt(k))+'">'+MXI[k]+'</td>';});h+='</tr>';});
+    h+='</table></div><p class="mxleg">'+its.map(function(x,i){return '<span><b>'+(i+1)+'</b> '+esc(x.label)+'</span>';}).join('')+'</p>';}
+  h+='<p class="eyebrow">'+esc(mt('pairs'))+'</p><div class="mxpairs">';
+  pairs.sort(function(a,b){return b.v-a.v;}).forEach(function(p){var k=p.v<0?'U':MXC[p.v];
+    h+='<div class="mxp mx'+k+'"><div class="mxh"><i>'+MXI[k]+'</i><b>'+esc(mt(k))+'</b></div><p class="mxn">'+esc(its[p.a].label)+' <span>+</span> '+esc(its[p.b].label)+'</p><ul>'+p.why.map(function(w){return '<li>'+esc(w)+'</li>';}).join('')+'</ul></div>';});
+  out.innerHTML=h+'</div>';
+}
+function mxSync(){var nh='#matriz'+(mx.length?'-'+mx.join('_'):'');if(location.hash!==nh){history.replaceState(null,'',nh);lastHash=nh.slice(1);}mxRender();}
+function mxAdd(k){if(mx.indexOf(k)<0)mx.push(k);var q=document.getElementById('mxq');if(q){q.value='';document.getElementById('mxsug').innerHTML='';}mxSync();}
+function viewMatrix(pre){
+  setSec('g');if(pre!==undefined)mx=pre?pre.split('_').filter(function(k){return /^(\d{4}|c\d(\.\d)?)$/.test(k);}):[];
+  var h=band(mt('t'))+'<div class="body"><p class="note">'+esc(mt('d'))+'.</p><div class="mxsearch"><input id="mxq" class="t2q" type="search" placeholder="'+esc(mt('q'))+'" autocomplete="off"><div id="mxsug" class="mxsug"></div></div>';
+  h+='<p class="eyebrow">'+esc(mt('cl'))+'</p><div class="mxcls">'+CLS.map(function(c){return '<button type="button" data-c="'+c[0]+'" title="'+esc(clsDesc(c[0]))+'">'+lbl(c[0])+'<span>'+c[0]+'</span></button>';}).join('')+'</div>';
+  h+='<div class="sh"><h2>'+esc(mt('sel'))+'</h2><button type="button" id="mxclr">'+esc(mt('clr'))+'</button></div><div id="mxsel" class="mxsel"></div><div id="mxout"></div><p class="mxdisc">'+esc(mt('disc'))+'</p></div>';
+  app.innerHTML=h;wireBack();
+  [].forEach.call(document.querySelectorAll('.mxcls button'),function(b){b.onclick=function(){mxAdd('c'+b.getAttribute('data-c'));};});
+  document.getElementById('mxclr').onclick=function(){mx=[];mxSync();};
+  var q=document.getElementById('mxq'),sg=document.getElementById('mxsug');
+  q.addEventListener('input',function(){var v=norm(q.value.trim()).replace(/^(un|onu|na)\s*/,'');if(v.length<2){sg.innerHTML='';return;}
+    var M=DB.M[state.lang],seen={},res=[];
+    for(var i=0;i<M.length&&res.length<8;i++){var m=M[i];if(!m[0]||seen[m[0]])continue;if(/^\d+$/.test(v)?m[0].indexOf(v)===0:normed(state.lang)[i].indexOf(v)>-1){seen[m[0]]=1;res.push(m);}}
+    sg.innerHTML=res.map(function(m){var R=RK[m[0]];return '<button type="button" data-k="'+m[0]+'">'+miniPanel(m[0],R&&R[2][0])+'<span>'+esc(m[2])+(R?' <small>· '+esc(mt('cls'))+' '+esc(R[0])+'</small>':'')+'</span></button>';}).join('');
+    [].forEach.call(sg.querySelectorAll('button'),function(b){b.onclick=function(){mxAdd(b.getAttribute('data-k'));};});});
+  mxRender();
 }
 /* ---------- white pages ---------- */
 function inline(s){return sub2(s).replace(/\\\*/g,'&#42;').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/(https?:\/\/[^\s)]+[^\s).,])/g,'<a href="$1">$1</a>');}
@@ -1219,6 +1347,7 @@ function route(){
   else if(hsh==='branca'){viewWhiteList();cur='w';}
   else if((m=/^info-([a-z0-9-]+)$/.exec(hsh))){viewInfo(m[1]);cur=document.body.getAttribute('data-sec');}
   else if(hsh==='assistente'){viewWizard();cur='z';}
+  else if((m=/^matriz(?:-([0-9c._]+))?$/.exec(hsh))){viewMatrix(m[1]||'');cur='g';}
   else if(hsh==='sobre'){viewAbout();cur='w';}
   else if((m=/^classe-(\d(?:\.\d)?)$/.exec(hsh))&&clsRow(m[1])){state.cls=m[1];viewHome();cur='home';}
   else{state.cls='';viewHome();cur='home';}
