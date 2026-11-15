@@ -393,6 +393,18 @@ details.full>div{padding:10px}
 .vlist button[aria-pressed="true"] .tag.tih{border-color:#fff}
 .prose p,.prose li,.prose dd,.gsec p,.gsec li,#cres .in p,#cres .in li{text-align:justify;hyphens:auto;-webkit-hyphens:auto;text-wrap:pretty}
 .prose li.fli span{text-align:justify}
+/* hover suave */
+.quick a,.recs a,.secs a,.lgrid a,.sheet a,.glbl a,.rc,.calc .opts button,.rks button,.vlist button,.sh button,.lang button,.tabs a,.fab,.fabback,.sin2 .go,.more,details.full>summary{transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,filter .18s ease,border-color .18s ease}
+@media (hover:hover) and (pointer:fine){
+.quick a:hover,.recs a:hover,.secs a:hover,.sheet a:hover,.glbl a:hover,.rc:hover,.calc .opts button:hover,.rks button:hover,.vlist button:hover,.more:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.14);filter:brightness(1.03)}
+.lgrid a:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 6px 16px rgba(0,0,0,.16)}
+.tabs a:not([aria-current="page"]):hover{filter:brightness(1.08);transform:translateY(-1px)}
+.sh button:hover,.lang button:hover,.sin2 .go:hover{filter:brightness(1.1);transform:scale(1.05)}
+.fab:hover,.fabback:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 8px 20px rgba(0,0,0,.28)}
+details.full>summary:hover{filter:brightness(.97)}
+.quick a:active,.recs a:active,.secs a:active,.sheet a:active,.lgrid a:active,.rc:active,.fab:active,.fabback:active{transform:translateY(0) scale(.99);box-shadow:none}
+}
+@media (prefers-reduced-motion:reduce){.quick a,.recs a,.secs a,.lgrid a,.sheet a,.glbl a,.rc,.calc .opts button,.rks button,.vlist button,.sh button,.lang button,.tabs a,.fab,.fabback,.sin2 .go,.more{transition:none;transform:none!important}}
 .slist .sic{flex:none;width:40px;height:40px;border:2px solid var(--ink);border-radius:9px;display:grid;place-items:center;color:var(--ink)}.slist .sic svg{width:24px;height:24px}
 .prose figure.mf{margin:16px 0;padding:0;text-align:center;overflow-x:auto;cursor:zoom-in}
 .prose figure.mf img{max-width:100%;height:auto;display:inline-block}
