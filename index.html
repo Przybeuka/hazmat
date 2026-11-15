@@ -801,7 +801,7 @@ function calcBox(id,M){
     }
   }else{
     h+=cgrp(t('q7'),'<div class="opts three">'+copt('wind',0,t('low'),'',true)+copt('wind',1,t('mod'),'',true)+copt('wind',2,t('high'),'',true)+'</div>',true);
-    res='<p class="caution">'+esc(t('notT1b'))+'</p>';
+    var GD=guideDist(g);res='<p class="caution">'+esc(t('notT1b'))+'</p>'+(GD?evacSVG(GD,m[1]):'');
   }
   var ev=evacHTML(g);
   h+='<div class="result" id="cres"><h3>'+esc(t('res'))+' · '+esc(t('un'))+' '+id+'</h3><div class="in">';
@@ -978,6 +978,31 @@ function viewAbout(){
 }
 /* ---------- wizard ---------- */
 function dval(s){return parseFloat(String(s));}
+function guideDist(g){var G=DB.G[g];if(!G||G.e)return null;var S=DB.S.en,o={};
+  G.en.forEach(function(it){var x=S[it[1]],m;
+    if(!o.iso&&/^Isolate spill or leak area/.test(x)&&(m=/(\d[\d,]*) meters/.exec(x)))o.iso=+m[1].replace(',','');
+    if(!o.dw&&(m=/downwind evacuation for at least (\d[\d,]*) meters/i.exec(x)))o.dw=+m[1].replace(',','');
+    if(!o.fire&&(m=/involved in a fire, ISOLATE for (\d[\d,]*) meters/i.exec(x)))o.fire=+m[1].replace(',','');});
+  return o.iso||o.dw||o.fire?o:null;}
+function evacSVG(D,gl){
+  var Z={pt:{up:'BARLAVENTO',dn:'SOTAVENTO',wd:'Direção do vento',iso:'Isolamento imediato, em todas as direções',dw:'Derramamento grande: evacuação inicial a sotavento',fire:'Fogo em tanque, vagão ou caminhão-tanque: isolar e evacuar em todas as direções',sc:'Escala aproximada · Guia '},
+    en:{up:'UPWIND',dn:'DOWNWIND',wd:'Wind Direction',iso:'Immediate isolation, in all directions',dw:'Large spill: initial downwind evacuation',fire:'Tank, rail car or tank truck in fire: isolate and evacuate in all directions',sc:'Approximate scale · Guide '},
+    es:{up:'VIENTO ARRIBA',dn:'VIENTO ABAJO',wd:'Dirección del viento',iso:'Aislamiento inmediato, en todas direcciones',dw:'Derrame grande: evacuación inicial viento abajo',fire:'Tanque, carro tanque o autotanque en fuego: aislar y evacuar en todas direcciones',sc:'Escala aproximada · Guía '}}[state.lang];
+  var mx=Math.max(D.iso||0,D.dw||0,D.fire||0),sc=function(d){return Math.max(20,104*Math.sqrt(d/mx));},cx=200,cy=150,ink='#231f20';
+  var rows=[];if(D.fire)rows.push(['#ffe0c2','#f68b1a',Z.fire,D.fire]);if(D.dw)rows.push(['#ffd23f','#b58a00',Z.dw,D.dw]);if(D.iso)rows.push(['#e2342b','#8f1d17',Z.iso,D.iso]);
+  var h='<svg class="zone" viewBox="0 0 432 @H@" role="img" aria-label="'+esc(Z.iso)+'"><defs><marker id="zahb2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1f6fd1"/></marker><marker id="zahy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#b58a00"/></marker></defs>';
+  h+='<text x="216" y="14" font-size="11" text-anchor="middle" fill="'+ink+'">'+esc(Z.wd)+'</text><text x="8" y="32" font-size="11.5" font-weight="700" fill="'+ink+'">'+esc(Z.up)+'</text><text x="424" y="32" font-size="11.5" font-weight="700" text-anchor="end" fill="'+ink+'">'+esc(Z.dn)+'</text>';
+  h+='<line x1="'+(Z.up.length*7.6+16)+'" y1="28" x2="'+(424-Z.dn.length*7.6-14)+'" y2="28" stroke="#1f6fd1" stroke-width="2.6" marker-end="url(#zahb2)"/>';
+  if(D.fire){var rf=sc(D.fire);h+='<circle cx="'+cx+'" cy="'+cy+'" r="'+rf+'" fill="#ffe0c2" stroke="#f68b1a" stroke-width="2.2" stroke-dasharray="7 5"/><text x="'+cx+'" y="'+(cy-rf+16)+'" font-size="12" font-weight="700" text-anchor="middle" fill="#9a4a00">'+D.fire+' m</text>';}
+  var ri0=D.iso?sc(D.iso):0;
+  if(D.dw){var ld=Math.max(sc(D.dw),ri0+46),x0=cx+ri0;h+='<path d="M'+x0+' '+(cy-14)+'H'+(cx+ld-12)+'V'+(cy-22)+'L'+(cx+ld+8)+' '+cy+'L'+(cx+ld-12)+' '+(cy+22)+'V'+(cy+14)+'H'+x0+'z" fill="#ffd23f" stroke="#b58a00" stroke-width="1.6"/><text x="'+(x0+ld-ri0)/1+'" y="'+(cy-28)+'" font-size="12" font-weight="700" text-anchor="end" fill="#6b5200">'+D.dw+' m</text>';}
+  if(D.iso){var ri=sc(D.iso);h+='<circle cx="'+cx+'" cy="'+cy+'" r="'+ri+'" fill="#e2342b" fill-opacity=".8" stroke="#8f1d17" stroke-width="1.8"/><text x="'+cx+'" y="'+(cy+ri+15)+'" font-size="12" font-weight="700" text-anchor="middle" fill="#8f1d17">'+D.iso+' m</text>';}
+  h+='<circle cx="'+cx+'" cy="'+cy+'" r="6" fill="'+ink+'"/>';
+  var y=272;rows.forEach(function(r){var words=(r[3]+' m · '+r[2]).split(' '),ln=[''],k;words.forEach(function(w){if((ln[ln.length-1]+' '+w).length>58)ln.push(w);else ln[ln.length-1]=(ln[ln.length-1]+' '+w).trim();});
+    h+='<rect x="8" y="'+(y-12)+'" width="22" height="16" rx="3" fill="'+r[0]+'" stroke="'+r[1]+'" stroke-width="1.5"'+(r[1]==='#f68b1a'?' stroke-dasharray="4 3"':'')+'/><text x="38" y="'+y+'" font-size="11" fill="'+ink+'">'+ln.map(function(l,i){return '<tspan x="38" dy="'+(i?14:0)+'">'+esc(l)+'</tspan>';}).join('')+'</text>';y+=10+14*ln.length;});
+  var H=y+6;h+='<text x="424" y="'+(H-4)+'" font-size="9.5" text-anchor="end" fill="#666">'+esc(Z.sc+gl)+'</text>';
+  return h.replace('@H@',H)+'</svg>';
+}
 function zoneSVG(iso,prot){
   var Z={pt:{up:'BARLAVENTO',dn:'SOTAVENTO',wd:'Direção do vento',paz:['Zona de','ação protetora'],iiz:['Zona de','isolamento','inicial'],sp:'Derramamento',dd:'Distância a sotavento',half:['1/2 distância','a sotavento'],cw:'Direção transversal ao vento',r:'raio'},
     en:{up:'UPWIND',dn:'DOWNWIND',wd:'Wind Direction',paz:['Protective','Action Zone'],iiz:['Initial','Isolation','Zone'],sp:'Spill',dd:'Downwind Distance',half:['1/2 Downwind','Distance'],cw:'Crosswind Direction(s)',r:'radius'},
@@ -985,20 +1010,20 @@ function zoneSVG(iso,prot){
   if(!Z.r)Z.r=state.lang==='es'?'radio':'raio';
   function tx(x,y,lines,o){o=o||{};return '<text x="'+x+'" y="'+y+'" font-size="'+(o.fs||11)+'"'+(o.a?' text-anchor="'+o.a+'"':'')+(o.w?' font-weight="'+o.w+'"':'')+' fill="#231f20">'+lines.map(function(l,i){return '<tspan x="'+x+'" dy="'+(i?(o.lh||12.5):0)+'">'+esc(l)+'</tspan>';}).join('')+'</text>';}
   var ink='#231f20',X0=150,X1=310,Y0=58,Y1=218,cy=(Y0+Y1)/2,R=36;
-  var h='<svg class="zone" viewBox="0 0 432 262" role="img" aria-label="'+esc(t('zoneT'))+'"><defs><marker id="zah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="'+ink+'"/></marker></defs>';
+  var h='<svg class="zone" viewBox="0 0 432 262" role="img" aria-label="'+esc(t('zoneT'))+'"><defs><marker id="zah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="'+ink+'"/></marker><marker id="zahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1f6fd1"/></marker></defs>';
   // wind arrow
   h+=tx(216,14,[Z.wd],{a:'middle',fs:11});
   h+=tx(8,32,[Z.up],{w:700,fs:11.5});h+=tx(424,32,[Z.dn],{w:700,fs:11.5,a:'end'});
-  var wl=Z.up.length*7.6+16,wr=424-Z.dn.length*7.6-14;h+='<line x1="'+wl+'" y1="28" x2="'+wr+'" y2="28" stroke="'+ink+'" stroke-width="2" marker-end="url(#zah)"/>';
+  var wl=Z.up.length*7.6+16,wr=424-Z.dn.length*7.6-14;h+='<line x1="'+wl+'" y1="28" x2="'+wr+'" y2="28" stroke="#1f6fd1" stroke-width="2.6" marker-end="url(#zahb)"/>';
+  // square
+  h+='<rect x="'+X0+'" y="'+Y0+'" width="'+(X1-X0)+'" height="'+(Y1-Y0)+'" fill="#fff6d6" stroke="#c77700" stroke-width="2.2"/>';
   // plume
   var a1=-38*Math.PI/180,px=X0+R*Math.cos(a1),py=cy+R*Math.sin(a1);
-  h+='<path d="M'+px.toFixed(1)+' '+py.toFixed(1)+'L'+(X1-4)+' '+(Y0+4)+'Q'+(X1+22)+' '+cy+' '+(X1-4)+' '+(Y1-4)+'L'+px.toFixed(1)+' '+(2*cy-py).toFixed(1)+'Z" fill="#d6d6d6"/>';
+  h+='<path d="M'+px.toFixed(1)+' '+py.toFixed(1)+'L'+(X1-4)+' '+(Y0+4)+'Q'+(X1+22)+' '+cy+' '+(X1-4)+' '+(Y1-4)+'L'+px.toFixed(1)+' '+(2*cy-py).toFixed(1)+'Z" fill="#ffb347" fill-opacity=".55"/>';
   h+='<path d="M'+px.toFixed(1)+' '+py.toFixed(1)+'L'+(X1-4)+' '+(Y0+4)+'M'+px.toFixed(1)+' '+(2*cy-py).toFixed(1)+'L'+(X1-4)+' '+(Y1-4)+'" stroke="'+ink+'" stroke-width="2.2" stroke-dasharray="8 6" fill="none"/>';
   h+='<path d="M'+(X1-4)+' '+(Y0+4)+'Q'+(X1+22)+' '+cy+' '+(X1-4)+' '+(Y1-4)+'" stroke="'+ink+'" stroke-width="1.6" fill="none"/>';
-  // square
-  h+='<rect x="'+X0+'" y="'+Y0+'" width="'+(X1-X0)+'" height="'+(Y1-Y0)+'" fill="none" stroke="'+ink+'" stroke-width="1.6"/>';
   // isolation circle + spill
-  h+='<circle cx="'+X0+'" cy="'+cy+'" r="'+R+'" fill="#ababab" stroke="'+ink+'" stroke-width="1.6"/>';
+  h+='<circle cx="'+X0+'" cy="'+cy+'" r="'+R+'" fill="#e2342b" fill-opacity=".8" stroke="#8f1d17" stroke-width="1.8"/>';
   h+='<line x1="'+X0+'" y1="'+cy+'" x2="'+X1+'" y2="'+cy+'" stroke="'+ink+'" stroke-width="1.2"/>';
   h+='<circle cx="'+X0+'" cy="'+cy+'" r="7" fill="'+ink+'"/>';
   h+=tx(X0+R+8,cy-6,[Z.dd],{fs:10.5});
