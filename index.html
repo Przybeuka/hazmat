@@ -546,6 +546,58 @@ body[data-sec="p"] .body{background:linear-gradient(#f6f1fb,#fff 220px)}
 .plv figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:4px}
 .plv .lbl{width:96px;height:96px}
 .plv figcaption{font-size:12px;font-weight:700;text-align:center;line-height:1.2;color:var(--ink)}
+.mapbtn{display:flex;align-items:center;gap:12px;margin:12px 0;padding:12px 14px;border-radius:12px;background:#0f3d6e;color:#fff;text-decoration:none;box-shadow:0 2px 0 rgba(0,0,0,.18)}
+.mapbtn svg{width:30px;height:30px;flex:none}
+.mapbtn span{display:flex;flex-direction:column;flex:1;min-width:0}
+.mapbtn b{font-size:17px}
+.mapbtn small{font-size:13px;opacity:.85;line-height:1.25}
+.mapbtn .go{flex:none;font-size:26px;line-height:1}
+@media (hover:hover) and (pointer:fine){.mapbtn:hover{filter:brightness(1.12);transform:translateY(-1px)}}
+.mzbody .mzprod{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;margin:0 0 10px}
+.mzblock{border:2px dashed #0f3d6e;border-radius:12px;padding:14px;background:#eef4fb}
+.mzblock p{margin:0 0 6px}.mzblock a{word-break:break-all;font-weight:700}
+.mzin{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 10px}
+.mzin label{display:flex;flex-direction:column;gap:4px;font-size:12.5px;font-weight:700}
+.mzin label span{display:flex;align-items:center;gap:5px;min-height:30px;line-height:1.15}
+.mzin i{flex:none;width:12px;height:12px;border-radius:50%}
+.zi i{background:#e2342b}.zp i{background:#ff9a1f;border-radius:3px}.zf i{border:2px dashed #d96b00}
+.mzin input{font:inherit;font-size:17px;padding:8px;border:2px solid var(--ink);border-radius:8px;width:100%;min-width:0;color:var(--ink);background:#fff}
+.mzsearch{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 6px}
+.mzsearch input{flex:1 1 180px;font:inherit;font-size:16px;padding:9px 10px;border:2px solid var(--ink);border-radius:8px;min-width:0;color:var(--ink);background:#fff}
+.mzsearch button{font:inherit;font-weight:700;font-size:15px;border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:8px;padding:8px 12px;cursor:pointer}
+.mzsearch .mzloc{display:inline-flex;align-items:center;gap:6px;background:#0f3d6e;border-color:#0f3d6e;color:#fff}
+.mzloc svg{width:18px;height:18px}
+.mzres{display:grid;gap:4px;margin:0 0 8px}
+.mzres button{text-align:left;font:inherit;font-size:14px;border:1.5px solid var(--line);background:#fff;border-radius:8px;padding:7px 9px;cursor:pointer;color:var(--ink)}
+.mzwrap{position:relative;isolation:isolate;margin:0 0 6px}
+.mzmap{height:62vh;min-height:340px;max-height:640px;border:2px solid var(--ink);border-radius:12px;overflow:hidden;background:#e8e4da}
+.mzload{padding:20px;text-align:center;color:var(--muted)}
+.mzlay{position:absolute;top:10px;right:10px;z-index:500;display:flex;border:2px solid var(--ink);border-radius:8px;overflow:hidden;background:#fff}
+.mzlay button{font:inherit;font-weight:700;font-size:13px;border:0;background:#fff;color:var(--ink);padding:6px 10px;cursor:pointer}
+.mzlay button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.mzmsg{font-size:14px;color:var(--muted);margin:0 0 10px}
+.mzpin span{display:block;width:26px;height:26px;border-radius:50%;background:#111;border:4px solid #fff;box-shadow:0 0 0 2px #111,0 3px 8px rgba(0,0,0,.4)}
+.mzhd span{display:block;width:40px;height:40px;border-radius:50%;background:#1f6fd1 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 7 29 29 20 24 11 29z' fill='%23fff'/%3E%3C/svg%3E") center/100% no-repeat;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.45);cursor:grab}
+.mzlbl{background:none;border:0}
+.mzlbl span{display:inline-block;transform:translate(-50%,-50%);white-space:nowrap;font:700 12px/1.2 Archivo,Arial,sans-serif;padding:3px 7px;border-radius:999px;background:#fff;border:2px solid;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.mzlbl.li span{border-color:#8f1d17;color:#8f1d17}.mzlbl.lp span{border-color:#b35900;color:#7a3d00}.mzlbl.lf span{border-color:#d96b00;color:#9a4a00}
+.mzwind,.mzdir{border:2px solid var(--line);border-radius:12px;padding:10px 12px;margin:0 0 10px;background:#fff}
+.mzwh{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:0 0 6px}
+.mzwh b{font-size:15px;text-transform:uppercase;letter-spacing:.04em}
+.mzwl{font-weight:700;font-size:14px}
+.mzwr{display:flex;align-items:center;gap:12px}
+.mzarr{width:44px;height:44px;flex:none;border-radius:50%;background:#eef4fb}
+.mzws{margin:0;font-size:15.5px}.mzws2{margin:2px 0 0;font-weight:700;color:#1f6fd1}.mzsrc{margin:3px 0 0;font-size:12px;color:var(--muted)}
+.mzupd,.mzusew{margin-top:8px;font:inherit;font-weight:700;font-size:14px;border:2px solid #1f6fd1;color:#1f6fd1;background:#fff;border-radius:8px;padding:6px 12px;cursor:pointer}
+.mzdrow{display:flex;align-items:center;gap:8px}
+.mzdrow input{flex:1;accent-color:#1f6fd1;height:30px}
+.mzdrow button{font:inherit;font-weight:800;font-size:14px;border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:8px;padding:6px 9px;cursor:pointer;min-width:52px}
+.mzdval{display:flex;align-items:center;gap:10px;margin:8px 0 4px}
+.mzdval span{display:flex;flex-direction:column}.mzdval small{color:var(--muted);font-size:12.5px}
+.mzact{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 10px}
+.mzact button{font:inherit;font-weight:700;font-size:15px;border:2px solid var(--ink);background:var(--ink);color:#fff;border-radius:8px;padding:8px 14px;cursor:pointer}
+.mzact a{font-weight:700}
+@media (max-width:420px){.mzin{grid-template-columns:1fr 1fr 1fr;gap:6px}.mzin label{font-size:11.5px}}
 </style>
 </head>
 <body data-sec="o">
@@ -958,12 +1010,12 @@ function calcBox(id,M){
           if(cs.wind===null)need.push(t('q7'));
           if(!need.length){var tr=tg.rows[cs.cont],pc=tr[(cs.time==='d'?2:5)+Number(cs.wind)];best={iso:[tr[1][0]+' m',tr[1][1]+' ft'],pr:[pc[0]+' km',pc[1]+' mi']};src=t('src3');}
         }
-        if(best&&best.iso)res=noteTop+'<div class="big2">'+cell(t('isoR'),best.iso)+cell(t('protR'),best.pr)+'</div>'+zoneSVG(num(best.iso[0]),num(best.pr[0]))+'<p class="note">'+esc(t('zoneT'))+' ('+esc(src)+')</p>'+(cs.fire?'<p class="caution">'+esc(t('fireNote'))+'</p>':'')+'<p class="note">'+esc(t('dbl'))+' '+esc(t('plus'))+'</p>';
+        if(best&&best.iso)res=noteTop+'<div class="big2">'+cell(t('isoR'),best.iso)+cell(t('protR'),best.pr)+'</div>'+zoneSVG(num(best.iso[0]),num(best.pr[0]))+'<p class="note">'+esc(t('zoneT'))+' ('+esc(src)+')</p>'+(cs.fire?'<p class="caution">'+esc(t('fireNote'))+'</p>':'')+mapBtn({i:mM(best.iso[0]),p:mM(best.pr[0]),f:cs.fire&&guideDist(g)?guideDist(g).fire||0:0,u:id,g:m[1]})+'<p class="note">'+esc(t('dbl'))+' '+esc(t('plus'))+'</p>';
       }
     }
   }else{
     h+=cgrp(t('q7'),'<div class="opts three">'+copt('wind',0,t('low'),'',true)+copt('wind',1,t('mod'),'',true)+copt('wind',2,t('high'),'',true)+'</div>',true);
-    var GD=guideDist(g);if(GD){GD={iso:GD.iso,dw:cs.size==='l'?GD.dw:0,fire:cs.fire==1?GD.fire:0};}res='<p class="caution">'+esc(t('notT1b'))+'</p>'+(GD&&(GD.iso||GD.dw||GD.fire)?evacSVG(GD,m[1]):'');
+    var GD=guideDist(g);if(GD){GD={iso:GD.iso,dw:cs.size==='l'?GD.dw:0,fire:cs.fire==1?GD.fire:0};}res='<p class="caution">'+esc(t('notT1b'))+'</p>'+(GD&&(GD.iso||GD.dw||GD.fire)?evacSVG(GD,m[1])+mapBtn({i:GD.iso,d:GD.dw,f:GD.fire,u:id,g:m[1]}):'');
   }
   var ev=evacHTML(g);
   h+='<div class="result" id="cres"><h3>'+esc(t('res'))+' · '+esc(t('un'))+' '+id+'</h3><div class="in">';
@@ -1341,7 +1393,7 @@ function viewWizard(){
     if(!same){var c=DB.M[state.lang].filter(function(m){return m[0]===wz.m[0]&&m[1]===wz.m[1]&&m[3]===wz.m[3];});wz.m=c[0]||DB.M[state.lang].filter(function(m){return m[0]===wz.m[0];})[0]||null;}
   }
   if(!wz.m){
-    h+=stepBox(n,t('q1'),'<input id="wq" type="search" autocapitalize="off" spellcheck="false" autocomplete="off" placeholder="'+esc(t('ph'))+'" value="'+esc(wz.q)+'" style="width:100%;font:inherit;font-size:19px;padding:11px;border:2px solid var(--ink);border-radius:6px"><div id="wres">'+wzPickList()+'</div>');
+    h+=stepBox(n,t('q1'),'<input id="wq" type="search" autocapitalize="off" spellcheck="false" autocomplete="off" placeholder="'+esc(t('ph'))+'" value="'+esc(wz.q)+'" style="width:100%;font:inherit;font-size:19px;padding:11px;border:2px solid var(--ink);border-radius:6px"><div id="wres">'+wzPickList()+'</div>');h+=mapBtn({});
   }else{
     var m=wz.m,g=gnum(m[1]);
     h+=stepBox(n,t('q1'),'<div class="picked"><span class="plate">'+(m[0]||'——')+'</span><span class="nm">'+esc(m[2])+(m[3]?' <span class="tag tih">'+esc(t('tih'))+'</span>':'')+'<br><small>'+esc(t('guide'))+' '+esc(m[1])+'</small></span><button type="button" class="linkbtn" id="wchange">'+esc(t('change'))+'</button></div>');
@@ -1381,7 +1433,7 @@ function viewWizard(){
                   }
                 }
                 if(best&&best.iso){done=true;
-                  res=noteTop+'<div class="big2">'+cell(t('isoR'),best.iso)+cell(t('protR'),best.pr)+'</div>'+zoneSVG(num(best.iso[0]),num(best.pr[0]))+'<p class="note">'+esc(t('zoneT'))+' ('+esc(src)+')</p>'+(wz.fire?'<p class="caution">'+esc(t('fireNote'))+'</p>':'')+'<p class="note">'+esc(t('dbl'))+' '+esc(t('plus'))+'</p>';
+                  res=noteTop+'<div class="big2">'+cell(t('isoR'),best.iso)+cell(t('protR'),best.pr)+'</div>'+zoneSVG(num(best.iso[0]),num(best.pr[0]))+'<p class="note">'+esc(t('zoneT'))+' ('+esc(src)+')</p>'+(wz.fire?'<p class="caution">'+esc(t('fireNote'))+'</p>':'')+mapBtn({i:mM(best.iso[0]),p:mM(best.pr[0]),f:wz.fire&&guideDist(g)?guideDist(g).fire||0:0,u:wz.m[0],g:wz.m[1]})+'<p class="note">'+esc(t('dbl'))+' '+esc(t('plus'))+'</p>';
                 }
               }
             }
@@ -1409,6 +1461,126 @@ function viewWizard(){
   var wc=document.getElementById('wchange');if(wc)wc.addEventListener('click',function(){wz={m:null,q:'',fire:null,where:null,size:null,time:null,cont:null,wind:null};viewWizard();});
   var wr=document.getElementById('wrestart');if(wr)wr.addEventListener('click',function(){wz={m:null,q:'',fire:null,where:null,size:null,time:null,cont:null,wind:null};viewWizard();window.scrollTo(0,0);});
 }
+/* ---------- real map demarcation ---------- */
+var MZT={pt:{lI:'Isolamento',lP:'Zona protetora',lD:'Evacuação',lF:'Se houver fogo',t:'Demarcação no mapa',btn:'Marcar no mapa real',btnD:'Isolamento e zona a sotavento sobre o mapa, com vento em tempo real',blank:'Demarcar área no mapa',blankD:'Sem produto: informe as distâncias à mão',loc:'Minha localização',srch:'Buscar endereço ou local',go:'Buscar',tap:'Toque no mapa ou arraste o marcador preto para posicionar o local do incidente.',wind:'Vento atual',from:'De',to:'Pluma para',upd:'Atualizar vento',src:'Open-Meteo · modelo meteorológico, não é medição no local',at:'atualizado às',windy:'Conferir no Windy',dir:'Direção da pluma (para onde o vento leva)',useW:'Usar vento atual',man:'Direção ajustada à mão',iso:'Isolamento inicial',paz:'Zona de ação protetora',dw:'Evacuação a sotavento',fire:'Isolamento se houver fogo',dist:'Distâncias (metros)',map:'Mapa',sat:'Satélite',copy:'Copiar dados',copied:'Copiado',gm:'Abrir local no Google Maps',warn:'O vento vem de um modelo meteorológico, não de medição no local. Confirme com biruta, bandeira ou fumaça e ajuste a direção. As distâncias são iniciais (ERG 2024) e devem ser ajustadas ao cenário.',nowind:'Não foi possível obter o vento. Ajuste a direção à mão.',noloc:'Localização indisponível. Toque no mapa ou busque o endereço.',blocked:'Esta visualização bloqueia mapa, localização e acesso à internet. Abra a demarcação no site:',gust:'rajadas',calm:'calmo',loading:'Carregando mapa…',nomap:'Não foi possível carregar o mapa. Verifique a internet.',drag:'Arraste a seta azul no mapa, use o controle abaixo ou os botões para girar a pluma.',nores:'Nada encontrado.',shape:'Formato da zona: quadrado do ERG (comprimento e largura iguais à distância). Cone: área provável da pluma.',shapeD:'Cone ilustrativo com a distância de evacuação do guia. O ERG não define largura para essa zona.'},
+en:{lI:'Isolation',lP:'Protective zone',lD:'Evacuation',lF:'If fire',t:'Map demarcation',btn:'Mark on real map',btnD:'Isolation and downwind zone over the map, with real-time wind',blank:'Mark area on map',blankD:'No material: enter distances by hand',loc:'My location',srch:'Search address or place',go:'Search',tap:'Tap the map or drag the black marker to place the incident.',wind:'Current wind',from:'From',to:'Plume toward',upd:'Refresh wind',src:'Open-Meteo · weather model, not an on-site measurement',at:'updated',windy:'Check on Windy',dir:'Plume direction (where the wind carries it)',useW:'Use current wind',man:'Direction set by hand',iso:'Initial isolation',paz:'Protective action zone',dw:'Downwind evacuation',fire:'Isolation if fire',dist:'Distances (meters)',map:'Map',sat:'Satellite',copy:'Copy data',copied:'Copied',gm:'Open location in Google Maps',warn:'Wind comes from a weather model, not an on-site measurement. Confirm with a windsock, flag or smoke and adjust the direction. Distances are initial (ERG 2024) and must be adjusted to the scene.',nowind:'Could not get the wind. Set the direction by hand.',noloc:'Location unavailable. Tap the map or search the address.',blocked:'This view blocks maps, location and internet access. Open the demarcation on the website:',gust:'gusts',calm:'calm',loading:'Loading map…',nomap:'Could not load the map. Check the internet connection.',drag:'Drag the blue arrow on the map, use the slider below or the buttons to rotate the plume.',nores:'Nothing found.',shape:'Zone shape: ERG square (length and width equal to the distance). Cone: likely plume area.',shapeD:'Illustrative cone using the guide evacuation distance. The ERG does not define a width for this zone.'},
+es:{lI:'Aislamiento',lP:'Zona protectora',lD:'Evacuación',lF:'Si hay fuego',t:'Demarcación en mapa',btn:'Marcar en mapa real',btnD:'Aislamiento y zona viento abajo sobre el mapa, con viento en tiempo real',blank:'Demarcar área en el mapa',blankD:'Sin material: ingrese las distancias a mano',loc:'Mi ubicación',srch:'Buscar dirección o lugar',go:'Buscar',tap:'Toque el mapa o arrastre el marcador negro para ubicar el incidente.',wind:'Viento actual',from:'Desde',to:'Pluma hacia',upd:'Actualizar viento',src:'Open-Meteo · modelo meteorológico, no es medición en el lugar',at:'actualizado a las',windy:'Verificar en Windy',dir:'Dirección de la pluma (hacia donde la lleva el viento)',useW:'Usar viento actual',man:'Dirección ajustada a mano',iso:'Aislamiento inicial',paz:'Zona de acción protectora',dw:'Evacuación viento abajo',fire:'Aislamiento si hay fuego',dist:'Distancias (metros)',map:'Mapa',sat:'Satélite',copy:'Copiar datos',copied:'Copiado',gm:'Abrir lugar en Google Maps',warn:'El viento viene de un modelo meteorológico, no de una medición en el lugar. Confirme con manga de viento, bandera o humo y ajuste la dirección. Las distancias son iniciales (GRE 2024) y deben ajustarse al escenario.',nowind:'No se pudo obtener el viento. Ajuste la dirección a mano.',noloc:'Ubicación no disponible. Toque el mapa o busque la dirección.',blocked:'Esta vista bloquea mapas, ubicación y acceso a internet. Abra la demarcación en el sitio:',gust:'ráfagas',calm:'calma',loading:'Cargando mapa…',nomap:'No se pudo cargar el mapa. Verifique internet.',drag:'Arrastre la flecha azul en el mapa, use el control o los botones para girar la pluma.',nores:'Nada encontrado.',shape:'Forma de la zona: cuadrado del GRE (largo y ancho iguales a la distancia). Cono: área probable de la pluma.',shapeD:'Cono ilustrativo con la distancia de evacuación de la guía. La GRE no define un ancho para esta zona.'}};
+function zt(k){return MZT[state.lang][k];}
+var MZ={c:null,brg:90,auto:true,wind:null,layer:'map',map:null,d:{}};
+var MZSITE='https://hazmat-nine.vercel.app/';
+function mM(s){s=String(s);var v=parseFloat(s.replace(',','.'));if(isNaN(v))return 0;return Math.round(/km/.test(s)?v*1000:v);}
+var MZICO='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6.5v13.5l6-2.5 6 2.5 6-2.5V4l-6 2.5z"/><path d="M9 4v13.5M15 6.5V20"/></svg>';
+function mzHash(o){var p=[];if(o.i)p.push('i'+o.i);if(o.p)p.push('p'+o.p);if(o.d)p.push('d'+o.d);if(o.f)p.push('f'+o.f);if(o.u)p.push('u'+o.u);if(o.g)p.push('g'+String(o.g).replace(/[^0-9A-Za-z]/g,''));return '#mapa'+(p.length?'-'+p.join('-'):'');}
+function mapBtn(o){var bl=!o.i&&!o.p&&!o.d&&!o.f;return '<a class="mapbtn" href="'+mzHash(o)+'">'+MZICO+'<span><b>'+esc(zt(bl?'blank':'btn'))+'</b><small>'+esc(zt(bl?'blankD':'btnD'))+'</small></span><span class="go" aria-hidden="true">›</span></a>';}
+function mzParse(s){var o={};(s||'').split('-').forEach(function(x){var m=/^([ipdfug])([0-9A-Za-z]+)$/.exec(x);if(m)o[m[1]]=/[ipdf]/.test(m[1])?Math.max(0,Math.min(200000,parseInt(m[2],10)||0)):m[2];});return o;}
+function mzCard(d){var P={pt:['N','NE','L','SE','S','SO','O','NO'],en:['N','NE','E','SE','S','SW','W','NW'],es:['N','NE','E','SE','S','SO','O','NO']}[state.lang];return P[Math.round(((d%360)+360)%360/45)%8];}
+function mzDst(p,b,d){var R=6371008.8,a=b*Math.PI/180,la=p[0]*Math.PI/180,lo=p[1]*Math.PI/180,r=d/R,la2=Math.asin(Math.sin(la)*Math.cos(r)+Math.cos(la)*Math.sin(r)*Math.cos(a)),lo2=lo+Math.atan2(Math.sin(a)*Math.sin(r)*Math.cos(la),Math.cos(r)-Math.sin(la)*Math.sin(la2));return [la2*180/Math.PI,lo2*180/Math.PI];}
+function mzBrg(p,q){var f1=p[0]*Math.PI/180,f2=q[0]*Math.PI/180,dl=(q[1]-p[1])*Math.PI/180,y=Math.sin(dl)*Math.cos(f2),x=Math.cos(f1)*Math.sin(f2)-Math.sin(f1)*Math.cos(f2)*Math.cos(dl);return (Math.atan2(y,x)*180/Math.PI+360)%360;}
+function mzBlocked(){if(/claude|anthropic/.test(location.hostname))return true;try{return window.self!==window.top;}catch(e){return true;}}
+function mzLoad(cb,fail){if(window.L&&window.L.map)return cb();
+  if(!document.getElementById('lfcss')){var l=document.createElement('link');l.id='lfcss';l.rel='stylesheet';l.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';document.head.appendChild(l);}
+  var s=document.createElement('script');s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';s.onload=function(){window.L?cb():fail();};s.onerror=fail;document.head.appendChild(s);}
+function viewMap(arg){
+  setSec('g');var o=mzParse(arg);MZ.d={i:o.i||0,p:o.p||0,d:o.p?0:(o.d||0),f:o.f||0};MZ.u=o.u||'';MZ.g=o.g||'';
+  if(MZ.map){try{MZ.map.remove();}catch(e){}MZ.map=null;}
+  var h=band(zt('t'))+'<div class="body mzbody">';
+  if(MZ.u){var mm=DB.M[state.lang].filter(function(x){return x[0]===MZ.u;})[0];h+='<a class="picked mzprod" href="#un-'+MZ.u+'"><span class="plate">'+esc(MZ.u)+'</span><span class="nm">'+esc(mm?mm[2]:'')+(MZ.g?'<br><small>'+esc(t('guide'))+' '+esc(MZ.g)+'</small>':'')+'</span></a>';}
+  if(mzBlocked()){var url=MZSITE+location.hash;h+='<div class="mzblock"><p>'+esc(zt('blocked'))+'</p><a href="'+esc(url)+'" target="_blank" rel="noopener">'+esc(url)+'</a></div></div>';app.innerHTML=h;wireBack();return;}
+  var pz=MZ.d.p?'p':'d';
+  h+='<div class="mzdist"><p class="eyebrow">'+esc(zt('dist'))+'</p><div class="mzin">'+
+    '<label class="zi"><span><i></i>'+esc(zt('iso'))+'</span><input type="number" inputmode="numeric" min="0" step="10" data-z="i" value="'+(MZ.d.i||'')+'"></label>'+
+    '<label class="zp"><span><i></i>'+esc(zt(pz==='p'?'paz':'dw'))+'</span><input type="number" inputmode="numeric" min="0" step="50" data-z="'+pz+'" value="'+(MZ.d[pz]||'')+'"></label>'+
+    '<label class="zf"><span><i></i>'+esc(zt('fire'))+'</span><input type="number" inputmode="numeric" min="0" step="50" data-z="f" value="'+(MZ.d.f||'')+'"></label></div></div>';
+  h+='<div class="mzsearch"><input id="mzq" type="search" placeholder="'+esc(zt('srch'))+'" autocomplete="off"><button type="button" id="mzgo">'+esc(zt('go'))+'</button><button type="button" id="mzloc" class="mzloc" aria-label="'+esc(zt('loc'))+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><span>'+esc(zt('loc'))+'</span></button></div><div id="mzres" class="mzres"></div>';
+  h+='<div class="mzwrap"><div id="mzmap" class="mzmap"><p class="mzload">'+esc(zt('loading'))+'</p></div><div class="mzlay"><button type="button" data-l="map">'+esc(zt('map'))+'</button><button type="button" data-l="sat">'+esc(zt('sat'))+'</button></div></div>';
+  h+='<p class="mzmsg" id="mzmsg">'+esc(zt('tap'))+'</p>';
+  h+='<div class="mzwind" id="mzwind"></div>';
+  h+='<div class="mzdir"><p class="eyebrow">'+esc(zt('dir'))+'</p><div class="mzdrow"><button type="button" data-r="-15">−15°</button><input type="range" id="mzrng" min="0" max="359" step="1"><button type="button" data-r="15">+15°</button></div><p class="mzdval" id="mzdval"></p><p class="note">'+esc(zt('drag'))+'</p><button type="button" id="mzusew" class="mzusew">'+esc(zt('useW'))+'</button></div>';
+  h+='<p class="note mzshape">'+esc(zt(MZ.d.p?'shape':'shapeD'))+'</p>';
+  h+='<div class="mzact"><button type="button" id="mzcopy">'+esc(zt('copy'))+'</button><a id="mzgm" href="#" target="_blank" rel="noopener">'+esc(zt('gm'))+'</a></div>';
+  h+='<p class="caution">'+esc(zt('warn'))+'</p></div>';
+  app.innerHTML=h;wireBack();
+  [].forEach.call(app.querySelectorAll('.mzin input'),function(inp){inp.addEventListener('input',function(){MZ.d[inp.getAttribute('data-z')]=Math.max(0,Math.min(200000,parseInt(inp.value,10)||0));var nh=mzHash({i:MZ.d.i,p:MZ.d.p,d:MZ.d.d,f:MZ.d.f,u:MZ.u,g:MZ.g});history.replaceState(null,'',nh);lastHash=nh.slice(1);mzDraw(true);});});
+  mzLoad(mzInit,function(){document.getElementById('mzmap').innerHTML='<p class="mzload">'+esc(zt('nomap'))+'</p>';});
+}
+function mzMsg(k,txt){var e=document.getElementById('mzmsg');if(e)e.textContent=txt||zt(k);}
+function mzInit(){
+  var el=document.getElementById('mzmap');if(!el)return;el.innerHTML='';
+  var map=L.map(el,{zoomControl:true,attributionControl:true}).setView(MZ.c||[-15.8,-50.5],MZ.c?15:4);MZ.map=map;
+  MZ.tiles={map:L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}),sat:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Esri, Maxar, Earthstar Geographics'})};
+  MZ.tiles[MZ.layer].addTo(map);mzLayBtns();L.control.scale({imperial:false,position:'bottomleft'}).addTo(map);map.on('zoomend',function(){mzDraw();});
+  MZ.gr=L.layerGroup().addTo(map);
+  MZ.pin=L.marker(MZ.c||[0,0],{draggable:true,icon:L.divIcon({className:'mzpin',html:'<span></span>',iconSize:[26,26],iconAnchor:[13,13]}),zIndexOffset:1000});
+  MZ.hd=L.marker([0,0],{draggable:true,icon:L.divIcon({className:'mzhd',html:'<span></span>',iconSize:[40,40],iconAnchor:[20,20]}),zIndexOffset:900});
+  MZ.pin.on('dragend',function(){var p=MZ.pin.getLatLng();mzSet([p.lat,p.lng],false);});
+  MZ.hd.on('drag',function(){var p=MZ.hd.getLatLng();MZ.brg=Math.round(mzBrg(MZ.c,[p.lat,p.lng]));MZ.auto=false;mzDraw(false,true);mzDirUI();});
+  MZ.hd.on('dragend',function(){mzDraw();});
+  map.on('click',function(e){mzSet([e.latlng.lat,e.latlng.lng],false);});
+  [].forEach.call(document.querySelectorAll('.mzlay button'),function(b){b.onclick=function(){map.removeLayer(MZ.tiles[MZ.layer]);MZ.layer=b.getAttribute('data-l');MZ.tiles[MZ.layer].addTo(map);mzLayBtns();};});
+  var rng=document.getElementById('mzrng');rng.oninput=function(){MZ.brg=+rng.value;MZ.auto=false;mzDraw();mzDirUI();};
+  [].forEach.call(document.querySelectorAll('.mzdrow button'),function(b){b.onclick=function(){MZ.brg=(MZ.brg+Number(b.getAttribute('data-r'))+360)%360;MZ.auto=false;mzDraw();mzDirUI();};});
+  document.getElementById('mzusew').onclick=function(){if(MZ.wind){MZ.auto=true;MZ.brg=(MZ.wind.dir+180)%360;mzDraw();mzDirUI();}else if(MZ.c)mzWind();};
+  document.getElementById('mzloc').onclick=mzGeo;
+  var q=document.getElementById('mzq');document.getElementById('mzgo').onclick=function(){mzSearch(q.value);};q.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();mzSearch(q.value);}});
+  document.getElementById('mzcopy').onclick=mzCopy;
+  mzDirUI();mzWindUI();
+  if(MZ.c){mzSet(MZ.c,true);}else mzGeo();
+}
+function mzLayBtns(){[].forEach.call(document.querySelectorAll('.mzlay button'),function(b){b.setAttribute('aria-pressed',b.getAttribute('data-l')===MZ.layer?'true':'false');});}
+function mzGeo(){if(!navigator.geolocation){mzMsg('noloc');return;}mzMsg('',zt('loading'));
+  navigator.geolocation.getCurrentPosition(function(p){mzSet([p.coords.latitude,p.coords.longitude],true);mzMsg('tap');},function(){mzMsg('noloc');},{enableHighAccuracy:true,timeout:12000,maximumAge:30000});}
+function mzSearch(v){v=(v||'').trim();var box=document.getElementById('mzres');if(!v){box.innerHTML='';return;}box.innerHTML='<p class="note">…</p>';
+  fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&limit=5&accept-language='+(state.lang==='pt'?'pt-BR':state.lang)+'&q='+encodeURIComponent(v)).then(function(r){return r.json();}).then(function(js){
+    if(!js.length){box.innerHTML='<p class="note">'+esc(zt('nores'))+'</p>';return;}
+    box.innerHTML=js.map(function(x,i){return '<button type="button" data-i="'+i+'">'+esc(x.display_name)+'</button>';}).join('');
+    [].forEach.call(box.querySelectorAll('button'),function(b){b.onclick=function(){var x=js[+b.getAttribute('data-i')];box.innerHTML='';mzSet([+x.lat,+x.lon],true);};});
+  }).catch(function(){box.innerHTML='<p class="note">'+esc(zt('nores'))+'</p>';});}
+function mzSet(c,fit){var moved=!MZ.c||Math.abs(MZ.c[0]-c[0])+Math.abs(MZ.c[1]-c[1])>0.02;MZ.c=c;if(!MZ.map)return;
+  MZ.pin.setLatLng(c);if(!MZ.map.hasLayer(MZ.pin))MZ.pin.addTo(MZ.map);if(!MZ.map.hasLayer(MZ.hd))MZ.hd.addTo(MZ.map);
+  mzDraw(fit);var gm=document.getElementById('mzgm');if(gm)gm.href='https://www.google.com/maps/search/?api=1&query='+c[0].toFixed(6)+','+c[1].toFixed(6);
+  if(moved||!MZ.wind)mzWind();else mzWindUI();}
+function mzWind(){if(!MZ.c)return;var c=MZ.c,box=document.getElementById('mzwind');if(box)box.innerHTML='<p class="note">…</p>';
+  fetch('https://api.open-meteo.com/v1/forecast?latitude='+c[0].toFixed(4)+'&longitude='+c[1].toFixed(4)+'&current=wind_speed_10m,wind_direction_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=auto').then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(js){
+    var cu=js.current;if(!cu||cu.wind_direction_10m==null)throw 0;
+    MZ.wind={dir:cu.wind_direction_10m,spd:cu.wind_speed_10m,gust:cu.wind_gusts_10m,time:(cu.time||'').slice(11,16),at:c.slice()};
+    if(MZ.auto){MZ.brg=Math.round((MZ.wind.dir+180)%360);mzDraw();mzDirUI();}
+    mzWindUI();
+  }).catch(function(){MZ.wind=null;mzWindUI(true);});}
+function mzArrow(deg,col){return '<svg viewBox="0 0 40 40" class="mzarr" style="transform:rotate('+deg+'deg)" aria-hidden="true"><path d="M20 4 30 30 20 24 10 30z" fill="'+(col||'#1f6fd1')+'"/></svg>';}
+function mzWindUI(err){var box=document.getElementById('mzwind');if(!box)return;var w=MZ.wind,c=MZ.c;
+  var wl=c?'<a class="mzwl" href="https://www.windy.com/?'+c[0].toFixed(3)+','+c[1].toFixed(3)+',12" target="_blank" rel="noopener">'+esc(zt('windy'))+' ›</a>':'';
+  if(!w){box.innerHTML='<div class="mzwh"><b>'+esc(zt('wind'))+'</b>'+wl+'</div><p class="note">'+esc(err?zt('nowind'):zt('tap'))+'</p>'+(c?'<button type="button" class="mzupd" id="mzupd">'+esc(zt('upd'))+'</button>':'');}
+  else{var to=(w.dir+180)%360,calm=w.spd<2;
+    box.innerHTML='<div class="mzwh"><b>'+esc(zt('wind'))+'</b>'+wl+'</div><div class="mzwr">'+mzArrow(to)+'<div><p class="mzws"><b>'+(calm?esc(zt('calm')):esc(zt('from'))+' '+mzCard(w.dir)+' ('+Math.round(w.dir)+'°)')+'</b> · '+num(Math.round(w.spd))+' km/h'+(w.gust?' · '+esc(zt('gust'))+' '+num(Math.round(w.gust))+' km/h':'')+'</p><p class="mzws2">'+esc(zt('to'))+' '+mzCard(to)+' ('+Math.round(to)+'°)</p><p class="mzsrc">'+esc(zt('src'))+(w.time?' · '+esc(zt('at'))+' '+w.time:'')+'</p></div></div><button type="button" class="mzupd" id="mzupd">'+esc(zt('upd'))+'</button>';}
+  var u=document.getElementById('mzupd');if(u)u.onclick=function(){mzWind();};}
+function mzDirUI(){var r=document.getElementById('mzrng'),v=document.getElementById('mzdval');if(r)r.value=MZ.brg;if(v)v.innerHTML=mzArrow(MZ.brg,MZ.auto?'#1f6fd1':'#6b3fa0')+'<span><b>'+esc(zt('to'))+' '+mzCard(MZ.brg)+' ('+MZ.brg+'°)</b><small>'+esc(MZ.auto&&MZ.wind?zt('wind'):MZ.auto?'':zt('man'))+'</small></span>';
+  var u=document.getElementById('mzusew');if(u)u.hidden=MZ.auto&&!!MZ.wind;}
+function mzLbl(p,txt,cls){return L.marker(p,{interactive:false,icon:L.divIcon({className:'mzlbl '+cls,html:'<span>'+esc(txt)+'</span>',iconSize:null})});}
+function mzFmt(m){return m>=1000?num((m/1000).toFixed(m%1000?1:0))+' km':m+' m';}
+function mzDraw(fit,keepHd){if(!MZ.map||!MZ.c)return;var g=MZ.gr,c=MZ.c,b=MZ.brg,D=MZ.d,Ld=D.p||D.d,all=[c],mpp=40075016.686*Math.cos(c[0]*Math.PI/180)/Math.pow(2,MZ.map.getZoom()+8);g.clearLayers();
+  if(D.f){g.addLayer(L.circle(c,{radius:D.f,color:'#d96b00',weight:2.5,dashArray:'8 6',fillColor:'#ffb347',fillOpacity:.12,interactive:false}));if(D.f/mpp>=45)g.addLayer(mzLbl(mzDst(c,(b+180)%360,Math.max(D.f*.5,D.f-60*mpp)),zt('lF')+' · '+mzFmt(D.f),'lf'));all.push(mzDst(c,0,D.f),mzDst(c,180,D.f),mzDst(c,90,D.f),mzDst(c,270,D.f));}
+  if(Ld){var hw=Math.atan(.5)*180/Math.PI,a1=mzDst(c,b-90,Ld/2),a2=mzDst(c,b+90,Ld/2),f1=mzDst(a1,b,Ld),f2=mzDst(a2,b,Ld);
+    if(D.p)g.addLayer(L.polygon([a1,f1,f2,a2],{color:'#c77700',weight:2.2,dashArray:'7 5',fillColor:'#fff3c4',fillOpacity:.18,interactive:false}));
+    var ri=Math.max(D.i||0,Ld*.04),cone=[mzDst(c,b-90,ri)];for(var k=0;k<=16;k++)cone.push(mzDst(c,b-hw+k*hw/8,Ld/Math.cos(hw*Math.PI/180)));cone.push(mzDst(c,b+90,ri));
+    g.addLayer(L.polygon(cone,{color:'#b35900',weight:2,fillColor:'#ff9a1f',fillOpacity:.32,interactive:false}));
+    if(Ld/mpp>=70)g.addLayer(mzLbl(mzDst(c,b,Ld*.58),zt(D.p?'lP':'lD')+' · '+mzFmt(Ld),'lp'));all.push(a1,a2,f1,f2,mzDst(c,b,Ld*1.12));}
+  if(D.i){g.addLayer(L.circle(c,{radius:D.i,color:'#8f1d17',weight:2.2,fillColor:'#e2342b',fillOpacity:.45,interactive:false}));if(D.i/mpp>=12)g.addLayer(mzLbl(mzDst(c,(b+180)%360,D.i+16*mpp),zt('lI')+' · '+mzFmt(D.i),'li'));all.push(mzDst(c,0,D.i),mzDst(c,180,D.i));}
+  var R=Ld?Ld*1.18:Math.max((D.i||0)*2.2,(D.f||0)*.6,120),tip=mzDst(c,b,R);
+  g.addLayer(L.polyline([c,tip],{color:'#1f6fd1',weight:3,dashArray:'2 6',interactive:false}));
+  if(!keepHd){MZ.hd.setLatLng(tip);var ic=MZ.hd.getElement&&MZ.hd.getElement();if(ic&&ic.firstChild)ic.firstChild.style.transform='rotate('+b+'deg)';}
+  else{var ic2=MZ.hd.getElement&&MZ.hd.getElement();if(ic2&&ic2.firstChild)ic2.firstChild.style.transform='rotate('+b+'deg)';}
+  all.push(tip);
+  if(fit)MZ.map.fitBounds(L.latLngBounds(all),{padding:[28,28],maxZoom:17});}
+function mzCopy(){if(!MZ.c)return;var D=MZ.d,c=MZ.c,L2=[];
+  if(MZ.u)L2.push(t('un')+' '+MZ.u+(MZ.g?' · '+t('guide')+' '+MZ.g:''));
+  L2.push(c[0].toFixed(6)+', '+c[1].toFixed(6));
+  if(MZ.wind)L2.push(zt('wind')+': '+zt('from')+' '+mzCard(MZ.wind.dir)+' ('+Math.round(MZ.wind.dir)+'°) '+Math.round(MZ.wind.spd)+' km/h');
+  L2.push(zt('to')+' '+mzCard(MZ.brg)+' ('+MZ.brg+'°)');
+  if(D.i)L2.push(zt('iso')+': '+mzFmt(D.i));if(D.p||D.d)L2.push(zt(D.p?'paz':'dw')+': '+mzFmt(D.p||D.d));if(D.f)L2.push(zt('fire')+': '+mzFmt(D.f));
+  L2.push('https://www.google.com/maps/search/?api=1&query='+c[0].toFixed(6)+','+c[1].toFixed(6));
+  var txt=L2.join('\n'),b=document.getElementById('mzcopy');
+  var ok=function(){b.textContent=zt('copied');setTimeout(function(){b.textContent=zt('copy');},1600);};
+  try{navigator.clipboard.writeText(txt).then(ok,function(){window.prompt?prompt('',txt):0;});}catch(e){}}
 /* ---------- chrome + router ---------- */
 var TI={"tw": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 11v6M12 7.500v.5\"/>", "ty": "<path d=\"M9 4 7 20M17 4l-2 16M4 9h16M3.500 15h16\"/>", "tb": "<path d=\"M4 6h16M4 12h10M4 18h16\"/><circle cx=\"19\" cy=\"12\" r=\"1.200\" fill=\"currentColor\"/>", "to": "<path d=\"M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z\"/><path d=\"M5 17a3 3 0 0 1 3-3h11\"/>", "tg": "<rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"/><path d=\"M4 10h16M4 15h16M10 4v16\"/>", "tp": "<path d=\"M7 4 3 8l4 4M3 8h14M17 12l4 4-4 4M21 16H7\"/>", "tz": "<rect x=\"5\" y=\"3\" width=\"14\" height=\"18\" rx=\"2.500\"/><path d=\"M8.500 7.500h7M9 12h.1M12 12h.1M15 12h.1M9 16h.1M12 16h.1M15 16h.1\" stroke-width=\"2.600\"/>"};
 var SICO={"capa": "<path d=\"M5 3.5h12a2 2 0 0 1 2 2v15H7a2 2 0 0 1-2-2z\"/><path d=\"M5 18.5a2 2 0 0 1 2-2h12M9 8h6M9 11h4\"/>", "documentos": "<path d=\"M6 3h8l4 4v14H6z\"/><path d=\"M14 3v4h4M9 12h6M9 15.5h6M9 9h2\"/>", "como-usar": "<rect x=\"3\" y=\"3\" width=\"7\" height=\"5\" rx=\"1\"/><rect x=\"14\" y=\"16\" width=\"7\" height=\"5\" rx=\"1\"/><path d=\"M6.5 8v3.5h11V16M17.5 3.5v4M14.5 5.5l3-2 3 2\"/><path d=\"M15 13.5l2.5 2.5 2.5-2.5\"/>", "precaucoes": "<path d=\"M12 3l8 3v5.5c0 5-3.4 8.3-8 9.5-4.6-1.2-8-4.5-8-9.5V6z\"/><path d=\"M12 8v5M12 16.5v.1\"/>", "notificacao": "<path d=\"M6.5 3.5h3l1.5 4.5-2 1.3a11 11 0 0 0 5.7 5.7l1.3-2 4.5 1.5v3a2 2 0 0 1-2 2A16 16 0 0 1 4.5 5.5a2 2 0 0 1 2-2z\"/><path d=\"M15 3.5a6 6 0 0 1 5.5 5.5M15 7a2.5 2.5 0 0 1 2 2\"/>", "classificacao": "<path d=\"M12 3l9 5-9 5-9-5z\"/><path d=\"M3 12.5l9 5 9-5M3 16.5l9 5 9-5\"/>", "placas": "<path d=\"M12 2.5l9.5 9.5-9.5 9.5L2.5 12z\"/><path d=\"M12 6.5l5.5 5.5-5.5 5.5L6.5 12z\"/>", "vagoes": "<rect x=\"4\" y=\"4\" width=\"16\" height=\"11\" rx=\"2\"/><path d=\"M4 10h16M8 4v6M16 4v6\"/><circle cx=\"8\" cy=\"18.5\" r=\"1.8\"/><circle cx=\"16\" cy=\"18.5\" r=\"1.8\"/><path d=\"M2 21.5h20\"/>", "carretas": "<path d=\"M2.5 6h11v10h-11zM13.5 9.5h4l3.5 3.5v3h-7.5\"/><circle cx=\"6.5\" cy=\"17.5\" r=\"2\"/><circle cx=\"17\" cy=\"17.5\" r=\"2\"/>", "ghs": "<path d=\"M12 2.5l9.5 9.5-9.5 9.5L2.5 12z\"/><path d=\"M12 7.5v6M12 16.3v.1\"/>", "numeros-risco": "<rect x=\"2.5\" y=\"5\" width=\"19\" height=\"14\" rx=\"1.5\"/><path d=\"M2.5 12h19M8 8.5h3M13 8.5h3M7 15.5h10\"/>", "dutos": "<path d=\"M2.5 9h7a3 3 0 0 1 3 3v9M2.5 15h3a1 1 0 0 1 1 1v5M18.5 21V12\"/><path d=\"M15.5 3h6v6h-6zM18.5 9v3\"/><path d=\"M2.5 7.5v9M12.5 18.5h-6\"/>", "intro-guias": "<path d=\"M3 5.5c3-1.5 6-1.5 9 .5 3-2 6-2 9-.5V19c-3-1.5-6-1.5-9 .5-3-2-6-2-9-.5z\"/><path d=\"M12 6v13.5\"/>", "primeiros-socorros": "<rect x=\"3\" y=\"6\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M9 6V4h6v2M12 9.5v7M8.5 13h7\"/>", "intro-verde": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 11v6M12 7.5v.1\"/>", "acoes-protecao": "<path d=\"M3.5 11 12 4l8.5 7\"/><path d=\"M5.5 9.5V20h13V9.5\"/><path d=\"M10 20v-5.5h4V20\"/>", "fatores": "<path d=\"M12 3v18M7 21h10M5 7h14\"/><path d=\"M5 7l-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z\"/>", "tabela1-base": "<rect x=\"3.5\" y=\"4\" width=\"17\" height=\"16\" rx=\"2\"/><path d=\"M3.5 9.5h17M3.5 14.5h17M9.5 4v16\"/>", "tabela1-uso": "<rect x=\"3.5\" y=\"4\" width=\"17\" height=\"16\" rx=\"2\"/><path d=\"M3.5 9.5h17M3.5 14.5h17M9.5 4v16\"/>", "tabela1": "<rect x=\"3.5\" y=\"4\" width=\"17\" height=\"16\" rx=\"2\"/><path d=\"M3.5 9.5h17M3.5 14.5h17M9.5 4v16\"/>", "tabela2-uso": "<path d=\"M12 3c3.5 4.5 6 7.6 6 11a6 6 0 0 1-12 0c0-3.4 2.5-6.5 6-11z\"/><path d=\"M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5\"/>", "tabela2": "<path d=\"M12 3c3.5 4.5 6 7.6 6 11a6 6 0 0 1-12 0c0-3.4 2.5-6.5 6-11z\"/><path d=\"M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5\"/>", "tabela3-uso": "<path d=\"M3 8h11a3 3 0 1 0-3-3M3 12.5h16a3 3 0 1 1-3 3M3 17h7\"/>", "tabela3": "<path d=\"M3 8h11a3 3 0 1 0-3-3M3 12.5h16a3 3 0 1 1-3 3M3 17h7\"/>", "guia-usuario": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7M12 16.8v.1\"/>", "roupas": "<circle cx=\"12\" cy=\"7\" r=\"3.5\"/><path d=\"M8.5 6.5h7M6 21v-6a6 6 0 0 1 12 0v6M9.5 21v-4h5v4\"/>", "descontaminacao": "<path d=\"M4 21V7a4 4 0 0 1 8 0\"/><path d=\"M8.5 7h7\"/><path d=\"M10 11v1.5M13 11v1.5M16 11v1.5M11.5 15v1.5M14.5 15v1.5M13 19v1.5\"/>", "fogo-derramamento": "<path d=\"M12 21c-4 0-6.5-2.6-6.5-6 0-3.5 2.6-5.6 3.8-8.5.9 2 2.2 3 3.2 3.4C13 7 13.4 5 13 3c3.6 2.4 5.5 6.6 5.5 10.5 0 4.4-2.6 7.5-6.5 7.5z\"/><path d=\"M12 21c-1.7 0-3-1.2-3-3 0-2 1.6-3 2.3-4.6.9 1.6 3.7 2.4 3.7 4.6 0 1.8-1.3 3-3 3z\"/>", "baterias-litio": "<rect x=\"2.5\" y=\"7\" width=\"17\" height=\"10\" rx=\"2\"/><path d=\"M21.5 10.5v3M11.5 8.5 9 12.3h4l-2.5 3.7\"/>", "bleve": "<path d=\"M12 2.5l1.8 5 4.7-2.5-2 5 5 1.5-4.6 2.3 2.6 4.7-5.2-1.2-.3 5.2-2.7-4.4-3.6 3.6.5-5.1-5-.4 4-3.2-3.7-3.6 5.1.4z\"/>", "qbrn": "<circle cx=\"12\" cy=\"12\" r=\"2\"/><path d=\"M12 10V3.5a8.5 8.5 0 0 0-7.4 4.2L10.3 11M13.7 11l5.6-3.3A8.5 8.5 0 0 0 12 3.5M10.3 13l-5.6 3.3A8.5 8.5 0 0 0 12 20.5V14M13.7 13l5.6 3.3\"/>", "aei": "<circle cx=\"10.5\" cy=\"14\" r=\"6.5\"/><path d=\"M15 9.5l2.5-2.5M16.5 5.5 19 3M19.5 6.5h2M17.5 2.5v-.5\"/><path d=\"M7.5 13a3 3 0 0 1 3-3\"/>", "glossario": "<path d=\"M4 4.5h12a3 3 0 0 1 3 3V21H7a3 3 0 0 1-3-3z\"/><path d=\"M7.5 15l2.5-7 2.5 7M8.3 12.8h3.4\"/>", "publicacao": "<path d=\"M6 3h8l4 4v14H6z\"/><path d=\"M14 3v4h4\"/><circle cx=\"12\" cy=\"13\" r=\"3\"/><path d=\"M12 16v3\"/>", "centros": "<path d=\"M3 21h18M5 21V9l7-5 7 5v12\"/><path d=\"M9 21v-6h6v6M9 11h.1M12 11h.1M15 11h.1\"/>", "telefones": "<path d=\"M6.5 3.5h3l1.5 4.5-2 1.3a11 11 0 0 0 5.7 5.7l1.3-2 4.5 1.5v3a2 2 0 0 1-2 2A16 16 0 0 1 4.5 5.5a2 2 0 0 1 2-2z\"/>", "sumario": "<path d=\"M8 6h12M8 12h12M8 18h12\"/><circle cx=\"4\" cy=\"6\" r=\"1\"/><circle cx=\"4\" cy=\"12\" r=\"1\"/><circle cx=\"4\" cy=\"18\" r=\"1\"/>", "intro-amarela": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 11v6M12 7.5v.1\"/>", "intro-azul": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 11v6M12 7.5v.1\"/>"};
@@ -1442,6 +1614,7 @@ function route(){
   else if((m=/^info-([a-z0-9-]+)$/.exec(hsh))){viewInfo(m[1]);cur=document.body.getAttribute('data-sec');}
   else if(hsh==='assistente'){viewWizard();cur='z';}
   else if((m=/^matriz(?:-([0-9c._]+))?$/.exec(hsh))){viewMatrix(m[1]||'');cur='p';}
+  else if((m=/^mapa(?:-([0-9A-Za-z-]+))?$/.exec(hsh))){viewMap(m[1]||'');cur='z';}
   else if(hsh==='sobre'){viewAbout();cur='w';}
   else if((m=/^classe-(\d(?:\.\d)?)$/.exec(hsh))&&clsRow(m[1])){state.cls=m[1];viewHome();cur='home';}
   else{state.cls='';viewHome();cur='home';}
