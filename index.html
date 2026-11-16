@@ -239,7 +239,7 @@ footer p{margin:4px 0}
 .lang button[aria-pressed="true"]{background:var(--ink);color:#fff}
 .ib{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--cline);border-radius:8px;text-decoration:none;color:var(--ink);font-weight:800;font-family:var(--ui);flex:none}
 body.home{background:var(--bg)}
-body.home .tabs,body.home .footband{display:none}
+body.home .footband{display:none}
 body.home .page{background:transparent;border:0}
 body.home .body{padding:14px 12px 90px;font-family:var(--ui)}
 .card{background:var(--card);border:1px solid var(--cline);border-radius:14px}
@@ -496,6 +496,9 @@ a.cta:hover,.prose a.cta:hover{transform:translateY(-2px);box-shadow:0 6px 16px 
 .htabs+.sbox2{position:relative;z-index:1;border-top-left-radius:10px;border-top-right-radius:10px;margin-top:0}
 @media (hover:hover) and (pointer:fine){.htabs a:hover{transform:translateY(-4px)}}
 @media (max-width:380px){.htabs{padding:0 6px;gap:3px}.htabs a{font-size:9.5px}}
+.t2q{color:var(--ink)}
+.tabs a.tp{color:#fff}
+body[data-sec="p"] .t2q:focus{outline-color:#6b3fa0}
 </style>
 </head>
 <body data-sec="o">
@@ -782,8 +785,7 @@ function homeTabs(){
 }
 function homeBelow(){
   var L=state.lang,h='<div class="quick">',qh=['#amarela','#azul','#laranja','#info-primeiros-socorros'];
-  t('qk').forEach(function(x,i){h+='<a class="card" href="'+qh[i]+'">'+QI[i]+'<b>'+esc(x[0])+'</b><small>'+esc(x[1])+'</small></a>';});
-  h+='</div>';
+  h='';
   h+='<div class="sh"><h2>'+esc(t('lblT'))+'</h2></div><div class="lgrid">';
   CLS.forEach(function(c){h+='<a class="card" href="#classe-'+c[0]+'">'+lbl(c[0])+'<b>'+esc(t('cls'))+' '+c[0]+'</b><small>'+esc(clsDesc(c[0]))+'</small></a>';});
   h+='</div><div class="sh"><h2>'+esc(t('secT'))+'</h2></div><div class="secs">';
@@ -795,7 +797,7 @@ function homeBelow(){
 }
 function viewHome(){
   setSec('w');state.lim=40;
-  var h=(state.cls?band(t('cls')+' '+state.cls+' · '+clsDesc(state.cls)):'')+'<div class="body">'+homeTabs()+'<form class="sbox2" id="sf" role="search" autocomplete="off"><label for="q" class="sr">'+esc(t('sLabel'))+'</label><div class="sin2"><svg class="mg" viewBox="0 0 24 24" fill="none" stroke="#231f20" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.500 16.500 21 21"/></svg><input id="q" type="search" enterkeyhint="search" autocapitalize="off" spellcheck="false" placeholder="'+esc(t('ph'))+'" value="'+esc(state.q)+'"><button type="button" id="qx" aria-label="'+esc(t('clear'))+'">×</button><button type="submit" class="go" aria-label="'+esc(t('sLabel'))+'"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.500"/><path d="M16 16l5 5"/></svg></button></div></form>'+legend()+'<div id="res"></div></div>';
+  var h=(state.cls?band(t('cls')+' '+state.cls+' · '+clsDesc(state.cls)):'')+'<div class="body"><form class="sbox2" id="sf" role="search" autocomplete="off"><label for="q" class="sr">'+esc(t('sLabel'))+'</label><div class="sin2"><svg class="mg" viewBox="0 0 24 24" fill="none" stroke="#231f20" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.500 16.500 21 21"/></svg><input id="q" type="search" enterkeyhint="search" autocapitalize="off" spellcheck="false" placeholder="'+esc(t('ph'))+'" value="'+esc(state.q)+'"><button type="button" id="qx" aria-label="'+esc(t('clear'))+'">×</button><button type="submit" class="go" aria-label="'+esc(t('sLabel'))+'"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.500"/><path d="M16 16l5 5"/></svg></button></div></form>'+legend()+'<div id="res"></div></div>';
   app.innerHTML=h;wireBack();
   var res=document.getElementById('res'),inp=document.getElementById('q'),fl=document.getElementById('fl');
   function chips(){
