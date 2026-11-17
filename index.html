@@ -1821,7 +1821,7 @@ function foot(){var names={e:{pt:'EPI e EPR',en:'PPE and RPE',es:'EPP y EPR'}[st
 /*EPI-JS*/
 /* ---------- EPI / EPR (fluxogramas da ABNT NBR 14064:2015) ---------- */
 /* ---- figuras: renderizações 2,5D (suitart/render.py, products.py) em fig/epi/ ---- */
-function epImg(n,w,h,alt){return '<img class="epfig" src="fig/epi/'+n+'.webp?v=3" width="'+w+'" height="'+h+'" alt="'+esc(alt)+'" decoding="async">';}
+function epImg(n,w,h,alt){return '<img class="epfig" src="fig/epi/'+n+'.webp?v=4" width="'+w+'" height="'+h+'" alt="'+esc(alt)+'" decoding="async">';}
 function epFig(k){return epImg(k,200,400,EPX().lv[k][0]);}
 function epGear(k){return epImg(k,200,240,EPX().lv[k][0]);}
 function epTypeFig(k){var n={scba:'S',full:'P'}[k]||k;return epImg(n,200,240,EPTX().it[k][0]);}
