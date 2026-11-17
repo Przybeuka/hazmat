@@ -678,6 +678,23 @@ body[data-sec="p"] .body{background:linear-gradient(#f6f1fb,#fff 220px)}
 .plv{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 10px;padding:14px 10px}
 .plv figure{width:112px}
 .plv .lbl{width:100px;height:100px}
+
+/* cabeçalho: logo do HAZMAT (mesmo símbolo do favicon) */
+.brand img.logo{width:38px;height:38px;flex:none;object-fit:contain;display:block}
+@media (min-width:1040px){
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:0 16px;padding:6px 22px}
+.top>div.wrap{display:contents}
+.top .ssbar{order:0;flex:0 0 calc(100% + 44px);margin:-6px -22px 6px}
+.top .brand{order:1;flex:0 1 auto;padding:0;max-width:340px}
+.top .brand img.logo{width:46px;height:46px}
+.top .tabs{order:2;flex:1 1 0;min-width:0;max-width:680px;margin:0 auto;padding:6px;gap:6px;border-radius:16px}
+.top .tabs a{min-height:52px;border-radius:11px;border-top:0;box-shadow:inset 0 -4px 0 rgba(0,0,0,.18)}
+.top .tabs a[aria-current="page"]{margin-top:0;min-height:52px;box-shadow:0 0 0 3px #fff,0 0 0 5px var(--ink);opacity:1}
+.top #accb{order:3;margin-left:auto}
+.top #helpb{order:4;margin-left:auto}
+.top #accb~#helpb{margin-left:0}
+.top .lang{order:5}
+}
 </style>
 </head>
 <body data-sec="o">
@@ -1681,7 +1698,7 @@ var SICO={"capa": "<path d=\"M5 3.5h12a2 2 0 0 1 2 2v15H7a2 2 0 0 1-2-2z\"/><pat
 function sico(k,bg){return '<span class="sic" style="background:'+bg+(bg.indexOf('green')>0?';color:#fff':'')+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(SICO[k]||SICO['intro-verde'])+'</svg></span>';}
 function chrome(cur){
   document.documentElement.lang=state.lang==='pt'?'pt-BR':state.lang;
-  document.getElementById('brand').innerHTML='<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 38 20 20 38 2 20z" fill="#f68b1a" stroke="#231f20" stroke-width="2.5" stroke-linejoin="round"/><path d="M18.300 10h3.400l-.6 13h-2.200zM20 26a2.200 2.200 0 1 1 0 4.400 2.200 2.200 0 0 1 0-4.400z" fill="#231f20"/></svg><span>'+esc(t('hT'))+'<small>'+esc(t('hS'))+'</small></span>';
+  document.getElementById('brand').innerHTML='<img class="logo" src="icons/icon-192.png" width="46" height="46" alt="" decoding="async"><span>'+esc(t('hT'))+'<small>'+esc(t('hS'))+'</small></span>';
   var hb=document.getElementById('helpb');hb.setAttribute('aria-label',t('help'));hb.title=t('help');
   document.getElementById('fab').setAttribute('aria-label',t('phone'));
   document.getElementById('sheet').innerHTML='<h3>'+esc(t('emer'))+'</h3>'+t('emerN').map(function(x){return '<a href="tel:'+x[0]+'"><b>'+x[0]+'</b><span>'+esc(x[1])+'</span></a>';}).join('')+'<a href="#info-telefones"><span>'+esc(wsec('telefones').t[state.lang])+' ›</span></a>';
