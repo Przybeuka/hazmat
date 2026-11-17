@@ -2079,6 +2079,7 @@ LANGS.forEach(function(L){document.getElementById('lang-'+L).addEventListener('c
 document.getElementById('fab').addEventListener('click',function(){var sh=document.getElementById('sheet');sh.hidden=!sh.hidden;});
 document.getElementById('fabback').addEventListener('click',function(){if(history.length>1)history.back();else location.hash='#inicio';});
 window.addEventListener('hashchange',route);
+document.getElementById('brand').addEventListener('click',function(e){e.preventDefault();state.q='';state.cls='';state.tih=false;state.lim=40;if(location.hash==='#inicio'||location.hash===''){route();window.scrollTo(0,0);}else location.hash='#inicio';});
 route();
 })();
 </script>
