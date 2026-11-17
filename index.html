@@ -700,6 +700,7 @@ body[data-sec="p"] .body{background:linear-gradient(#f6f1fb,#fff 220px)}
 body[data-sec="e"]{--sec:#0f6e66;--sec-ink:#ffffff;--sec-soft:#dcf1ee}
 .tabs a.te{background:#0f6e66;color:#fff}
 body[data-sec="e"] .band,body[data-sec="e"] .footband{background:#0f6e66!important;color:#fff!important}
+body[data-sec="e"] .band .back{border-color:#fff;color:#fff}
 body[data-sec="e"] .body.epi{background:linear-gradient(#eef8f6,#fff 240px)}
 .epi{font-family:var(--ui)}
 .epseg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 14px}
@@ -723,7 +724,7 @@ body[data-sec="e"] .body.epi{background:linear-gradient(#eef8f6,#fff 240px)}
 .epyn button[data-epa="0"]{background:#9a1d14;border-color:#9a1d14;color:#fff}
 .epyn button:active{transform:scale(.98)}
 .eplink{margin-top:12px;background:none;border:0;padding:4px 0;font:700 14px var(--ui);color:#0f6e66;cursor:pointer}
-.epres{--lc:#0f6e66;display:grid;grid-template-columns:118px 1fr;gap:12px;align-items:start;background:#fff;border:3px solid var(--lc);border-radius:16px;padding:12px;box-shadow:0 10px 24px -18px rgba(0,0,0,.6)}
+.epres{--lc:#0f6e66;display:grid;grid-template-columns:132px 1fr;gap:12px;align-items:start;background:#fff;border:3px solid var(--lc);border-radius:16px;padding:12px;box-shadow:0 10px 24px -18px rgba(0,0,0,.6)}
 .lvA{--lc:#c8102e}.lvB{--lc:#d86a00}.lvC{--lc:#b88a00}.lvD{--lc:#2e7d32}.lvS{--lc:#1f4f8a}.lvP{--lc:#5b6470}
 .epfigw{background:linear-gradient(#f2f5f8,#e3e8ee);border-radius:12px;padding:6px 4px}
 .epfig{display:block;width:100%;height:auto}
@@ -753,6 +754,38 @@ body[data-sec="e"] .body.epi{background:linear-gradient(#eef8f6,#fff 240px)}
 .eplv details[open] summary .epfig{width:90px;margin:0;grid-row:span 2}
 .epsrc{margin-top:16px;font-size:12.5px}
 @media (hover:hover) and (pointer:fine){.epyn button:hover,.epseg a:hover,.epbtn:hover{filter:brightness(1.06);transform:translateY(-1px)}}
+
+.epdk{display:flex;flex-direction:column;align-items:center;gap:1px;width:100%;margin-top:10px;min-height:50px;border-radius:12px;border:2px dashed #6b7280;background:#f6f7f9;color:var(--ink);font:inherit;cursor:pointer;padding:6px 10px}
+.epdk b{font-size:16px}.epdk span{font-size:12.5px;color:var(--soft)}
+.epmap{margin:16px 0 0;background:#fff;border:1px solid var(--cline);border-radius:14px;padding:4px 12px 12px}
+.epmap>summary{cursor:pointer;font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#0f6e66;padding:10px 0 4px}
+.epmap>p{margin:0 0 10px;font-size:13px;line-height:1.35;color:var(--soft)}
+.epmap ol{list-style:none;margin:0;padding:0}
+.epn{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:0 4px;align-items:start}
+.epnl{display:flex;flex-direction:column}
+.epnb{display:block;width:100%;text-align:left;font:700 13px/1.25 var(--ui);color:var(--ink);background:#fff;border:2px solid #c3ccd3;border-radius:10px;padding:8px 9px;min-height:42px;cursor:pointer}
+.epnb:disabled{cursor:default;color:#4b5563}
+.epnb.vis{border-color:#0f6e66;background:#e6f4f1}
+.epnb.cur{border-color:#0f6e66;background:#fff;box-shadow:0 0 0 3px rgba(15,110,102,.25);animation:epcur 1.6s ease-in-out infinite}
+@keyframes epcur{50%{box-shadow:0 0 0 6px rgba(15,110,102,.12)}}
+.epdn{display:flex;align-items:center;min-height:30px;margin-left:16px;padding-left:8px;border-left:2px dashed #c3ccd3;position:relative}
+.epdn::after{content:"";position:absolute;left:-6px;bottom:-1px;border:5px solid transparent;border-top:6px solid #c3ccd3}
+.epdn.tk{border-left:3px solid #0f6e66}.epdn.tk::after{border-top-color:#0f6e66;left:-6.5px}
+.epmap em{font-style:normal;font-weight:800;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#6b7280;white-space:nowrap}
+.epmap em.tk{color:#fff;background:#0f6e66;border-radius:999px;padding:2px 7px}
+.epnr{display:flex;flex-direction:column;gap:6px;padding-top:6px;min-width:0}
+.epbr{display:flex;align-items:center;flex-wrap:wrap;gap:4px 6px;position:relative;padding-left:16px;min-width:0}
+.epbr::before{content:"";position:absolute;left:0;top:50%;width:12px;border-top:2px dashed #c3ccd3}
+.epbr.tk::before{border-top:3px solid #0f6e66}
+.epchip{--lc:#0f6e66;display:inline-block;border:2px solid var(--lc);color:var(--lc);background:#fff;border-radius:8px;padding:3px 8px;font:800 12.5px var(--ui);white-space:nowrap}
+.epchip.hit{background:var(--lc);color:#fff;box-shadow:0 4px 10px -4px var(--lc)}
+.epchip.nx{--lc:#6b7280;border-style:dashed;font-weight:700;font-size:11.5px;white-space:normal}
+.epsub{display:flex;flex-direction:column;gap:5px;margin:2px 0 0 16px;padding:0 0 2px 8px;border-left:2px dashed #c3ccd3}
+.epsub .epnb{font-size:12px;padding:6px 8px;min-height:0}
+.epmap.done .epchip:not(.hit){opacity:.4}
+.epmap.done .epnb:not(.vis){opacity:.55}
+@media (min-width:640px){.epn{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.epnb{font-size:14px}}
+@media (prefers-reduced-motion:reduce){.epnb.cur{animation:none}}
 /*EPI-CSS-END*/
 </style>
 </head>
@@ -925,11 +958,11 @@ function lbl(c,o){
   var id='lc'+(++lblN),bg=o.bg||d[0],k=o.k!==undefined?o.k:d[1],ink=o.ink||d[2],nink=o.nink||d[3]||d[2],i,p,a,q,T=o.t?o.t.split('|'):null;
   var h='<svg class="lbl" viewBox="0 0 100 100" role="img" aria-label="'+esc(t('cls'))+' '+c+'"><defs><clipPath id="'+id+'"><path d="M50 3 97 50 50 97 3 50z"/></clipPath></defs><g clip-path="url(#'+id+')">';
   if(bg==='v'){h+='<rect width="100" height="100" fill="#fff"/>';for(i=0;i<13;i+=2)h+='<rect x="'+(i*100/13).toFixed(2)+'" width="'+(100/13).toFixed(2)+'" height="100" fill="'+RED+'"/>';}
-  else if(bg==='9'){h+='<rect width="100" height="100" fill="#fff"/>';for(i=0;i<13;i+=2)h+='<rect x="'+(4+i*92/13).toFixed(2)+'" width="'+(92/13).toFixed(2)+'" height="50" fill="#111"/>';}
+  else if(bg==='9'){h+='<rect width="100" height="100" fill="#fff"/><clipPath id="'+id+'i"><path d="M50 9.5 90.5 50 50 90.5 9.5 50z"/></clipPath><g clip-path="url(#'+id+'i)">';for(i=0;i<13;i+=2)h+='<rect x="'+(9.5+i*81/13).toFixed(2)+'" width="'+(81/13).toFixed(2)+'" height="50" fill="#111"/>';h+='</g>';}
   else if(typeof bg==='string')h+='<rect width="100" height="100" fill="'+bg+'"/>';
   else h+='<rect width="100" height="50" fill="'+bg[0]+'"/><rect y="50" width="100" height="50" fill="'+bg[1]+'"/>';
   if(o.ih)h+='<path d="M50 9 70 29 50 49 30 29z" fill="#111"/>';
-  h+='</g><path d="M50 3 97 50 50 97 3 50z" fill="none" stroke="#111" stroke-width="2.5" stroke-linejoin="round"/><path d="M50 9.5 90.5 50 50 90.5 9.5 50z" fill="none" stroke="'+(typeof bg==='string'&&ink==='#fff'?'#fff':'#111')+'" stroke-width=".9" opacity=".8"/><g fill="'+ink+'" stroke="'+ink+'" stroke-width="0"'+(k==='tref'?' transform="translate(50 31.5) scale(.6) translate(-50 -35)"':o.ih?' transform="translate(50 28) scale(.42) translate(-50 -35)"':T?(Array.isArray(bg)?(k==='corr'?' transform="translate(50 28.5) scale(.5) translate(-50 -35)"':' transform="translate(50 29) scale(.56) translate(-50 -35)"'):(k==='bomb'?' transform="translate(50 31) scale(.6) translate(-50 -35)"':' transform="translate(50 28) scale(.74) translate(-50 -35)"')):(Array.isArray(bg)?' transform="translate(50 33.5) scale(.6) translate(-50 -35)"':' transform="translate(0 5) translate(50 35) scale(.93) translate(-50 -35)"'))+'>';
+  h+='</g><path d="M50 3 97 50 50 97 3 50z" fill="none" stroke="#111" stroke-width="2.5" stroke-linejoin="round"/><path d="'+(bg==='9'?'M9.5 50 50 90.5 90.5 50':'M50 9.5 90.5 50 50 90.5 9.5 50z')+'" fill="none" stroke="'+(typeof bg==='string'&&ink==='#fff'?'#fff':'#111')+'" stroke-width=".9" opacity=".8"/><g fill="'+ink+'" stroke="'+ink+'" stroke-width="0"'+(k==='tref'?' transform="translate(50 31.5) scale(.6) translate(-50 -35)"':o.ih?' transform="translate(50 28) scale(.42) translate(-50 -35)"':T?(Array.isArray(bg)?(k==='corr'?' transform="translate(50 28.5) scale(.5) translate(-50 -35)"':' transform="translate(50 29) scale(.56) translate(-50 -35)"'):(k==='bomb'?' transform="translate(50 31) scale(.6) translate(-50 -35)"':' transform="translate(50 28) scale(.74) translate(-50 -35)"')):(Array.isArray(bg)?' transform="translate(50 33.5) scale(.6) translate(-50 -35)"':' transform="translate(0 5) translate(50 35) scale(.93) translate(-50 -35)"'))+'>';
   if(k==='flame')h+='<path fill-rule="evenodd" d="'+FLAME+'"/><rect x="36" y="53" width="28" height="3"/>';
   else if(k==='bomb')h+='<g transform="translate(48 37) scale(1.05) translate(-45 -31)">'+BOMB+'</g>';
   else if(k==='num')h+='<text x="50" y="46" text-anchor="middle" font-family="Archivo,Arial Black,Arial,sans-serif" font-weight="900" font-size="27">'+c+'</text>';
@@ -949,6 +982,7 @@ function lbl(c,o){
       TL.forEach(function(q){q.aw=Math.min(q.aw,bw-5);});h+='<rect x="'+(50-bw/2).toFixed(1)+'" y="'+bt.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+(bb-bt).toFixed(1)+'" rx="1.5" fill="#fff"/>';}
     TL.forEach(function(q){var fit=q.ew>q.aw?' textLength="'+q.aw.toFixed(1)+'" lengthAdjust="spacingAndGlyphs"':'';h+='<text x="'+(50-(q.last?rx/2:0))+'" y="'+(q.y+q.fs*.36).toFixed(1)+'" text-anchor="middle"'+fit+' font-family="Archivo,Arial,sans-serif" font-weight="900" font-size="'+q.fs.toFixed(1)+'" fill="'+tc+'" letter-spacing=".2">'+esc(q.x)+'</text>';});}
   if(!o.nonum)h+='<text x="50" y="'+(k==='tref'?86.5:T?(five?83:85):o.lownum?(five?84:86.5):(five?77:80))+'" text-anchor="middle" font-family="Archivo,Arial Black,Arial,sans-serif" font-weight="900" font-size="'+(k==='tref'?10:T?(five?9.5:13):o.lownum?(five?9:10):(five?13:19))+'" fill="'+nink+'">'+(five?nc:nc.charAt(0))+'</text>';
+  if(bg==='9'&&!o.nonum&&!T)h+='<path d="'+(o.lownum?'M46.6 88.4h6.8':'M44.4 82.6h11.2')+'" stroke="#111" stroke-width="'+(o.lownum?1.1:1.6)+'" stroke-linecap="round"/>';
   h+='</svg>';
   return h;
 }
@@ -1379,7 +1413,7 @@ function mxPair(a,b){
 var MXC=['C','A','X'],MXI={C:'✓',A:'!',X:'✕',U:'?'};
 var PLC={'1.1':['112'],'1.2':['112'],'1.3':['112'],'1.5':['112'],'1.4':['114'],'1.6':['114'],'2.1':['118'],'2.2':['120','122'],'2.3':['123'],'3':['127','128'],'4.1':['134'],'4.2':['136'],'4.3':['139'],'5.1':['143'],'5.2':['148'],'6.1':['153a'],'6.2':['158'],'7':['163'],'8':['153b'],'9':['171']};
 var PLD={'112':[520,389],'114':[520,408],'118':[452,329],'120':[458,343],'122':[324,328],'123':[346,482],'127':[445,461],'128':[444,439],'134':[335,345],'136':[323,340],'139':[451,338],'143':[330,319],'148':[341,316],'153a':[441,456],'158':[465,454],'163':[520,509],'153b':[321,320],'171':[383,273]};
-var ENVS='<path d="M37.8 62.4C38.6 52.4 39.4 42 40.4 30.6L42.2 30.8C41.6 42 41.6 52.4 42.2 62.4Z" fill="#111"/><path d="M41.4 31.2 43.2 24.6M40.9 44.6 47.8 36.8M47.8 36.8 49.6 31.6M47.8 36.8 52.2 36.2M40.4 48.6 32.4 41.6M32.4 41.6 29.8 37.2M32.4 41.6 28.4 42.6M40.9 37.4 35.4 30.6M35.4 30.6 36 26.8M35.4 30.6 32 29.8" stroke="#111" stroke-width="1.9" stroke-linecap="round" fill="none"/><rect x="27" y="62.2" width="46" height="2.6" rx="1" fill="#111"/><path d="M49 56C52 50.6 63 50 69.6 54.4L76 50.6 74.4 56 76 61.4 69.6 57.6C63 62 52 61.4 49 56Z" fill="#111"/><path d="M59.6 51.3 62.2 47.4 64.2 51.7ZM58.4 60.8 61 63 63.6 60.9Z" fill="#111"/><path d="M51.9 54.1l2.6 2.6M54.5 54.1l-2.6 2.6" stroke="#fff" stroke-width="1" stroke-linecap="round"/><path d="M57.2 52.4C58.4 54.6 58.4 57.4 57.2 59.6" stroke="#fff" stroke-width=".9" fill="none"/><path d="M49 56h2.2" stroke="#fff" stroke-width=".7"/>',BATS='<g fill="#111"><rect x="32.2" y="57.6" width="8.6" height="15.6" rx="2"/><rect x="34.8" y="55.6" width="3.4" height="2.4" rx=".6"/><rect x="41.4" y="53.8" width="10" height="19.4" rx="2.2"/><rect x="44.6" y="51.6" width="3.6" height="2.6" rx=".6"/><rect x="47.6" y="61.4" width="10.6" height="12.4" rx="2.2"/><rect x="50.9" y="59.5" width="4" height="2.2" rx=".6"/><rect x="54.6" y="64.8" width="15.6" height="9.4" rx="2.2"/><rect x="70.2" y="67.6" width="2.4" height="3.8" rx=".6"/></g><g stroke="#fff" fill="none" stroke-linecap="round"><path d="M32.2 61.2h8.6M41.4 57.6h10M47.6 64.8h10.6" stroke-width=".9"/><path d="M34 63.6v7M43.4 60v11.6M49.6 67v5.4" stroke-width=".9" opacity=".85"/><path d="M58.6 64.8v9.4M67 64.8v9.4" stroke-width=".8"/><path d="M62.8 64.8l-1.6 3 2.6 1.8-1.8 3.4" stroke-width="1"/></g><path d="M64.4 50.6C66.4 53.6 69.8 54.6 69.4 58.8 69 62 66.4 63.4 64.4 63.2 62 62.8 61.2 60 62.6 57.6 62.8 59 63.8 59.8 64.6 59.6 63.4 57 63.6 53.4 64.4 50.6Z" fill="#111"/><path d="M65.4 61.6c1.4-.4 2-1.6 1.6-2.8-.8.8-1.8.8-2.2 1.6-.2.6.2 1.1.6 1.2Z" fill="#fff"/><path d="M45.8 88.6h8.4" stroke="#111" stroke-width="1.1" stroke-linecap="round"/>';
+var ENVS='<path d="M37.8 62.4C38.6 52.4 39.4 42 40.4 30.6L42.2 30.8C41.6 42 41.6 52.4 42.2 62.4Z" fill="#111"/><path d="M41.4 31.2 43.2 24.6M40.9 44.6 47.8 36.8M47.8 36.8 49.6 31.6M47.8 36.8 52.2 36.2M40.4 48.6 32.4 41.6M32.4 41.6 29.8 37.2M32.4 41.6 28.4 42.6M40.9 37.4 35.4 30.6M35.4 30.6 36 26.8M35.4 30.6 32 29.8" stroke="#111" stroke-width="1.9" stroke-linecap="round" fill="none"/><rect x="27" y="62.2" width="46" height="2.6" rx="1" fill="#111"/><path d="M49 56C52 50.6 63 50 69.6 54.4L76 50.6 74.4 56 76 61.4 69.6 57.6C63 62 52 61.4 49 56Z" fill="#111"/><path d="M59.6 51.3 62.2 47.4 64.2 51.7ZM58.4 60.8 61 63 63.6 60.9Z" fill="#111"/><path d="M51.9 54.1l2.6 2.6M54.5 54.1l-2.6 2.6" stroke="#fff" stroke-width="1" stroke-linecap="round"/><path d="M57.2 52.4C58.4 54.6 58.4 57.4 57.2 59.6" stroke="#fff" stroke-width=".9" fill="none"/><path d="M49 56h2.2" stroke="#fff" stroke-width=".7"/>',BATS='<path d="M31.6 56.9V73.1A3.70 1.48 0 0 0 39.0 73.1V56.9Z" fill="#111" stroke="#fff" stroke-width=".9" stroke-linejoin="round"/><ellipse cx="35.3" cy="56.9" rx="3.70" ry="1.48" fill="#111" stroke="#fff" stroke-width=".7"/><rect x="34.0" y="54.6" width="2.5" height="2.3" rx=".5" fill="#111" stroke="#fff" stroke-width=".5"/><path d="M33.4 58.7V71.9" stroke="#fff" stroke-width=".8" stroke-linecap="round"/><path d="M37.4 54.2V72.4A4.00 1.60 0 0 0 45.4 72.4V54.2Z" fill="#111" stroke="#fff" stroke-width=".9" stroke-linejoin="round"/><ellipse cx="41.4" cy="54.2" rx="4.00" ry="1.60" fill="#111" stroke="#fff" stroke-width=".7"/><rect x="40.0" y="51.9" width="2.7" height="2.3" rx=".5" fill="#111" stroke="#fff" stroke-width=".5"/><path d="M39.3 56.0V71.2" stroke="#fff" stroke-width=".8" stroke-linecap="round"/><path d="M41.2 63.9V73.5A4.80 1.92 0 0 0 50.8 73.5V63.9Z" fill="#111" stroke="#fff" stroke-width=".9" stroke-linejoin="round"/><ellipse cx="46.0" cy="63.9" rx="4.80" ry="1.92" fill="#111" stroke="#fff" stroke-width=".7"/><rect x="44.4" y="61.6" width="3.3" height="2.3" rx=".5" fill="#111" stroke="#fff" stroke-width=".5"/><path d="M43.5 65.7V72.3" stroke="#fff" stroke-width=".8" stroke-linecap="round"/><path d="M50.6 66.6H67.6A1.8 4.4 0 0 1 67.6 75.4H50.6A1.8 4.4 0 0 1 50.6 66.6Z" fill="#111" stroke="#fff" stroke-width=".9"/><rect x="68.8" y="69.6" width="2" height="2.8" rx=".5" fill="#111"/><path d="M52.2 68.1H66.6" stroke="#fff" stroke-width=".7" stroke-linecap="round"/><path d="M59.6 66.19999999999999L58.4 69.4 60.6 71 59 75.80000000000001" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/><path d="M63.6 53.2C65.2 56.2 68.4 57.6 67.9 61.4 67.5 64.2 65.5 65.3 63.6 65.3 61.4 65.3 59.6 64 59.6 61.6 59.6 59.7 60.8 58.6 61.7 57.6 61.7 59.3 62.5 60.1 63.3 59.9 62.5 57.9 62.7 55.2 63.6 53.2Z" fill="#111"/><path d="M64.3 64.2c1.5-.3 2.2-1.6 1.8-3-.9.9-2 .9-2.4 1.8-.2.6.1 1.1.6 1.2Z" fill="#fff"/><path d="M58.2 55.6l1.4 1.3M57 59.6h1.8M69.2 55l-1.3 1.4M70.2 59.2h-1.8M66.2 52l-.5 1.7" stroke="#111" stroke-width=".9" stroke-linecap="round"/><text x="50" y="83.6" text-anchor="middle" font-family="Archivo,Arial Black,Arial,sans-serif" font-weight="900" font-size="10.4" fill="#111">9</text><path d="M46.6 85.6h6.8" stroke="#111" stroke-width="1.1" stroke-linecap="round"/>';
 function hotSVG(){return '<svg class="lbl" viewBox="0 0 100 100" role="img" aria-label="hot"><path d="M50 8 94 86H6z" fill="#fff" stroke="#d0021b" stroke-width="7.5" stroke-linejoin="round"/><path d="M46 62V32.5a4 4 0 0 1 8 0V62" fill="#fff" stroke="#d0021b" stroke-width="3"/><circle cx="50" cy="68.5" r="8" fill="#fff" stroke="#d0021b" stroke-width="3"/><rect x="48.2" y="42" width="3.6" height="24" fill="#d0021b"/><circle cx="50" cy="68.5" r="5" fill="#d0021b"/><path d="M54 36h4M54 41h2.6M54 46h4M54 51h2.6M54 56h4" stroke="#d0021b" stroke-width="1.6" stroke-linecap="round"/></svg>';}
 function radRaw(n){var b='',k;for(k=0;k<n;k++)b+='<rect x="'+(69+k*3.4)+'" y="53.6" width="2.2" height="7.6" fill="#d0021b"/>';
   return '<text x="24" y="60.6" textLength="'+(n>2?40:43)+'" lengthAdjust="spacingAndGlyphs" font-family="Archivo,Arial,sans-serif" font-weight="900" font-size="8.6" fill="#111">RADIOACTIVE</text>'+b+
@@ -1392,7 +1426,7 @@ var PLV={'1.1':[{},{t:'EXPLOSIVES'}],'1.2':[{},{t:'EXPLOSIVES'}],'1.3':[{},{t:'E
 '3':[{},{ink:'#111'},{t:'FLAMMABLE'},{t:'COMBUSTIBLE'},{t:'GASOLINE'},{t:'FUEL OIL'}],'4.1':[{},{t:'FLAMMABLE|SOLID'}],'4.2':[{},{t:'SPONTANEOUSLY|COMBUSTIBLE'}],'4.3':[{},{ink:'#111'},{t:'DANGEROUS|WHEN WET'}],
 '5.1':[{},{t:'OXIDIZER'}],'5.2':[{},{t:'ORGANIC|PEROXIDE'}],'6.1':[{},{t:'TOXIC'},{t:'POISON'},{ih:1,ink:'#fff',t:'INHALATION|HAZARD'}],'6.2':[{},{t:'INFECTIOUS|SUBSTANCE'}],
 '7':[{raw:radTxt('RADIOACTIVE'),lownum:1,cap:{pt:'RADIOACTIVE',en:'RADIOACTIVE',es:'RADIOACTIVE'}},{bg:['#fff','#fff'],raw:radRaw(1),lownum:1,cap:{pt:'RADIOACTIVE I',en:'RADIOACTIVE I',es:'RADIOACTIVE I'}},{raw:radRaw(2),lownum:1,cap:{pt:'RADIOACTIVE II',en:'RADIOACTIVE II',es:'RADIOACTIVE II'}},{raw:radRaw(3),lownum:1,cap:{pt:'RADIOACTIVE III',en:'RADIOACTIVE III',es:'RADIOACTIVE III'}},{bg:'#fff',k:'',raw:fisRaw('FISSILE'),lownum:1,cap:{pt:'FISSILE',en:'FISSILE',es:'FISSILE'}},{raw:radTxt('RADIOATIVO'),lownum:1,cap:{pt:'RADIOATIVO (Brasil)',en:'RADIOATIVO (Brazil)',es:'RADIOATIVO (Brasil)'}},{bg:'#fff',k:'',raw:fisRaw('FÍSSIL'),lownum:1,cap:{pt:'FÍSSIL (Brasil)',en:'FÍSSIL (Brazil)',es:'FÍSSIL (Brasil)'}}],'8':[{},{t:'CORROSIVE'}],
-'9':[{},{k:'',raw:BATS,lownum:1,cap:{pt:'9A · Baterias de lítio',en:'9A · Lithium batteries',es:'9A · Baterías de litio'}},{bg:'#fff',k:'',raw:ENVS,nonum:1,cap:{pt:'Perigoso ao meio ambiente (ONU 3077/3082)',en:'Environmentally hazardous (UN 3077/3082)',es:'Peligroso para el medio ambiente (ONU 3077/3082)'}},{hot:1,cap:{pt:'Temperatura elevada',en:'Elevated temperature',es:'Temperatura elevada'}}]};
+'9':[{},{k:'',raw:BATS,nonum:1,cap:{pt:'9A · Baterias de lítio',en:'9A · Lithium batteries',es:'9A · Baterías de litio'}},{bg:'#fff',k:'',raw:ENVS,nonum:1,cap:{pt:'Perigoso ao meio ambiente (ONU 3077/3082)',en:'Environmentally hazardous (UN 3077/3082)',es:'Peligroso para el medio ambiente (ONU 3077/3082)'}},{hot:1,cap:{pt:'Temperatura elevada',en:'Elevated temperature',es:'Temperatura elevada'}}]};
 var PLG={'1.1':'112','1.2':'112','1.3':'112','1.5':'112','1.4':'114','1.6':'114','2.1':'118','2.2':'120 · 122','2.3':'123','3':'127 · 128','4.1':'134','4.2':'136','4.3':'139','5.1':'143','5.2':'148','6.1':'153','6.2':'158','7':'163','8':'153','9':'171'};
 function plCap(o){if(o.cap)return o.cap[state.lang];if(o.t)return o.t.replace(/\|/g,' ')+(o.r?' '+o.r:'');return o.ink==='#111'?{pt:'Símbolo preto',en:'Black symbol',es:'Símbolo negro'}[state.lang]:{pt:'Rótulo padrão',en:'Standard label',es:'Rótulo estándar'}[state.lang];}
 function plHTML(c,open,short){var V=PLV[c];if(!V)return '';return '<details class="mxpd"'+(open?' open':'')+'><summary>'+lbl(c)+'<span>'+(short?'':esc(mt('pl'))+' · ')+esc(mt('cls'))+' '+c+'</span><em>'+({pt:'Guia',en:'Guide',es:'Guía'}[state.lang])+' '+PLG[c]+'</em></summary><div class="plv">'+V.map(function(o){return '<figure>'+(o.hot?hotSVG():lbl(c,o))+'<figcaption>'+esc(plCap(o))+'</figcaption></figure>';}).join('')+'</div></details>';}
@@ -1773,64 +1807,121 @@ function chrome(cur){
 function foot(){var names={e:{pt:'EPI e EPR',en:'PPE and RPE',es:'EPP y EPR'}[state.lang],w:t('sW'),y:t('sY'),b:t('sB'),o:t('sO'),g:t('sG'),p:{pt:'Seção roxa',en:'Purple section',es:'Sección morada'}[state.lang]};document.getElementById('footband').innerHTML='<span>'+esc(names[document.body.getAttribute('data-sec')]||'')+'</span><span>ERG 2024</span>';}
 /*EPI-JS*/
 /* ---------- EPI / EPR (fluxogramas da ABNT NBR 14064:2015) ---------- */
-var EPO='#231f20',EPY='#f6c400',EPY2='#d9a300',EPG='#4b5057',EPK='#2a2b2e';
-function epLimb(x1,y1,x2,y2,w,c){var d='M'+x1+' '+y1+'L'+x2+' '+y2;return '<path d="'+d+'" stroke="'+EPO+'" stroke-width="'+(w+3.2)+'" stroke-linecap="round" fill="none"/><path d="'+d+'" stroke="'+c+'" stroke-width="'+w+'" stroke-linecap="round" fill="none"/>';}
-function epGlove(x,y,r){return '<rect x="'+(x-r)+'" y="'+(y-r-3)+'" width="'+(2*r)+'" height="5" rx="1.5" fill="'+EPG+'" stroke="'+EPO+'" stroke-width="1.4"/><ellipse cx="'+x+'" cy="'+(y+3)+'" rx="'+r+'" ry="'+(r+2)+'" fill="'+EPG+'" stroke="'+EPO+'" stroke-width="1.6"/><path d="M'+(x-r+2)+' '+(y+4)+'q2 4 4 5" stroke="#6b7178" stroke-width="1.3" fill="none"/>';}
-function epBoot(x,flip){var s=flip?-1:1;return '<path d="M'+(x-9*s)+' 190 L'+(x+8*s)+' 190 L'+(x+9*s)+' 205 Q'+(x+15*s)+' 207 '+(x+15*s)+' 211 L'+(x-10*s)+' 211 Z" fill="'+EPK+'" stroke="'+EPO+'" stroke-width="1.6" stroke-linejoin="round"/><path d="M'+(x-10*s)+' 211 L'+(x+15*s)+' 211" stroke="#9aa0a6" stroke-width="3" stroke-linecap="round"/><path d="M'+(x-9*s)+' 194h17" stroke="#55585e" stroke-width="1.4" transform="scale(1)"/>';}
-function epBody(wide){/* tronco, braços, pernas, luvas e botas em amarelo */
-  var h='',lw=wide?20:17,aw=wide?15:13;
-  h+=epBoot(47,true)+epBoot(73,false);
-  h+=epLimb(50,128,47,192,lw,EPY)+epLimb(70,128,73,192,lw,EPY);
-  h+='<path d="M47 186v6M73 186v6" stroke="'+EPY2+'" stroke-width="'+(lw-4)+'"/>';
-  h+=epLimb(wide?36:40,wide?66:60,wide?24:27,118,aw,EPY)+epLimb(wide?84:80,wide?66:60,wide?96:93,118,aw,EPY);
-  h+=epGlove(wide?23:26,124,wide?7.5:6.8)+epGlove(wide?97:94,124,wide?7.5:6.8);
+/* ---- desenhos dos trajes (viewBox 0 0 160 300; luz da esquerda) ---- */
+var EPO='#1f2328',EPY='#f5c518',EPY2='#d9a514',EPY3='#b98a0c',EPYH='#ffe27a',EPG='#3d4a41',EPG2='#56685a',EPK='#26292e',EPSK='#f1c39f',EPSK2='#d9a07c';
+var EPN=0;
+function epM(s){return '<g transform="translate(160 0) scale(-1 1)">'+s+'</g>';}
+function epP(d,f,sw,ex){return '<path d="'+d+'" fill="'+f+'" stroke="'+EPO+'" stroke-width="'+(sw||1.8)+'" stroke-linejoin="round" stroke-linecap="round"'+(ex||'')+'/>';}
+function epL(d,c,w,ex){return '<path d="'+d+'" fill="none" stroke="'+c+'" stroke-width="'+(w||1.2)+'" stroke-linecap="round" stroke-linejoin="round"'+(ex||'')+'/>';}
+/* bota química de cano alto */
+function epBoot(c,sole){c=c||EPK;return '<g>'+epP('M58 244 L78 244 L79 276 C81 280 83 283 83 288 L53 288 C53 283 56 279 57 274 Z',c)+epL('M60 250 L60 270',c==='#6b4423'?'#8a5d33':'#3d4248',2.2)+'<rect x="52" y="287" width="32" height="5" rx="2" fill="'+(sole||'#5b626b')+'" stroke="'+EPO+'" stroke-width="1.5"/></g>';}
+function epBoots(c,sole){var b=epBoot(c,sole);return b+epM(b);}
+/* luva com punho longo e polegar */
+function epGlove(c,c2,cuff){c=c||EPG;c2=c2||EPG2;var g='';
+  if(cuff!==false)g+=epP('M29.5 168 L46.5 169.5 L46.5 184 L29 183 Z',c);
+  g+=epP('M29 182 L46.6 183.5 C49.4 185.5 52.4 189.6 51.6 194.6 C51 197.6 48.6 197.6 47.2 195.4 L46.6 201 C45.8 207.6 41.6 211.6 37 211.6 C32.4 211.4 28.6 207.6 28.4 201.4 Z',c);
+  g+=epL('M33.6 201 v8 M37.6 202 v8.6 M41.6 201 v7.6',c2,1.4)+epL('M31 186 C31 192 31.4 196 32 199',c2,1.6);
+  return g;}
+function epGloves(c,c2,cuff){var g=epGlove(c,c2,cuff);return g+epM(g);}
+/* macacão: pernas, tronco e braços */
+function epLegs(fill,shade,tape){var l=epP('M56 156 C54 190 56.6 226 59 262 L77 262 C76.6 236 78.4 208 80 184 Z',fill)+
+  '<path d="M80 184 C78.6 208 77 236 77 262 L71 262 C72 236 74 210 76.4 188 Z" fill="'+shade+'" opacity=".55"/>'+epL('M62 214 q6 3.4 12 0',shade,1.4)+epL('M61 226 q5 2 10 0',shade,1.1);
+  if(tape)l+='<path d="M59 254 L77.2 254 L77 263 L59.4 263 Z" fill="'+tape+'" stroke="'+EPO+'" stroke-width="1.6"/>';
+  return l+epM(l);}
+function epTorso(fill,shade,hi){return epP('M66 68 L94 68 C102 70 110 73 113 78 L106 102 C104 120 103 140 103 152 C104 160 105 166 104 172 C96 180 88 184 80 186 C72 184 64 180 56 172 C55 166 56 160 57 152 C57 140 56 120 54 102 L47 78 C50 73 58 70 66 68 Z',fill)+
+  '<path d="M94 72 C103 74 108 78 109 82 L103 104 C101 122 100 140 100 152 C101 160 102 166 101 171 C96 175 92 177 88 179 C92 160 92 120 94 72 Z" fill="'+shade+'" opacity=".6"/>'+
+  '<path d="M62 76 C60 100 61 130 63 160" stroke="'+hi+'" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>';}
+function epArm(fill,shade,tape){var a=epP('M59 72 C48 73 42 80 41 92 L35 130 L30.5 171 L46.5 172.5 L49 134 L55.6 104 C57.6 96 59.4 86 59 72 Z',fill)+
+  '<path d="M55.6 104 L49 134 L46.5 172.5 L42 172 L44 134 L50 106 C52 98 54 88 55 76 C57.4 80 57.6 94 55.6 104 Z" fill="'+shade+'" opacity=".55"/>'+epL('M37 128 q5.6 3.4 11 1.4',shade,1.5)+epL('M39.6 100 q4 2 7.6 1',shade,1.1);
+  if(tape)a+='<path d="M30.2 164 L47 165.4 L46.6 173.6 L29.6 172.4 Z" fill="'+tape+'" stroke="'+EPO+'" stroke-width="1.6"/>';
+  return a+epM(a);}
+function epHood(fill,shade){return epP('M80 13 C96.6 13 105 25 105 43 C105 56 102 66 97 73 L63 73 C58 66 55 56 55 43 C55 25 63.4 13 80 13 Z',fill)+
+  '<path d="M90 15.6 C100 19 104.6 29 104.6 43 C104.6 56 101.6 65 97 72.6 L91 72.6 C96 62 98.4 52 98 42 C97.6 30 95 21 90 15.6 Z" fill="'+shade+'" opacity=".6"/>'+
+  epL('M62 30 C58 40 59 56 64 66',EPYH,2.4,' opacity=".75"');}
+/* rosto e peça facial inteira */
+function epEyes(){return '<g><ellipse cx="75" cy="42" rx="2.5" ry="1.7" fill="#fff" stroke="'+EPO+'" stroke-width=".7"/><ellipse cx="85" cy="42" rx="2.5" ry="1.7" fill="#fff" stroke="'+EPO+'" stroke-width=".7"/><circle cx="75.3" cy="42.1" r="1.15" fill="#2b2118"/><circle cx="85.3" cy="42.1" r="1.15" fill="#2b2118"/>'+epL('M71.6 38.4 q3.2 -1.8 6.4 -.3 M82 38.1 q3.2 -1.5 6.4 .3','#5a3a22',1.3)+epL('M80 43.6 q-1.6 4.4 .8 5.2',EPSK2,1.1)+'</g>';}
+function epFacePlain(){return epP('M80 26 C88.6 26 93 33 93 43 C93 54 87.6 62 80 62 C72.4 62 67 54 67 43 C67 33 71.4 26 80 26 Z',EPSK,1.5)+epEyes()+epL('M76 54.6 q4 2.2 8 0','#9b5a43',1.3)+'<path d="M67.6 46 C66 46 65.2 43 66.4 41.4 M92.4 46 C94 46 94.8 43 93.6 41.4" stroke="'+EPO+'" stroke-width="1.2" fill="'+EPSK+'"/>';}
+function epMask(kind,solo){/* kind: 'scba' (regulador) | 'apr' (dois filtros); solo: sem cabeça, alça em volta */
+  var id='epl'+(++EPN),lens='M80 28 C89.6 28 93.6 33.6 93.6 41.6 C93.6 49.6 88.6 55 80 55.6 C71.4 55 66.4 49.6 66.4 41.6 C66.4 33.6 70.4 28 80 28 Z';
+  var h='<defs><clipPath id="'+id+'"><path d="'+lens+'"/></clipPath></defs>';
+  if(solo)h+='<path d="M80 14 C100 14 107 30 106 46 C105 58 100 64 94 66" fill="none" stroke="'+EPK+'" stroke-width="4.4" stroke-linecap="round"/><path d="M80 14 C60 14 53 30 54 46 C55 58 60 64 66 66" fill="none" stroke="'+EPK+'" stroke-width="4.4" stroke-linecap="round"/><path d="M80 14 V24" stroke="'+EPK+'" stroke-width="4.4"/><path d="M56 36 L64 37 M104 36 L96 37" stroke="'+EPK+'" stroke-width="3.6" stroke-linecap="round"/>';else{var sp=epL('M64.6 34 C60 31.4 58.4 26 60.6 20.6 M63 50.4 C58.6 50.4 56.4 47.6 56 44 M71.6 25.6 C70 21 71 17.4 74.4 15.4',EPK,2.6);h+=sp+epM(sp);}
+  h+=epP('M80 23.6 C93.6 23.6 98 34 98 45.6 C98 58 91.6 68.4 80 69.4 C68.4 68.4 62 58 62 45.6 C62 34 66.4 23.6 80 23.6 Z','#2b3036',1.8);
+  h+='<g clip-path="url(#'+id+')"><rect x="60" y="20" width="40" height="40" fill="'+EPSK+'"/>'+epEyes()+'<ellipse cx="80" cy="51.4" rx="7.4" ry="5.4" fill="#2b3036" opacity=".78"/><rect x="60" y="20" width="40" height="40" fill="#9fd3ee" opacity=".32"/><path d="M69 34 L74 29.6" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".9"/><path d="M88.6 51 L91.4 47.6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".7"/></g>';
+  h+='<path d="'+lens+'" fill="none" stroke="#565e66" stroke-width="2.2"/>';
+  if(kind==='apr'){
+    h+='<circle cx="80" cy="61" r="4.6" fill="#454c54" stroke="'+EPO+'" stroke-width="1.4"/>'+epL('M77.6 61 h4.8 M78 63 h4',"#8a939c",1);
+    var f='<g transform="rotate(36 64 62)"><rect x="55.6" y="55" width="16.8" height="19" rx="4" fill="#454c54" stroke="'+EPO+'" stroke-width="1.6"/><rect x="55.6" y="61.6" width="16.8" height="5.4" fill="#8b5a2b" stroke="'+EPO+'" stroke-width="1.1"/><path d="M58.6 57.6 v14" stroke="#6b737c" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="64" cy="73.6" rx="8.4" ry="2.2" fill="#2b3036" stroke="'+EPO+'" stroke-width="1.1"/></g>';
+    h+=f+epM(f);
+  }else{
+    h+=epP('M72.6 57 L87.4 57 L89.6 66.6 C86.4 71 73.6 71 70.4 66.6 Z','#3a4047',1.6)+epL('M75 62.4 h10 M75.6 65.2 h8.8','#7b848d',1.1)+'<circle cx="86.6" cy="60.6" r="2" fill="#e2b400" stroke="'+EPO+'" stroke-width=".9"/>';
+  }
   return h;}
-function epTorso(){return '<path d="M40 53 Q60 47 80 53 Q87 57 86 70 L84 134 Q60 141 36 134 L34 70 Q33 57 40 53Z" fill="'+EPY+'" stroke="'+EPO+'" stroke-width="2.2" stroke-linejoin="round"/><path d="M74 56 Q84 60 83 72 L81 132 Q76 135 70 136 Q76 100 74 56Z" fill="'+EPY2+'" opacity=".55"/><path d="M60 56 V132" stroke="'+EPY2+'" stroke-width="1.6"/><path d="M60 132 L57 141 M60 132 L63 141" stroke="'+EPO+'" stroke-width="1"/>';}
-function epHood(){return '<path d="M42 50 Q38 30 46 18 Q60 6 74 18 Q82 30 78 50 Q60 58 42 50Z" fill="'+EPY+'" stroke="'+EPO+'" stroke-width="2.2" stroke-linejoin="round"/><path d="M72 20 Q79 30 76 48 Q72 51 68 52 Q75 36 72 20Z" fill="'+EPY2+'" opacity=".55"/>';}
-function epFace(cx,cy){return '<ellipse cx="'+cx+'" cy="'+cy+'" rx="9.5" ry="11.5" fill="#f1c7a5" stroke="'+EPO+'" stroke-width="1.5"/>';}
-function epFullMask(cx,cy,fil){/* peça facial inteira; fil: filtros laterais (nível C) ou regulador (B) */
-  var h='<ellipse cx="'+cx+'" cy="'+cy+'" rx="11.5" ry="13.5" fill="'+EPK+'" stroke="'+EPO+'" stroke-width="1.6"/><path d="M'+(cx-8)+' '+(cy-6)+' Q'+cx+' '+(cy-13)+' '+(cx+8)+' '+(cy-6)+' Q'+(cx+9)+' '+(cy+3)+' '+cx+' '+(cy+5)+' Q'+(cx-9)+' '+(cy+3)+' '+(cx-8)+' '+(cy-6)+'Z" fill="#bfe1f3" stroke="'+EPO+'" stroke-width="1"/><circle cx="'+(cx-3.5)+'" cy="'+(cy-4)+'" r="1.1" fill="'+EPO+'"/><circle cx="'+(cx+3.5)+'" cy="'+(cy-4)+'" r="1.1" fill="'+EPO+'"/><path d="M'+(cx-6)+' '+(cy-8)+' l3 -2" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>';
-  if(fil)h+='<g fill="#a87b2c" stroke="'+EPO+'" stroke-width="1.3"><rect x="'+(cx-17)+'" y="'+(cy+4)+'" width="9" height="12" rx="3" transform="rotate(28 '+(cx-12.5)+' '+(cy+10)+')"/><rect x="'+(cx+8)+'" y="'+(cy+4)+'" width="9" height="12" rx="3" transform="rotate(-28 '+(cx+12.5)+' '+(cy+10)+')"/></g><path d="M'+(cx-15)+' '+(cy+9)+'l5 3M'+(cx+15)+' '+(cy+9)+'l-5 3" stroke="#d8b46a" stroke-width="1.2"/><circle cx="'+cx+'" cy="'+(cy+9)+'" r="3.4" fill="#55585e" stroke="'+EPO+'" stroke-width="1.2"/>';
-  else h+='<circle cx="'+cx+'" cy="'+(cy+10)+'" r="5.2" fill="#55585e" stroke="'+EPO+'" stroke-width="1.4"/><path d="M'+(cx-2.5)+' '+(cy+9)+'h5M'+(cx-2.5)+' '+(cy+11)+'h5" stroke="#9aa0a6" stroke-width="1"/>';
-  return h;}
+/* ---- figuras ---- */
 function epFig(k){
-  var h='<svg class="epfig" viewBox="0 0 120 216" role="img" aria-label="'+esc(EPX().lv[k][0])+'">';
+  var X=EPX(),h='<svg class="epfig" viewBox="0 0 160 300" role="img" aria-label="'+esc(X.lv[k][0])+'">';
+  h+='<ellipse cx="80" cy="294" rx="44" ry="4.4" fill="#000" opacity=".1"/>';
   if(k==='A'){
-    h+=epBody(true);
-    h+='<path d="M60 5 C81 5 91 18 92 36 L94 58 Q101 64 100 78 L98 136 Q60 146 22 136 L20 78 Q19 64 26 58 L28 36 C29 18 39 5 60 5Z" fill="'+EPY+'" stroke="'+EPO+'" stroke-width="2.4" stroke-linejoin="round"/>';
-    h+='<path d="M80 12 C90 22 91 40 93 58 Q99 66 98 80 L96 134 Q88 138 80 139 Q86 90 84 50 Q84 26 80 12Z" fill="'+EPY2+'" opacity=".55"/>';
-    h+='<rect x="38" y="15" width="44" height="33" rx="11" fill="#2f3a40" stroke="'+EPO+'" stroke-width="2"/><rect x="40.5" y="17.5" width="39" height="28" rx="9" fill="#9fd0ea" opacity=".85"/>';
-    h+=epFace(60,32)+epFullMask(60,32,false).replace(/r="5\.2"/,'r="4.6"');
-    h+='<path d="M44 22 l9 -3" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".9"/><path d="M73 42 l5 -3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".7"/>';
-    h+='<path d="M47 56 Q60 66 73 56 V122 Q60 128 47 122 Z" fill="none" stroke="'+EPY2+'" stroke-width="2"/><path d="M47 56 Q60 66 73 56" stroke="'+EPO+'" stroke-width="1" fill="none" opacity=".5"/>';
-    h+='<circle cx="31" cy="48" r="3.4" fill="#55585e" stroke="'+EPO+'" stroke-width="1.2"/><circle cx="89" cy="48" r="3.4" fill="#55585e" stroke="'+EPO+'" stroke-width="1.2"/>';
+    h+=epBoots();
+    var lg=epP('M45 166 C43 200 47 232 51.6 262 L77 262 C76.6 234 78.6 208 80 190 Z',EPY)+'<path d="M80 190 C78.6 208 76.6 234 77 262 L70 262 C71 234 73 210 76 192 Z" fill="'+EPY2+'" opacity=".6"/>'+epL('M52 210 q8 4.4 18 .6',EPY2,1.5)+epL('M51 230 q7 3 15 0',EPY2,1.2)+'<path d="M50.6 250 L77.4 250 L77.4 263 L51.6 263 Z" fill="'+EPY3+'" stroke="'+EPO+'" stroke-width="1.6"/>';
+    h+=lg+epM(lg);
+    h+=epP('M80 5 C99 5 109.6 16 111.4 34 L112.4 60 C120.4 62 126.4 68.4 127.4 79 L124.6 150 C124.6 163 122 173 116 181 C106 189 93 191 80 191 C67 191 54 189 44 181 C38 173 35.4 163 35.4 150 L32.6 79 C33.6 68.4 39.6 62 47.6 60 L48.6 34 C50.4 16 61 5 80 5 Z',EPY,2.2);
+    h+='<path d="M98 10 C106 16 110 24 111 34 L112 60 C120 62 125.4 68 126.4 78 L123.6 150 C123.6 162 121 172 116 180 C110 185 104 188 97 189.4 C107 160 108 110 106 60 C105.4 38 103 22 98 10 Z" fill="'+EPY2+'" opacity=".6"/>';
+    h+=epL('M47 76 C44 100 45 140 48 172',EPYH,3.4,' opacity=".75"');
+    h+='<path d="M77 70 C76.4 100 76.4 150 77.4 178 L83.6 178 C84.6 150 84.6 100 84 70 Z" fill="'+EPY2+'" opacity=".7"/>'+epL('M77 70 C76.4 100 76.4 150 77.4 178',EPY3,1.3)+epL('M80.6 74 V174',EPY3,.9,' stroke-dasharray="2.4 2"');
+    h+=epP('M57 16.4 C64 12.6 96 12.6 103 16.4 C108 20 109 29 109 40 C109 53 106.6 61 100.4 64.4 C93.4 68 66.6 68 59.6 64.4 C53.4 61 51 53 51 40 C51 29 52 20 57 16.4 Z','#2b3036',2.2);
+    h+='<path d="M59.6 19.6 C66 16.4 94 16.4 100.4 19.6 C104.6 22.6 105.6 30 105.6 40 C105.6 51 103.6 58 98.6 60.8 C92.6 64 67.4 64 61.4 60.8 C56.4 58 54.4 51 54.4 40 C54.4 30 55.4 22.6 59.6 19.6 Z" fill="#cfe6f2"/>';
+    h+='<g transform="translate(80 41) scale(.94) translate(-80 -46)">'+epMask('scba')+'</g>';
+    h+='<path d="M59.6 19.6 C66 16.4 94 16.4 100.4 19.6 C104.6 22.6 105.6 30 105.6 40 C105.6 51 103.6 58 98.6 60.8 C92.6 64 67.4 64 61.4 60.8 C56.4 58 54.4 51 54.4 40 C54.4 30 55.4 22.6 59.6 19.6 Z" fill="#7fc4e8" opacity=".22"/>';
+    h+=epL('M60 30 C61 25 64 22.4 69 21.4',"#fff",3,' opacity=".85"')+epL('M99.6 50 C99 55 97 58 94 59.4',"#fff",2,' opacity=".6"');
+    var vv='<circle cx="44" cy="96" r="5.2" fill="#5b626b" stroke="'+EPO+'" stroke-width="1.5"/><circle cx="44" cy="96" r="2.4" fill="#3a4047"/>';h+=vv+epM(vv);
+    var ar=epP('M52 64 C40 66 34 74 33 88 L26.6 130 L22.6 170 L42 171.4 L44 134 L48 106 C50 96 52 82 52 64 Z',EPY)+'<path d="M48 106 L44 134 L42 171.4 L37 171 L39 134 L43 108 C45 98 47 84 48 70 C51 76 50 96 48 106 Z" fill="'+EPY2+'" opacity=".6"/>'+epL('M29.6 126 q6.4 4 13 1.6',EPY2,1.6)+epL('M32 98 q5 2.4 10 1.4',EPY2,1.2)+'<path d="M22.4 163 L42.4 164.4 L42.2 172.4 L22 171 Z" fill="'+EPK+'" stroke="'+EPO+'" stroke-width="1.6"/>';
+    h+=ar+epM(ar);
+    h+='<g transform="translate(-5 2)">'+epGlove(EPG,EPG2,false)+'</g>'+epM('<g transform="translate(-5 2)">'+epGlove(EPG,EPG2,false)+'</g>');
   }else if(k==='B'||k==='C'){
-    if(k==='B')h+='<rect x="74" y="58" width="15" height="62" rx="7" fill="#c9ced6" stroke="'+EPO+'" stroke-width="1.6"/><rect x="78" y="118" width="7" height="7" rx="1.5" fill="#55585e" stroke="'+EPO+'" stroke-width="1.2"/>';
-    h+=epBody(false)+epTorso()+epHood()+epFace(60,32)+epFullMask(60,33,k==='C');
+    if(k==='B'){h+=epP('M94 74 L113 74 C118 74 120 78 120 84 L120 156 C120 162 117 166 112 166 L100 166 Z','#c7ced8',1.8)+epL('M114 82 V158','#e8edf2',2.4)+'<rect x="102" y="164" width="12" height="9" rx="2" fill="#3a4047" stroke="'+EPO+'" stroke-width="1.4"/>';}
+    h+=epBoots()+epLegs(EPY,EPY2,EPK)+epTorso(EPY,EPY2,EPYH)+epHood(EPY,EPY2)+epArm(EPY,EPY2,EPK)+epGloves();
+    h+=epMask(k==='B'?'scba':'apr');
     if(k==='B'){
-      h+='<g stroke="'+EPO+'" stroke-width="1.3"><path d="M44 54 L41 106" stroke="'+EPK+'" stroke-width="6" stroke-linecap="round"/><path d="M76 54 L79 106" stroke="'+EPK+'" stroke-width="6" stroke-linecap="round"/><rect x="34" y="102" width="52" height="7" rx="2" fill="'+EPK+'"/><rect x="55" y="101" width="10" height="9" rx="2" fill="#9aa0a6"/></g>';
-      h+='<path d="M64 47 Q72 56 76 70" stroke="'+EPK+'" stroke-width="3" fill="none" stroke-linecap="round"/>';
-      h+='<path d="M42 76 Q46 86 46 92" stroke="'+EPK+'" stroke-width="2.4" fill="none"/><circle cx="46" cy="95" r="4.6" fill="#fff" stroke="'+EPO+'" stroke-width="1.5"/><path d="M46 95 l2.4 -2.4" stroke="#c8102e" stroke-width="1.3"/>';
-    }else h+='<rect x="34" y="102" width="52" height="6" rx="2" fill="'+EPY2+'" stroke="'+EPO+'" stroke-width="1.2"/>';
+      var st=epP('M63 70 L72 70 L67.6 147 L58.6 147 Z',EPK,1.6)+'<rect x="60.4" y="118" width="7.6" height="6" rx="1.4" fill="#8a939c" stroke="'+EPO+'" stroke-width="1"/>';h+=st+epM(st);
+      h+=epP('M68 100 L92 100 L92 105 L68 105 Z',EPK,1.2)+'<rect x="76.6" y="98.6" width="6.8" height="7.8" rx="1.4" fill="#8a939c" stroke="'+EPO+'" stroke-width="1"/>';
+      h+=epP('M54.6 143 L105.4 143 L105.8 154 L54.2 154 Z',EPK,1.6)+'<rect x="73.6" y="141" width="12.8" height="15" rx="2.4" fill="#9aa3ad" stroke="'+EPO+'" stroke-width="1.3"/>';
+      h+=epL('M87 66 C97 72 100 84 97.6 100',EPK,3.4);
+      h+=epL('M64.6 92 C58 100 55.6 108 56.4 116',EPK,2.4)+'<circle cx="56.6" cy="121" r="6.2" fill="#fff" stroke="'+EPO+'" stroke-width="1.8"/><path d="M51.6 122.6 A5 5 0 0 1 54 117" stroke="#c8102e" stroke-width="1.6" fill="none"/><path d="M54 117 A5 5 0 0 1 61.4 120.6" stroke="#2e9d4f" stroke-width="1.6" fill="none"/><path d="M56.6 121 l3 -2.6" stroke="'+EPO+'" stroke-width="1.2" stroke-linecap="round"/>';
+    }else{
+      h+=epP('M56.6 145 L103.4 145 L103.6 152 L56.4 152 Z',EPY2,1.4);
+    }
   }else if(k==='D'){
-    h+=epBody(false)+epTorso();
-    h+='<path d="M50 52 L60 64 L70 52" fill="#fff" stroke="'+EPO+'" stroke-width="1.4" stroke-linejoin="round"/><path d="M60 64 V100" stroke="'+EPO+'" stroke-width="1"/>';
-    h+='<rect x="54" y="42" width="12" height="10" fill="#f1c7a5" stroke="'+EPO+'" stroke-width="1.4"/>'+epFace(60,32);
-    h+='<path d="M50 30 h20 v5 q-5 3 -10 0 q-5 3 -10 0z" fill="#bfe1f3" stroke="'+EPO+'" stroke-width="1.3"/><path d="M56 41 q4 2 8 0" stroke="'+EPO+'" stroke-width="1.2" fill="none"/>';
-    h+='<path d="M45 26 Q45 10 60 10 Q75 10 75 26 Z" fill="#fff" stroke="'+EPO+'" stroke-width="2"/><path d="M41 26 H79 Q80 29 77 29 H43 Q40 29 41 26Z" fill="#fff" stroke="'+EPO+'" stroke-width="1.6"/><path d="M60 11 V26" stroke="#d9dde2" stroke-width="3"/>';
-    h+='<rect x="34" y="100" width="52" height="7" rx="2" fill="#6b4a2b" stroke="'+EPO+'" stroke-width="1.2"/><rect x="40" y="105" width="9" height="11" rx="2" fill="#7c5a35" stroke="'+EPO+'" stroke-width="1.1"/><rect x="56" y="100" width="8" height="7" rx="1.5" fill="#c9ced6" stroke="'+EPO+'" stroke-width="1"/>';
-    h+='<path d="M40 70 H55 M65 70 H80" stroke="#c9ced6" stroke-width="3"/><path d="M38 160 H57 M63 160 H82" stroke="#c9ced6" stroke-width="3"/>';
+    h+=epBoots('#6b4423','#2b2118')+epLegs(EPY,EPY2,null);
+    var rf='<path d="M57.4 228 L76.6 228 L76.4 234 L57.8 234 Z" fill="#c9ced6" stroke="'+EPO+'" stroke-width="1.1"/>';h+=rf+epM(rf);
+    var hem='<path d="M58.6 256 L77.2 256 L77 263 L59 263 Z" fill="'+EPY2+'" stroke="'+EPO+'" stroke-width="1.4"/>';h+=hem+epM(hem);
+    h+=epTorso(EPY,EPY2,EPYH);
+    h+=epP('M70 60 L90 60 L90 72 L70 72 Z',EPSK,1.4);
+    h+=epP('M66 68 L80 84 L94 68 L99 70 L80 96 L61 70 Z',EPY2,1.5)+epP('M70 69 L80 82 L90 69 Z','#f4f1ea',1.2);
+    var pk='<rect x="61" y="96" width="14" height="13" rx="1.6" fill="'+EPY+'" stroke="'+EPO+'" stroke-width="1.3"/><path d="M61 96 L75 96 L75 101 L61 101 Z" fill="'+EPY2+'" stroke="'+EPO+'" stroke-width="1.2"/>';h+=pk+epM(pk);
+    var cs='<path d="M57.8 118 L76 118 L76 123.6 L58.2 123.6 Z" fill="#c9ced6" stroke="'+EPO+'" stroke-width="1.1"/>';h+=cs+epM(cs);
+    h+=epP('M56.6 143 L103.4 143 L103.6 151 L56.4 151 Z','#6b4423',1.4)+'<rect x="75" y="141.6" width="10" height="10.6" rx="1.6" fill="#c9ced6" stroke="'+EPO+'" stroke-width="1.2"/>'+epP('M88 150 L99 150 L98.4 166 L88.6 166 Z','#7c5a35',1.3);
+    h+=epArm(EPY,EPY2,null);
+    var ab='<path d="M37.4 112 L51.6 113.6 L50.8 119 L36.6 117.4 Z" fill="#c9ced6" stroke="'+EPO+'" stroke-width="1.1"/>';h+=ab+epM(ab);
+    h+=epGloves('#c99a5b','#a87b42',true);
+    h+='<path d="M64 38 C64 24 70 18 80 18 C90 18 96 24 96 38" fill="#4a3426" stroke="'+EPO+'" stroke-width="1.4"/>'+epFacePlain();
+    h+=epP('M67 38.6 L93 38.6 L92.4 45.6 C90 47.4 86.4 47.4 84 45.6 L82 43.4 L78 43.4 L76 45.6 C73.6 47.4 70 47.4 67.6 45.6 Z','#cfe9f7',1.4,' fill-opacity=".85"')+epL('M69.6 41 l3 -1.4',"#fff",1.3);
+    h+=epP('M62.6 31 C62.6 17 70 9.6 80 9.6 C90 9.6 97.4 17 97.4 31 Z','#fafafa',1.8)+'<path d="M76.6 10.2 L83.4 10.2 L84.4 31 L75.6 31 Z" fill="#e3e7eb" stroke="'+EPO+'" stroke-width="1.1"/>'+epP('M57.4 30 L102.6 30 C104 30 104 34 102 34.4 L58 34.4 C56 34 56 30 57.4 30 Z','#fafafa',1.6)+epL('M90 14.6 C94 18 96 23 96.4 28','#d8dde3',2.2);
   }
   return h+'</svg>';}
-function epGear(k){/* S = equipamento autônomo; P = respirador purificador */
-  var h='<svg class="epfig gear" viewBox="0 0 120 120" role="img" aria-label="'+esc(EPX().lv[k][0])+'">';
+/* ---- equipamentos (viewBox 0 0 160 140) ---- */
+function epGear(k){
+  var X=EPX(),h='<svg class="epfig gear" viewBox="0 0 160 140" role="img" aria-label="'+esc(X.lv[k][0])+'">';
   if(k==='S'){
-    h+='<rect x="18" y="10" width="40" height="100" rx="10" fill="'+EPK+'" stroke="'+EPO+'" stroke-width="2"/><rect x="25" y="14" width="26" height="82" rx="13" fill="#c9ced6" stroke="'+EPO+'" stroke-width="1.8"/><path d="M27 38h22M27 72h22" stroke="#9aa0a6" stroke-width="2"/><rect x="33" y="94" width="10" height="9" rx="2" fill="#55585e" stroke="'+EPO+'" stroke-width="1.4"/><path d="M28 30 l5 -8" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"/>';
-    h+='<path d="M43 102 Q70 112 84 84" stroke="'+EPK+'" stroke-width="3.4" fill="none" stroke-linecap="round"/><path d="M22 60 Q8 70 12 86" stroke="'+EPK+'" stroke-width="2.6" fill="none"/><circle cx="13" cy="91" r="7" fill="#fff" stroke="'+EPO+'" stroke-width="1.8"/><path d="M13 91 l3.5 -3.5" stroke="#c8102e" stroke-width="1.6"/>';
-    h+='<g transform="translate(84 48) scale(1.7) translate(-60 -33)">'+epFullMask(60,33,false)+'</g>';
+    h+=epP('M16 22 C16 14 22 10 30 10 L56 10 C64 10 70 14 70 22 L70 112 C70 120 64 124 56 124 L30 124 C22 124 16 120 16 112 Z',EPK,2);
+    h+=epL('M22 30 C10 38 8 60 14 78',EPK,6)+epL('M64 30 C76 38 78 60 72 78',EPK,6);
+    h+='<rect x="24" y="14" width="38" height="96" rx="16" fill="#c7ced8" stroke="'+EPO+'" stroke-width="2"/><rect x="24" y="44" width="38" height="24" fill="#e2b400" stroke="'+EPO+'" stroke-width="1.4"/>'+epL('M30.6 22 C28 34 28 80 30.6 102','#f3f6f9',3.4)+epL('M57 26 C59 40 59 84 57 100','#9aa3ad',2.4);
+    h+='<text x="43" y="60" text-anchor="middle" font-family="Archivo,Arial,sans-serif" font-weight="900" font-size="9" fill="'+EPO+'">AR</text>';
+    h+='<rect x="36" y="108" width="14" height="10" rx="2" fill="#3a4047" stroke="'+EPO+'" stroke-width="1.5"/><ellipse cx="43" cy="125" rx="10" ry="4" fill="'+EPK+'" stroke="'+EPO+'" stroke-width="1.6"/>'+epL('M35 125 h16','#5b626b',1.2);
+    h+=epL('M28 112 C12 118 8 102 12 92','#3a4047',3)+'<circle cx="12" cy="86" r="7.6" fill="#fff" stroke="'+EPO+'" stroke-width="2"/><path d="M6.6 88.4 A6 6 0 0 1 9.4 81" stroke="#c8102e" stroke-width="2" fill="none"/><path d="M9.4 81 A6 6 0 0 1 18.2 85.6" stroke="#2e9d4f" stroke-width="2" fill="none"/><path d="M12 86 l3.6 -3" stroke="'+EPO+'" stroke-width="1.5" stroke-linecap="round"/>';
+    h+=epL('M50 114 C80 132 104 120 108 100','#3a4047',3.6);
+    h+='<g transform="translate(116 60) scale(1.32) translate(-80 -44)">'+epMask('scba',1)+'</g>';
   }else{
-    h+='<path d="M24 46 Q14 50 12 70" stroke="'+EPK+'" stroke-width="3" fill="none"/><path d="M96 46 Q106 50 108 70" stroke="'+EPK+'" stroke-width="3" fill="none"/><path d="M30 26 Q60 2 90 26" stroke="'+EPK+'" stroke-width="3" fill="none"/>';
-    h+='<g transform="translate(60 50) scale(2.75) translate(-60 -33)">'+epFullMask(60,33,true)+'</g>';
+    h+='<g transform="translate(80 66) scale(1.66) translate(-80 -45)">'+epMask('apr',1)+'</g>';
   }
   return h+'</svg>';}
 
@@ -1838,7 +1929,7 @@ var EPTREE={traje:{s:'ident',n:{ident:{y:'conc',n:'=A'},conc:{y:'ipvs',n:'pele'}
   epr:{s:'rid',n:{rid:{y:'rconc',n:'=S'},rconc:{y:'ro2',n:'=S'},ro2:{y:'=S',n:'ripvs'},ripvs:{y:'=S',n:'rlt'},rlt:{y:'r10',n:'rout'},r10:{y:'=S',n:'rout'},rout:{y:'=S',n:'=P'}}}};
 var EPL={
 pt:{t:'EPI e EPR',intro:'Responda Sim ou Não, uma pergunta por vez. O resultado segue o fluxograma da ABNT NBR 14064:2015.',m:{traje:['Nível de proteção','Traje A, B, C ou D'],epr:['Proteção respiratória','Autônomo ou purificador']},
- q:'Pergunta',yes:'Sim',no:'Não',back:'Voltar uma pergunta',again:'Recomeçar',res:'Resultado',path:'Suas respostas',edit:'alterar',why:'Quando usar',lvT:'Os quatro níveis de proteção',src:'Baseado nos fluxogramas da ABNT NBR 14064:2015 (atendimento a emergência no transporte terrestre de produtos perigosos). Confirme com o procedimento da sua corporação.',
+ q:'Pergunta',of:'de até',dk:'Não sei',dkD:'segue pela opção mais protetora',dkT:'Não sei',map:'Esquema de decisão',mapD:'O caminho das suas respostas fica destacado. Toque numa pergunta já respondida para alterá-la.',nxt:'próxima pergunta',QS:{ident:'Todos os produtos identificados?',conc:'Concentrações conhecidas?',pele:'Tóxico à pele?',pele2:'Tóxico à pele?',ipvs:'Gás ou vapor acima do IPVS?',o2:'O₂ abaixo de 19,5%?',lt:'Acima do Limite de Tolerância?',filtro:'Filtro químico adequado?',adv:'Algum efeito adverso?',rid:'Produto identificado?',rconc:'Dá para medir a concentração?',ro2:'Risco de O₂ abaixo de 19,5%?',ripvs:'Acima do IPVS?',rlt:'Acima do LT (NR-15)?',r10:'Mais de 10 × o LT?',rout:'Outros contaminantes no ar?'},LS:{A:'Nível A',B:'Nível B',C:'Nível C',D:'Nível D',S:'Autônomo',P:'Purificador'},yes:'Sim',no:'Não',back:'Voltar uma pergunta',again:'Recomeçar',res:'Resultado',path:'Suas respostas',edit:'alterar',why:'Quando usar',lvT:'Os quatro níveis de proteção',src:'Baseado nos fluxogramas da ABNT NBR 14064:2015 (atendimento a emergência no transporte terrestre de produtos perigosos). Confirme com o procedimento da sua corporação.',
  warn:['Traje de proteção química não protege contra fogo. Com fogo ou atmosfera inflamável, siga a guia (seção laranja).','Oxigênio acima do normal (atmosfera enriquecida) aumenta o risco de incêndio.','Na dúvida entre dois níveis, use o mais alto.'],
  Q:{ident:['Todos os produtos envolvidos foram identificados?','Pelo nº ONU, rótulo, documento de transporte ou FISPQ.'],conc:['As concentrações no ambiente são conhecidas?','Medidas no local com detector adequado ao produto.'],pele:['O produto é tóxico à pele?','Absorvido pela pele, corrosivo ou com aviso de contato na guia ou na FISPQ.'],ipvs:['A concentração de gás ou vapor é maior que o IPVS?','IPVS: Imediatamente Perigoso à Vida ou à Saúde (em inglês, IDLH).'],o2:['O oxigênio está abaixo de 19,5% em volume?','Meça com detector de O₂. O ar normal tem cerca de 20,9%.'],lt:['A concentração está acima do Limite de Tolerância?','LT da NR-15 (Anexo 11) ou o limite de exposição indicado na FISPQ.'],filtro:['A máscara com filtro químico é adequada à concentração do produto?','O filtro precisa ser do tipo certo para o produto e a concentração precisa caber no fator de proteção da máscara.'],adv:['Mesmo abaixo do LT, há algum efeito adverso?','Irritação nos olhos ou nas vias aéreas, odor forte, sintomas na equipe ou contato com o produto.'],
   rid:['O produto foi identificado?','Pelo nº ONU, rótulo, documento de transporte ou FISPQ.'],rconc:['É possível determinar a concentração?','Medida no local com detector adequado ao produto.'],ro2:['Existe risco de a atmosfera ter menos de 19,5% de oxigênio?','Locais confinados, gases que deslocam o ar ou vazamentos grandes.'],ripvs:['A concentração está acima do IPVS?','IPVS: Imediatamente Perigoso à Vida ou à Saúde (em inglês, IDLH).'],rlt:['A concentração está acima do Limite de Tolerância (NR-15)?','LT da NR-15, Anexo 11.'],r10:['A concentração é maior que 10 vezes o LT?','Acima disso, o respirador purificador pode não proteger o suficiente.'],rout:['Existem outros contaminantes na atmosfera?','Outros gases, vapores, fumaça ou poeira além do produto avaliado.']},
@@ -1849,7 +1940,7 @@ pt:{t:'EPI e EPR',intro:'Responda Sim ou Não, uma pergunta por vez. O resultado
   S:['Equipamento autônomo de ar respirável','O ar vem do cilindro, sem depender do ambiente',['Peça facial inteira, com pressão positiva','Cilindro com autonomia para entrar, trabalhar e sair','Teste de vedação e do alarme antes de entrar'],'Produto ou concentração desconhecidos, falta de O₂, acima do IPVS, acima de 10 vezes o LT ou com outros contaminantes.'],
   P:['Respirador purificador de ar','Filtra o ar do ambiente',['Escolha conforme a recomendação do fabricante para o produto','Filtro químico do tipo certo para o produto','Peça facial inteira protege também os olhos','O filtro satura: troque conforme o fabricante'],'Só com produto e concentração conhecidos, O₂ de 19,5% ou mais, abaixo do IPVS e até 10 vezes o LT.']}},
 en:{t:'PPE and RPE',intro:'Answer Yes or No, one question at a time. The result follows the ABNT NBR 14064:2015 flowcharts.',m:{traje:['Protection level','Suit A, B, C or D'],epr:['Respiratory protection','SCBA or air-purifying']},
- q:'Question',yes:'Yes',no:'No',back:'Previous question',again:'Start over',res:'Result',path:'Your answers',edit:'change',why:'When to use',lvT:'The four protection levels',src:'Based on the ABNT NBR 14064:2015 flowcharts (Brazilian standard for road transport hazmat emergency response). Confirm with your department\'s procedures.',
+ q:'Question',of:'of up to',dk:'Not sure',dkD:'takes the more protective option',dkT:'Not sure',map:'Decision chart',mapD:'Your path is highlighted. Tap an answered question to change it.',nxt:'next question',QS:{ident:'All materials identified?',conc:'Concentrations known?',pele:'Toxic to skin?',pele2:'Toxic to skin?',ipvs:'Gas or vapor above IDLH?',o2:'O₂ below 19.5%?',lt:'Above exposure limit?',filtro:'Cartridge adequate?',adv:'Any adverse effect?',rid:'Material identified?',rconc:'Concentration measurable?',ro2:'Risk of O₂ below 19.5%?',ripvs:'Above IDLH?',rlt:'Above exposure limit?',r10:'More than 10 × the limit?',rout:'Other contaminants in the air?'},LS:{A:'Level A',B:'Level B',C:'Level C',D:'Level D',S:'SCBA',P:'Air-purifying'},yes:'Yes',no:'No',back:'Previous question',again:'Start over',res:'Result',path:'Your answers',edit:'change',why:'When to use',lvT:'The four protection levels',src:'Based on the ABNT NBR 14064:2015 flowcharts (Brazilian standard for road transport hazmat emergency response). Confirm with your department\'s procedures.',
  warn:['Chemical protective clothing does not protect against fire. With fire or a flammable atmosphere, follow the guide (orange section).','Oxygen above normal (enriched atmosphere) increases the fire risk.','If in doubt between two levels, use the higher one.'],
  Q:{ident:['Have all materials involved been identified?','By ID number, label, shipping paper or SDS.'],conc:['Are the airborne concentrations known?','Measured on site with a detector suited to the material.'],pele:['Is the material toxic to the skin?','Absorbed through skin, corrosive, or with a contact warning in the guide or SDS.'],ipvs:['Is the gas or vapor concentration above IDLH?','IDLH: Immediately Dangerous to Life or Health.'],o2:['Is oxygen below 19.5% by volume?','Measure with an O₂ meter. Normal air is about 20.9%.'],lt:['Is the concentration above the exposure limit?','Occupational exposure limit (NR-15 in Brazil) or the limit in the SDS.'],filtro:['Is a chemical-cartridge mask adequate for the concentration?','The cartridge must match the material and the concentration must fit the mask\'s protection factor.'],adv:['Even below the limit, is there any adverse effect?','Eye or airway irritation, strong odor, symptoms in the crew or contact with the material.'],
   rid:['Has the material been identified?','By ID number, label, shipping paper or SDS.'],rconc:['Can the concentration be determined?','Measured on site with a detector suited to the material.'],ro2:['Could the atmosphere have less than 19.5% oxygen?','Confined spaces, gases that displace air, or large leaks.'],ripvs:['Is the concentration above IDLH?','IDLH: Immediately Dangerous to Life or Health.'],rlt:['Is the concentration above the exposure limit (NR-15)?','NR-15, Annex 11 limit.'],r10:['Is the concentration more than 10 times the limit?','Above that, an air-purifying respirator may not protect enough.'],rout:['Are other contaminants present in the air?','Other gases, vapors, smoke or dust besides the material assessed.']},
@@ -1860,7 +1951,7 @@ en:{t:'PPE and RPE',intro:'Answer Yes or No, one question at a time. The result 
   S:['Self-contained breathing apparatus (SCBA)','Air comes from the cylinder, independent of the atmosphere',['Full facepiece, positive pressure','Cylinder with enough air to go in, work and come out','Seal and alarm check before entry'],'Unknown material or concentration, low O₂, above IDLH, over 10 times the limit, or other contaminants.'],
   P:['Air-purifying respirator','Filters the surrounding air',['Choose per the manufacturer\'s recommendation for the material','Chemical cartridge of the right type','A full facepiece also protects the eyes','Cartridges saturate: replace per the manufacturer'],'Only with known material and concentration, O₂ 19.5% or more, below IDLH and up to 10 times the limit.']}},
 es:{t:'EPP y EPR',intro:'Responda Sí o No, una pregunta a la vez. El resultado sigue los diagramas de la ABNT NBR 14064:2015.',m:{traje:['Nivel de protección','Traje A, B, C o D'],epr:['Protección respiratoria','Autónomo o purificador']},
- q:'Pregunta',yes:'Sí',no:'No',back:'Pregunta anterior',again:'Reiniciar',res:'Resultado',path:'Sus respuestas',edit:'cambiar',why:'Cuándo usar',lvT:'Los cuatro niveles de protección',src:'Basado en los diagramas de la ABNT NBR 14064:2015 (norma brasileña de atención a emergencias en el transporte terrestre de materiales peligrosos). Confirme con el procedimiento de su institución.',
+ q:'Pregunta',of:'de hasta',dk:'No sé',dkD:'sigue por la opción más protectora',dkT:'No sé',map:'Esquema de decisión',mapD:'El camino de sus respuestas queda resaltado. Toque una pregunta ya respondida para cambiarla.',nxt:'siguiente pregunta',QS:{ident:'¿Todos los materiales identificados?',conc:'¿Concentraciones conocidas?',pele:'¿Tóxico para la piel?',pele2:'¿Tóxico para la piel?',ipvs:'¿Gas o vapor sobre el IPVS?',o2:'¿O₂ bajo 19,5 %?',lt:'¿Sobre el límite de exposición?',filtro:'¿Filtro químico adecuado?',adv:'¿Algún efecto adverso?',rid:'¿Material identificado?',rconc:'¿Se puede medir la concentración?',ro2:'¿Riesgo de O₂ bajo 19,5 %?',ripvs:'¿Sobre el IPVS?',rlt:'¿Sobre el límite (NR-15)?',r10:'¿Más de 10 × el límite?',rout:'¿Otros contaminantes en el aire?'},LS:{A:'Nivel A',B:'Nivel B',C:'Nivel C',D:'Nivel D',S:'Autónomo',P:'Purificador'},yes:'Sí',no:'No',back:'Pregunta anterior',again:'Reiniciar',res:'Resultado',path:'Sus respuestas',edit:'cambiar',why:'Cuándo usar',lvT:'Los cuatro niveles de protección',src:'Basado en los diagramas de la ABNT NBR 14064:2015 (norma brasileña de atención a emergencias en el transporte terrestre de materiales peligrosos). Confirme con el procedimiento de su institución.',
  warn:['El traje de protección química no protege contra el fuego. Con fuego o atmósfera inflamable, siga la guía (sección naranja).','Oxígeno por encima de lo normal (atmósfera enriquecida) aumenta el riesgo de incendio.','Si duda entre dos niveles, use el más alto.'],
  Q:{ident:['¿Se identificaron todos los materiales involucrados?','Por el nº ONU, etiqueta, documento de transporte u hoja de seguridad.'],conc:['¿Se conocen las concentraciones en el ambiente?','Medidas en el lugar con detector adecuado al material.'],pele:['¿El material es tóxico para la piel?','Se absorbe por la piel, es corrosivo o la guía u hoja de seguridad advierte sobre el contacto.'],ipvs:['¿La concentración de gas o vapor es mayor que el IPVS?','IPVS: Inmediatamente Peligroso para la Vida o la Salud (en inglés, IDLH).'],o2:['¿El oxígeno está por debajo de 19,5 % en volumen?','Mida con detector de O₂. El aire normal tiene cerca de 20,9 %.'],lt:['¿La concentración está por encima del límite de exposición?','Límite de exposición laboral (NR-15 en Brasil) o el de la hoja de seguridad.'],filtro:['¿La máscara con filtro químico es adecuada a la concentración?','El filtro debe ser del tipo correcto y la concentración debe caber en el factor de protección de la máscara.'],adv:['Aun por debajo del límite, ¿hay algún efecto adverso?','Irritación en ojos o vías respiratorias, olor fuerte, síntomas en el equipo o contacto con el material.'],
   rid:['¿Se identificó el material?','Por el nº ONU, etiqueta, documento de transporte u hoja de seguridad.'],rconc:['¿Es posible determinar la concentración?','Medida en el lugar con detector adecuado al material.'],ro2:['¿Puede la atmósfera tener menos de 19,5 % de oxígeno?','Espacios confinados, gases que desplazan el aire o fugas grandes.'],ripvs:['¿La concentración está por encima del IPVS?','IPVS: Inmediatamente Peligroso para la Vida o la Salud (en inglés, IDLH).'],rlt:['¿La concentración está por encima del límite de exposición (NR-15)?','Límite de la NR-15, Anexo 11.'],r10:['¿La concentración es mayor que 10 veces el límite?','Por encima de eso, el respirador purificador puede no proteger lo suficiente.'],rout:['¿Hay otros contaminantes en el aire?','Otros gases, vapores, humo o polvo además del material evaluado.']},
@@ -1872,28 +1963,50 @@ es:{t:'EPP y EPR',intro:'Responda Sí o No, una pregunta a la vez. El resultado 
   P:['Respirador purificador de aire','Filtra el aire del ambiente',['Elija según la recomendación del fabricante para el material','Filtro químico del tipo correcto','La pieza facial completa también protege los ojos','El filtro se satura: cámbielo según el fabricante'],'Solo con material y concentración conocidos, O₂ de 19,5 % o más, por debajo del IPVS y hasta 10 veces el límite.']}}};
 function EPX(){return EPL[state.lang]||EPL.pt;}
 var EP={m:'traje',a:[]};
-function epWalk(){var T=EPTREE[EP.m],k=T.s,steps=[];for(var i=0;i<EP.a.length;i++){steps.push(k);var nx=T.n[k][EP.a[i]?'y':'n'];if(nx.charAt(0)==='='){EP.a.length=i+1;return {steps:steps,res:nx.slice(1)};}k=nx;}return {steps:steps,cur:k};}
+/* resposta mais protetora para o "Não sei" */
+var EPCONS={ident:0,conc:0,pele:1,pele2:1,ipvs:1,o2:1,lt:1,filtro:0,adv:1,rid:0,rconc:0,ro2:1,ripvs:1,rlt:1,r10:1,rout:1};
+var EPSP={traje:['ident','conc','ipvs','o2','lt','adv'],epr:['rid','rconc','ro2','ripvs','rlt','rout']};
+function epEff(k,a){return a==='u'?!!EPCONS[k]:!!a;}
+function epWalk(){var T=EPTREE[EP.m],k=T.s,steps=[],eff={};for(var i=0;i<EP.a.length;i++){steps.push(k);var y=epEff(k,EP.a[i]);eff[k]=[y,EP.a[i]==='u',i];var nx=T.n[k][y?'y':'n'];if(nx.charAt(0)==='='){EP.a.length=i+1;return {steps:steps,res:nx.slice(1),eff:eff};}k=nx;}return {steps:steps,cur:k,eff:eff};}
+function epDepth(){var T=EPTREE[EP.m];function d(k){if(k.charAt(0)==='=')return 0;var n=T.n[k];return 1+Math.max(d(n.y),d(n.n));}var W=epWalk();return W.res?W.steps.length:W.steps.length+d(W.cur);}
+function epMapHTML(W,X){var T=EPTREE[EP.m],sp=EPSP[EP.m];
+  function lab(k,y){var e=W.eff[k],tk=e&&e[0]===y;return '<em class="'+(tk?'tk':'')+'">'+esc(y?X.yes:X.no)+(tk&&e[1]?' · '+esc(X.dkT):'')+'</em>';}
+  function out(k,y){var t=T.n[k][y?'y':'n'],e=W.eff[k],tk=!!(e&&e[0]===y);
+    if(t.charAt(0)==='='){var r=t.slice(1);return '<div class="epbr'+(tk?' tk':'')+'">'+lab(k,y)+'<span class="epchip lv'+r+(W.res===r&&tk?' hit':'')+'">'+esc(X.LS[r])+'</span></div>';}
+    if(sp.indexOf(t)>-1)return '<div class="epbr'+(tk?' tk':'')+'">'+lab(k,y)+'<span class="epchip nx">↓ '+esc(X.nxt)+'</span></div>';
+    return '<div class="epbr'+(tk?' tk':'')+'">'+lab(k,y)+'</div>'+node(t,true);}
+  function node(k,sub){var e=W.eff[k],st=W.cur===k?' cur':e?' vis':'';
+    var bx='<button type="button" class="epnb'+st+'"'+(e?' data-epto="'+e[2]+'"':' disabled')+'>'+esc(X.QS[k])+'</button>';
+    if(sub)return '<div class="epsub">'+bx+out(k,true)+out(k,false)+'</div>';
+    var i=sp.indexOf(k),nx=sp[i+1],n=T.n[k],down=nx?(n.y===nx||n.y===('='+nx)?true:n.n===nx?false:null):null;
+    var h='<li class="epn"><div class="epnl">'+bx;
+    if(down!==null&&nx){var e2=W.eff[k],tk=!!(e2&&e2[0]===down);h+='<div class="epdn'+(tk?' tk':'')+'">'+lab(k,down)+'</div>';}
+    h+='</div><div class="epnr">';
+    if(down===null)h+=out(k,true)+out(k,false);else h+=out(k,!down);
+    return h+'</div></li>';}
+  return '<details class="epmap'+(W.res?' done':'')+'" open><summary>'+esc(X.map)+'</summary><p>'+esc(X.mapD)+'</p><ol>'+sp.map(function(k){return node(k,false);}).join('')+'</ol></details>';}
 function epResCard(k,X){var L=X.lv[k],fig=(k==='S'||k==='P')?epGear(k):epFig(k);
   return '<div class="epres lv'+k+'" role="status"><div class="epfigw">'+fig+'</div><div class="eprt"><small>'+esc(X.res)+'</small><b>'+esc(L[0])+'</b><span>'+esc(L[1])+'</span><ul>'+L[2].map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul><p><b>'+esc(X.why)+':</b> '+esc(L[3])+'</p></div></div>';}
 function viewEPI(mode){
   setSec('e');var X=EPX();if(mode&&mode!==EP.m){EP.m=mode;EP.a=[];}
   var W=epWalk(),h=band(X.t)+'<div class="body epi"><p class="note">'+esc(X.intro)+'</p>';
   h+='<div class="epseg" role="tablist">'+['traje','epr'].map(function(m){return '<a role="tab" href="#epi-'+m+'" aria-selected="'+(EP.m===m)+'"><b>'+esc(X.m[m][0])+'</b><small>'+esc(X.m[m][1])+'</small></a>';}).join('')+'</div>';
-  if(W.steps.length&&!(W.res&&W.steps.length===0)){
-    h+='<ol class="eppath" aria-label="'+esc(X.path)+'">'+W.steps.map(function(k,i){if(!W.res&&i===W.steps.length)return '';return i<EP.a.length?'<li><button type="button" data-epto="'+i+'"><span>'+esc(X.Q[(k==='pele2'?'pele':k)][0])+'</span><em class="'+(EP.a[i]?'y':'n')+'">'+esc(EP.a[i]?X.yes:X.no)+'</em><i>'+esc(X.edit)+'</i></button></li>':'';}).join('')+'</ol>';}
   if(W.res){h+=epResCard(W.res,X);
     if(EP.m==='traje')h+='<div class="epwarn">'+X.warn.map(function(w){return '<p>'+esc(w)+'</p>';}).join('')+'</div>';
     h+='<div class="epnav"><button type="button" class="epbtn" id="epback">‹ '+esc(X.back)+'</button><button type="button" class="epbtn pri" id="epagain">'+esc(X.again)+'</button></div>';}
-  else{var q=X.Q[(W.cur==='pele2'?'pele':W.cur)];
-    h+='<div class="epq"><small>'+esc(X.q)+' '+(EP.a.length+1)+'</small><h2>'+esc(q[0])+'</h2><p>'+esc(q[1])+'</p><div class="epyn"><button type="button" data-epa="1">'+esc(X.yes)+'</button><button type="button" data-epa="0">'+esc(X.no)+'</button></div>'+(EP.a.length?'<button type="button" class="eplink" id="epback">‹ '+esc(X.back)+'</button>':'')+'</div>';}
+  else{var q=X.Q[W.cur==='pele2'?'pele':W.cur];
+    h+='<div class="epq"><small>'+esc(X.q)+' '+(EP.a.length+1)+' '+esc(X.of)+' '+epDepth()+'</small><h2>'+esc(q[0])+'</h2><p>'+esc(q[1])+'</p><div class="epyn"><button type="button" data-epa="1">'+esc(X.yes)+'</button><button type="button" data-epa="0">'+esc(X.no)+'</button></div><button type="button" class="epdk" data-epa="u"><b>'+esc(X.dk)+'</b><span>'+esc(X.dkD)+': '+esc(EPCONS[W.cur]?X.yes:X.no)+'</span></button>'+(EP.a.length?'<button type="button" class="eplink" id="epback">‹ '+esc(X.back)+'</button>':'')+'</div>';}
+  h+=epMapHTML(W,X);
   h+='<p class="eyebrow">'+esc(X.lvT)+'</p><div class="eplv">'+['A','B','C','D'].map(function(k){var L=X.lv[k];return '<details class="lv'+k+'"><summary>'+epFig(k)+'<b>'+esc(L[0])+'</b><small>'+esc(L[1])+'</small></summary><ul>'+L[2].map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul></details>';}).join('')+'</div>';
   h+='<p class="note epsrc">'+esc(X.src)+'</p></div>';
   app.innerHTML=h;wireBack();
-  [].forEach.call(app.querySelectorAll('[data-epa]'),function(b){b.onclick=function(){EP.a.push(b.getAttribute('data-epa')==='1');viewEPI('');var r=app.querySelector('.epres,.epq');if(r&&r.scrollIntoView)r.scrollIntoView({block:'nearest',behavior:'smooth'});};});
-  [].forEach.call(app.querySelectorAll('[data-epto]'),function(b){b.onclick=function(){EP.a=EP.a.slice(0,+b.getAttribute('data-epto'));viewEPI('');};});
+  function top(){var r=app.querySelector('.epres,.epq');if(r&&r.getBoundingClientRect().top<70&&r.scrollIntoView)r.scrollIntoView({block:'start',behavior:'smooth'});}
+  [].forEach.call(app.querySelectorAll('[data-epa]'),function(b){b.onclick=function(){var v=b.getAttribute('data-epa');EP.a.push(v==='u'?'u':v==='1'?1:0);viewEPI('');top();};});
+  [].forEach.call(app.querySelectorAll('[data-epto]'),function(b){b.onclick=function(){EP.a=EP.a.slice(0,+b.getAttribute('data-epto'));viewEPI('');top();};});
   var bk=document.getElementById('epback');if(bk)bk.onclick=function(){EP.a.pop();viewEPI('');};
-  var ag=document.getElementById('epagain');if(ag)ag.onclick=function(){EP.a=[];viewEPI('');};
+  var ag=document.getElementById('epagain');if(ag)ag.onclick=function(){EP.a=[];viewEPI('');top();};
 }
+
 /*EPI-JS-END*/
 var lastHash=null;
 function route(){
