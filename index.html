@@ -982,7 +982,6 @@ function lbl(c,o){
       TL.forEach(function(q){q.aw=Math.min(q.aw,bw-5);});h+='<rect x="'+(50-bw/2).toFixed(1)+'" y="'+bt.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+(bb-bt).toFixed(1)+'" rx="1.5" fill="#fff"/>';}
     TL.forEach(function(q){var fit=q.ew>q.aw?' textLength="'+q.aw.toFixed(1)+'" lengthAdjust="spacingAndGlyphs"':'';h+='<text x="'+(50-(q.last?rx/2:0))+'" y="'+(q.y+q.fs*.36).toFixed(1)+'" text-anchor="middle"'+fit+' font-family="Archivo,Arial,sans-serif" font-weight="900" font-size="'+q.fs.toFixed(1)+'" fill="'+tc+'" letter-spacing=".2">'+esc(q.x)+'</text>';});}
   if(!o.nonum)h+='<text x="50" y="'+(k==='tref'?86.5:T?(five?83:85):o.lownum?(five?84:86.5):(five?77:80))+'" text-anchor="middle" font-family="Archivo,Arial Black,Arial,sans-serif" font-weight="900" font-size="'+(k==='tref'?10:T?(five?9.5:13):o.lownum?(five?9:10):(five?13:19))+'" fill="'+nink+'">'+(five?nc:nc.charAt(0))+'</text>';
-  if(bg==='9'&&!o.nonum&&!T)h+='<path d="'+(o.lownum?'M46.6 88.4h6.8':'M44.4 82.6h11.2')+'" stroke="#111" stroke-width="'+(o.lownum?1.1:1.6)+'" stroke-linecap="round"/>';
   h+='</svg>';
   return h;
 }
@@ -1413,7 +1412,7 @@ function mxPair(a,b){
 var MXC=['C','A','X'],MXI={C:'✓',A:'!',X:'✕',U:'?'};
 var PLC={'1.1':['112'],'1.2':['112'],'1.3':['112'],'1.5':['112'],'1.4':['114'],'1.6':['114'],'2.1':['118'],'2.2':['120','122'],'2.3':['123'],'3':['127','128'],'4.1':['134'],'4.2':['136'],'4.3':['139'],'5.1':['143'],'5.2':['148'],'6.1':['153a'],'6.2':['158'],'7':['163'],'8':['153b'],'9':['171']};
 var PLD={'112':[520,389],'114':[520,408],'118':[452,329],'120':[458,343],'122':[324,328],'123':[346,482],'127':[445,461],'128':[444,439],'134':[335,345],'136':[323,340],'139':[451,338],'143':[330,319],'148':[341,316],'153a':[441,456],'158':[465,454],'163':[520,509],'153b':[321,320],'171':[383,273]};
-var ENVS='<path d="M37.8 62.4C38.6 52.4 39.4 42 40.4 30.6L42.2 30.8C41.6 42 41.6 52.4 42.2 62.4Z" fill="#111"/><path d="M41.4 31.2 43.2 24.6M40.9 44.6 47.8 36.8M47.8 36.8 49.6 31.6M47.8 36.8 52.2 36.2M40.4 48.6 32.4 41.6M32.4 41.6 29.8 37.2M32.4 41.6 28.4 42.6M40.9 37.4 35.4 30.6M35.4 30.6 36 26.8M35.4 30.6 32 29.8" stroke="#111" stroke-width="1.9" stroke-linecap="round" fill="none"/><rect x="27" y="62.2" width="46" height="2.6" rx="1" fill="#111"/><path d="M49 56C52 50.6 63 50 69.6 54.4L76 50.6 74.4 56 76 61.4 69.6 57.6C63 62 52 61.4 49 56Z" fill="#111"/><path d="M59.6 51.3 62.2 47.4 64.2 51.7ZM58.4 60.8 61 63 63.6 60.9Z" fill="#111"/><path d="M51.9 54.1l2.6 2.6M54.5 54.1l-2.6 2.6" stroke="#fff" stroke-width="1" stroke-linecap="round"/><path d="M57.2 52.4C58.4 54.6 58.4 57.4 57.2 59.6" stroke="#fff" stroke-width=".9" fill="none"/><path d="M49 56h2.2" stroke="#fff" stroke-width=".7"/>',BATS='<path d="M31.6 56.9V73.1A3.70 1.48 0 0 0 39.0 73.1V56.9Z" fill="#111" stroke="#fff" stroke-width=".9" stroke-linejoin="round"/><ellipse cx="35.3" cy="56.9" rx="3.70" ry="1.48" fill="#111" stroke="#fff" stroke-width=".7"/><rect x="34.0" y="54.6" width="2.5" height="2.3" rx=".5" fill="#111" stroke="#fff" stroke-width=".5"/><path d="M33.4 58.7V71.9" stroke="#fff" stroke-width=".8" stroke-linecap="round"/><path d="M37.4 54.2V72.4A4.00 1.60 0 0 0 45.4 72.4V54.2Z" fill="#111" stroke="#fff" stroke-width=".9" stroke-linejoin="round"/><ellipse cx="41.4" cy="54.2" rx="4.00" ry="1.60" fill="#111" stroke="#fff" stroke-width=".7"/><rect x="40.0" y="51.9" width="2.7" height="2.3" rx=".5" fill="#111" stroke="#fff" stroke-width=".5"/><path d="M39.3 56.0V71.2" stroke="#fff" stroke-width=".8" stroke-linecap="round"/><path d="M41.2 63.9V73.5A4.80 1.92 0 0 0 50.8 73.5V63.9Z" fill="#111" stroke="#fff" stroke-width=".9" stroke-linejoin="round"/><ellipse cx="46.0" cy="63.9" rx="4.80" ry="1.92" fill="#111" stroke="#fff" stroke-width=".7"/><rect x="44.4" y="61.6" width="3.3" height="2.3" rx=".5" fill="#111" stroke="#fff" stroke-width=".5"/><path d="M43.5 65.7V72.3" stroke="#fff" stroke-width=".8" stroke-linecap="round"/><path d="M50.6 66.6H67.6A1.8 4.4 0 0 1 67.6 75.4H50.6A1.8 4.4 0 0 1 50.6 66.6Z" fill="#111" stroke="#fff" stroke-width=".9"/><rect x="68.8" y="69.6" width="2" height="2.8" rx=".5" fill="#111"/><path d="M52.2 68.1H66.6" stroke="#fff" stroke-width=".7" stroke-linecap="round"/><path d="M59.6 66.19999999999999L58.4 69.4 60.6 71 59 75.80000000000001" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/><path d="M63.6 53.2C65.2 56.2 68.4 57.6 67.9 61.4 67.5 64.2 65.5 65.3 63.6 65.3 61.4 65.3 59.6 64 59.6 61.6 59.6 59.7 60.8 58.6 61.7 57.6 61.7 59.3 62.5 60.1 63.3 59.9 62.5 57.9 62.7 55.2 63.6 53.2Z" fill="#111"/><path d="M64.3 64.2c1.5-.3 2.2-1.6 1.8-3-.9.9-2 .9-2.4 1.8-.2.6.1 1.1.6 1.2Z" fill="#fff"/><path d="M58.2 55.6l1.4 1.3M57 59.6h1.8M69.2 55l-1.3 1.4M70.2 59.2h-1.8M66.2 52l-.5 1.7" stroke="#111" stroke-width=".9" stroke-linecap="round"/><text x="50" y="83.6" text-anchor="middle" font-family="Archivo,Arial Black,Arial,sans-serif" font-weight="900" font-size="10.4" fill="#111">9</text><path d="M46.6 85.6h6.8" stroke="#111" stroke-width="1.1" stroke-linecap="round"/>';
+var ENVS='<path d="M37.8 62.4C38.6 52.4 39.4 42 40.4 30.6L42.2 30.8C41.6 42 41.6 52.4 42.2 62.4Z" fill="#111"/><path d="M41.4 31.2 43.2 24.6M40.9 44.6 47.8 36.8M47.8 36.8 49.6 31.6M47.8 36.8 52.2 36.2M40.4 48.6 32.4 41.6M32.4 41.6 29.8 37.2M32.4 41.6 28.4 42.6M40.9 37.4 35.4 30.6M35.4 30.6 36 26.8M35.4 30.6 32 29.8" stroke="#111" stroke-width="1.9" stroke-linecap="round" fill="none"/><rect x="27" y="62.2" width="46" height="2.6" rx="1" fill="#111"/><path d="M49 56C52 50.6 63 50 69.6 54.4L76 50.6 74.4 56 76 61.4 69.6 57.6C63 62 52 61.4 49 56Z" fill="#111"/><path d="M59.6 51.3 62.2 47.4 64.2 51.7ZM58.4 60.8 61 63 63.6 60.9Z" fill="#111"/><path d="M51.9 54.1l2.6 2.6M54.5 54.1l-2.6 2.6" stroke="#fff" stroke-width="1" stroke-linecap="round"/><path d="M57.2 52.4C58.4 54.6 58.4 57.4 57.2 59.6" stroke="#fff" stroke-width=".9" fill="none"/><path d="M49 56h2.2" stroke="#fff" stroke-width=".7"/>',BATS='<path d="M31.6 56.9V73.1A3.70 1.48 0 0 0 39.0 73.1V56.9Z" fill="#111" stroke="#fff" stroke-width=".9" stroke-linejoin="round"/><ellipse cx="35.3" cy="56.9" rx="3.70" ry="1.48" fill="#111" stroke="#fff" stroke-width=".7"/><rect x="34.0" y="54.6" width="2.5" height="2.3" rx=".5" fill="#111" stroke="#fff" stroke-width=".5"/><path d="M33.4 58.7V71.9" stroke="#fff" stroke-width=".8" stroke-linecap="round"/><path d="M37.4 54.2V72.4A4.00 1.60 0 0 0 45.4 72.4V54.2Z" fill="#111" stroke="#fff" stroke-width=".9" stroke-linejoin="round"/><ellipse cx="41.4" cy="54.2" rx="4.00" ry="1.60" fill="#111" stroke="#fff" stroke-width=".7"/><rect x="40.0" y="51.9" width="2.7" height="2.3" rx=".5" fill="#111" stroke="#fff" stroke-width=".5"/><path d="M39.3 56.0V71.2" stroke="#fff" stroke-width=".8" stroke-linecap="round"/><path d="M41.2 63.9V73.5A4.80 1.92 0 0 0 50.8 73.5V63.9Z" fill="#111" stroke="#fff" stroke-width=".9" stroke-linejoin="round"/><ellipse cx="46.0" cy="63.9" rx="4.80" ry="1.92" fill="#111" stroke="#fff" stroke-width=".7"/><rect x="44.4" y="61.6" width="3.3" height="2.3" rx=".5" fill="#111" stroke="#fff" stroke-width=".5"/><path d="M43.5 65.7V72.3" stroke="#fff" stroke-width=".8" stroke-linecap="round"/><path d="M50.6 66.6H67.6A1.8 4.4 0 0 1 67.6 75.4H50.6A1.8 4.4 0 0 1 50.6 66.6Z" fill="#111" stroke="#fff" stroke-width=".9"/><rect x="68.8" y="69.6" width="2" height="2.8" rx=".5" fill="#111"/><path d="M52.2 68.1H66.6" stroke="#fff" stroke-width=".7" stroke-linecap="round"/><path d="M59.6 66.19999999999999L58.4 69.4 60.6 71 59 75.80000000000001" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/><path d="M63.6 53.2C65.2 56.2 68.4 57.6 67.9 61.4 67.5 64.2 65.5 65.3 63.6 65.3 61.4 65.3 59.6 64 59.6 61.6 59.6 59.7 60.8 58.6 61.7 57.6 61.7 59.3 62.5 60.1 63.3 59.9 62.5 57.9 62.7 55.2 63.6 53.2Z" fill="#111"/><path d="M64.3 64.2c1.5-.3 2.2-1.6 1.8-3-.9.9-2 .9-2.4 1.8-.2.6.1 1.1.6 1.2Z" fill="#fff"/><path d="M58.2 55.6l1.4 1.3M57 59.6h1.8M69.2 55l-1.3 1.4M70.2 59.2h-1.8M66.2 52l-.5 1.7" stroke="#111" stroke-width=".9" stroke-linecap="round"/><text x="50" y="83.6" text-anchor="middle" font-family="Archivo,Arial Black,Arial,sans-serif" font-weight="900" font-size="10.4" fill="#111">9</text>';
 function hotSVG(){return '<svg class="lbl" viewBox="0 0 100 100" role="img" aria-label="hot"><path d="M50 8 94 86H6z" fill="#fff" stroke="#d0021b" stroke-width="7.5" stroke-linejoin="round"/><path d="M46 62V32.5a4 4 0 0 1 8 0V62" fill="#fff" stroke="#d0021b" stroke-width="3"/><circle cx="50" cy="68.5" r="8" fill="#fff" stroke="#d0021b" stroke-width="3"/><rect x="48.2" y="42" width="3.6" height="24" fill="#d0021b"/><circle cx="50" cy="68.5" r="5" fill="#d0021b"/><path d="M54 36h4M54 41h2.6M54 46h4M54 51h2.6M54 56h4" stroke="#d0021b" stroke-width="1.6" stroke-linecap="round"/></svg>';}
 function radRaw(n){var b='',k;for(k=0;k<n;k++)b+='<rect x="'+(69+k*3.4)+'" y="53.6" width="2.2" height="7.6" fill="#d0021b"/>';
   return '<text x="24" y="60.6" textLength="'+(n>2?40:43)+'" lengthAdjust="spacingAndGlyphs" font-family="Archivo,Arial,sans-serif" font-weight="900" font-size="8.6" fill="#111">RADIOACTIVE</text>'+b+
@@ -1807,121 +1806,162 @@ function chrome(cur){
 function foot(){var names={e:{pt:'EPI e EPR',en:'PPE and RPE',es:'EPP y EPR'}[state.lang],w:t('sW'),y:t('sY'),b:t('sB'),o:t('sO'),g:t('sG'),p:{pt:'Seção roxa',en:'Purple section',es:'Sección morada'}[state.lang]};document.getElementById('footband').innerHTML='<span>'+esc(names[document.body.getAttribute('data-sec')]||'')+'</span><span>ERG 2024</span>';}
 /*EPI-JS*/
 /* ---------- EPI / EPR (fluxogramas da ABNT NBR 14064:2015) ---------- */
-/* ---- desenhos dos trajes (viewBox 0 0 160 300; luz da esquerda) ---- */
-var EPO='#1f2328',EPY='#f5c518',EPY2='#d9a514',EPY3='#b98a0c',EPYH='#ffe27a',EPG='#3d4a41',EPG2='#56685a',EPK='#26292e',EPSK='#f1c39f',EPSK2='#d9a07c';
-var EPN=0;
-function epM(s){return '<g transform="translate(160 0) scale(-1 1)">'+s+'</g>';}
-function epP(d,f,sw,ex){return '<path d="'+d+'" fill="'+f+'" stroke="'+EPO+'" stroke-width="'+(sw||1.8)+'" stroke-linejoin="round" stroke-linecap="round"'+(ex||'')+'/>';}
-function epL(d,c,w,ex){return '<path d="'+d+'" fill="none" stroke="'+c+'" stroke-width="'+(w||1.2)+'" stroke-linecap="round" stroke-linejoin="round"'+(ex||'')+'/>';}
-/* bota química de cano alto */
-function epBoot(c,sole){c=c||EPK;return '<g>'+epP('M58 244 L78 244 L79 276 C81 280 83 283 83 288 L53 288 C53 283 56 279 57 274 Z',c)+epL('M60 250 L60 270',c==='#6b4423'?'#8a5d33':'#3d4248',2.2)+'<rect x="52" y="287" width="32" height="5" rx="2" fill="'+(sole||'#5b626b')+'" stroke="'+EPO+'" stroke-width="1.5"/></g>';}
-function epBoots(c,sole){var b=epBoot(c,sole);return b+epM(b);}
-/* luva com punho longo e polegar */
-function epGlove(c,c2,cuff){c=c||EPG;c2=c2||EPG2;var g='';
-  if(cuff!==false)g+=epP('M29.5 168 L46.5 169.5 L46.5 184 L29 183 Z',c);
-  g+=epP('M29 182 L46.6 183.5 C49.4 185.5 52.4 189.6 51.6 194.6 C51 197.6 48.6 197.6 47.2 195.4 L46.6 201 C45.8 207.6 41.6 211.6 37 211.6 C32.4 211.4 28.6 207.6 28.4 201.4 Z',c);
-  g+=epL('M33.6 201 v8 M37.6 202 v8.6 M41.6 201 v7.6',c2,1.4)+epL('M31 186 C31 192 31.4 196 32 199',c2,1.6);
-  return g;}
-function epGloves(c,c2,cuff){var g=epGlove(c,c2,cuff);return g+epM(g);}
-/* macacão: pernas, tronco e braços */
-function epLegs(fill,shade,tape){var l=epP('M56 156 C54 190 56.6 226 59 262 L77 262 C76.6 236 78.4 208 80 184 Z',fill)+
-  '<path d="M80 184 C78.6 208 77 236 77 262 L71 262 C72 236 74 210 76.4 188 Z" fill="'+shade+'" opacity=".55"/>'+epL('M62 214 q6 3.4 12 0',shade,1.4)+epL('M61 226 q5 2 10 0',shade,1.1);
-  if(tape)l+='<path d="M59 254 L77.2 254 L77 263 L59.4 263 Z" fill="'+tape+'" stroke="'+EPO+'" stroke-width="1.6"/>';
-  return l+epM(l);}
-function epTorso(fill,shade,hi){return epP('M66 68 L94 68 C102 70 110 73 113 78 L106 102 C104 120 103 140 103 152 C104 160 105 166 104 172 C96 180 88 184 80 186 C72 184 64 180 56 172 C55 166 56 160 57 152 C57 140 56 120 54 102 L47 78 C50 73 58 70 66 68 Z',fill)+
-  '<path d="M94 72 C103 74 108 78 109 82 L103 104 C101 122 100 140 100 152 C101 160 102 166 101 171 C96 175 92 177 88 179 C92 160 92 120 94 72 Z" fill="'+shade+'" opacity=".6"/>'+
-  '<path d="M62 76 C60 100 61 130 63 160" stroke="'+hi+'" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>';}
-function epArm(fill,shade,tape){var a=epP('M59 72 C48 73 42 80 41 92 L35 130 L30.5 171 L46.5 172.5 L49 134 L55.6 104 C57.6 96 59.4 86 59 72 Z',fill)+
-  '<path d="M55.6 104 L49 134 L46.5 172.5 L42 172 L44 134 L50 106 C52 98 54 88 55 76 C57.4 80 57.6 94 55.6 104 Z" fill="'+shade+'" opacity=".55"/>'+epL('M37 128 q5.6 3.4 11 1.4',shade,1.5)+epL('M39.6 100 q4 2 7.6 1',shade,1.1);
-  if(tape)a+='<path d="M30.2 164 L47 165.4 L46.6 173.6 L29.6 172.4 Z" fill="'+tape+'" stroke="'+EPO+'" stroke-width="1.6"/>';
-  return a+epM(a);}
-function epHood(fill,shade){return epP('M80 13 C96.6 13 105 25 105 43 C105 56 102 66 97 73 L63 73 C58 66 55 56 55 43 C55 25 63.4 13 80 13 Z',fill)+
-  '<path d="M90 15.6 C100 19 104.6 29 104.6 43 C104.6 56 101.6 65 97 72.6 L91 72.6 C96 62 98.4 52 98 42 C97.6 30 95 21 90 15.6 Z" fill="'+shade+'" opacity=".6"/>'+
-  epL('M62 30 C58 40 59 56 64 66',EPYH,2.4,' opacity=".75"');}
-/* rosto e peça facial inteira */
-function epEyes(){return '<g><ellipse cx="75" cy="42" rx="2.5" ry="1.7" fill="#fff" stroke="'+EPO+'" stroke-width=".7"/><ellipse cx="85" cy="42" rx="2.5" ry="1.7" fill="#fff" stroke="'+EPO+'" stroke-width=".7"/><circle cx="75.3" cy="42.1" r="1.15" fill="#2b2118"/><circle cx="85.3" cy="42.1" r="1.15" fill="#2b2118"/>'+epL('M71.6 38.4 q3.2 -1.8 6.4 -.3 M82 38.1 q3.2 -1.5 6.4 .3','#5a3a22',1.3)+epL('M80 43.6 q-1.6 4.4 .8 5.2',EPSK2,1.1)+'</g>';}
-function epFacePlain(){return epP('M80 26 C88.6 26 93 33 93 43 C93 54 87.6 62 80 62 C72.4 62 67 54 67 43 C67 33 71.4 26 80 26 Z',EPSK,1.5)+epEyes()+epL('M76 54.6 q4 2.2 8 0','#9b5a43',1.3)+'<path d="M67.6 46 C66 46 65.2 43 66.4 41.4 M92.4 46 C94 46 94.8 43 93.6 41.4" stroke="'+EPO+'" stroke-width="1.2" fill="'+EPSK+'"/>';}
-function epMask(kind,solo){/* kind: 'scba' (regulador) | 'apr' (dois filtros); solo: sem cabeça, alça em volta */
-  var id='epl'+(++EPN),lens='M80 28 C89.6 28 93.6 33.6 93.6 41.6 C93.6 49.6 88.6 55 80 55.6 C71.4 55 66.4 49.6 66.4 41.6 C66.4 33.6 70.4 28 80 28 Z';
-  var h='<defs><clipPath id="'+id+'"><path d="'+lens+'"/></clipPath></defs>';
-  if(solo)h+='<path d="M80 14 C100 14 107 30 106 46 C105 58 100 64 94 66" fill="none" stroke="'+EPK+'" stroke-width="4.4" stroke-linecap="round"/><path d="M80 14 C60 14 53 30 54 46 C55 58 60 64 66 66" fill="none" stroke="'+EPK+'" stroke-width="4.4" stroke-linecap="round"/><path d="M80 14 V24" stroke="'+EPK+'" stroke-width="4.4"/><path d="M56 36 L64 37 M104 36 L96 37" stroke="'+EPK+'" stroke-width="3.6" stroke-linecap="round"/>';else{var sp=epL('M64.6 34 C60 31.4 58.4 26 60.6 20.6 M63 50.4 C58.6 50.4 56.4 47.6 56 44 M71.6 25.6 C70 21 71 17.4 74.4 15.4',EPK,2.6);h+=sp+epM(sp);}
-  h+=epP('M80 23.6 C93.6 23.6 98 34 98 45.6 C98 58 91.6 68.4 80 69.4 C68.4 68.4 62 58 62 45.6 C62 34 66.4 23.6 80 23.6 Z','#2b3036',1.8);
-  h+='<g clip-path="url(#'+id+')"><rect x="60" y="20" width="40" height="40" fill="'+EPSK+'"/>'+epEyes()+'<ellipse cx="80" cy="51.4" rx="7.4" ry="5.4" fill="#2b3036" opacity=".78"/><rect x="60" y="20" width="40" height="40" fill="#9fd3ee" opacity=".32"/><path d="M69 34 L74 29.6" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".9"/><path d="M88.6 51 L91.4 47.6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".7"/></g>';
-  h+='<path d="'+lens+'" fill="none" stroke="#565e66" stroke-width="2.2"/>';
-  if(kind==='apr'){
-    h+='<circle cx="80" cy="61" r="4.6" fill="#454c54" stroke="'+EPO+'" stroke-width="1.4"/>'+epL('M77.6 61 h4.8 M78 63 h4',"#8a939c",1);
-    var f='<g transform="rotate(36 64 62)"><rect x="55.6" y="55" width="16.8" height="19" rx="4" fill="#454c54" stroke="'+EPO+'" stroke-width="1.6"/><rect x="55.6" y="61.6" width="16.8" height="5.4" fill="#8b5a2b" stroke="'+EPO+'" stroke-width="1.1"/><path d="M58.6 57.6 v14" stroke="#6b737c" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="64" cy="73.6" rx="8.4" ry="2.2" fill="#2b3036" stroke="'+EPO+'" stroke-width="1.1"/></g>';
-    h+=f+epM(f);
-  }else{
-    h+=epP('M72.6 57 L87.4 57 L89.6 66.6 C86.4 71 73.6 71 70.4 66.6 Z','#3a4047',1.6)+epL('M75 62.4 h10 M75.6 65.2 h8.8','#7b848d',1.1)+'<circle cx="86.6" cy="60.6" r="2" fill="#e2b400" stroke="'+EPO+'" stroke-width=".9"/>';
-  }
-  return h;}
+/* ---- desenhos realistas dos trajes (viewBox 0 0 200 400; luz da esquerda) ---- */
+var EPN=0,EPOL='#7d5e06';
+function epDefs(u){return '<defs>'+
+ '<linearGradient id="'+u+'y" x1="0" x2="1"><stop offset="0" stop-color="#c6970e"/><stop offset=".14" stop-color="#ffde5a"/><stop offset=".4" stop-color="#f8ca20"/><stop offset=".76" stop-color="#dfae13"/><stop offset="1" stop-color="#a77b07"/></linearGradient>'+
+ '<linearGradient id="'+u+'yv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe170"/><stop offset=".5" stop-color="#f6c71c"/><stop offset="1" stop-color="#d2a10f"/></linearGradient>'+
+ '<linearGradient id="'+u+'r" x1="0" x2="1"><stop offset="0" stop-color="#262c27"/><stop offset=".22" stop-color="#5f6b62"/><stop offset=".5" stop-color="#3b443d"/><stop offset="1" stop-color="#1a1e1b"/></linearGradient>'+
+ '<linearGradient id="'+u+'k" x1="0" x2="1"><stop offset="0" stop-color="#202326"/><stop offset=".25" stop-color="#4c5157"/><stop offset=".55" stop-color="#2b2e32"/><stop offset="1" stop-color="#121416"/></linearGradient>'+
+ '<linearGradient id="'+u+'m" x1="0" x2="1"><stop offset="0" stop-color="#7d8792"/><stop offset=".22" stop-color="#f3f6f9"/><stop offset=".5" stop-color="#bcc4cd"/><stop offset=".85" stop-color="#8f99a4"/><stop offset="1" stop-color="#6b747e"/></linearGradient>'+
+ '<linearGradient id="'+u+'l" x1="0" x2="1"><stop offset="0" stop-color="#8a6234"/><stop offset=".3" stop-color="#d4a46a"/><stop offset=".6" stop-color="#b98a52"/><stop offset="1" stop-color="#7a5328"/></linearGradient>'+
+ '<linearGradient id="'+u+'bw" x1="0" x2="1"><stop offset="0" stop-color="#3f2a17"/><stop offset=".3" stop-color="#7c5530"/><stop offset=".6" stop-color="#5c3d20"/><stop offset="1" stop-color="#2e1e10"/></linearGradient>'+
+ '<linearGradient id="'+u+'v" x1="0" y1="0" x2=".3" y2="1"><stop offset="0" stop-color="#eaf7fe" stop-opacity=".75"/><stop offset=".45" stop-color="#9fd0ea" stop-opacity=".35"/><stop offset="1" stop-color="#3f86b0" stop-opacity=".55"/></linearGradient>'+
+ '<linearGradient id="'+u+'w" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".6" stop-color="#e9edf1"/><stop offset="1" stop-color="#b9c1c9"/></linearGradient>'+
+ '<linearGradient id="'+u+'sv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f6f8"/><stop offset=".5" stop-color="#aeb6be"/><stop offset="1" stop-color="#d9dee3"/></linearGradient>'+
+ '<radialGradient id="'+u+'s" cx=".42" cy=".38" r=".7"><stop offset="0" stop-color="#f7d5b8"/><stop offset=".7" stop-color="#e5b28d"/><stop offset="1" stop-color="#c98d68"/></radialGradient>'+
+ '<radialGradient id="'+u+'g" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#5d656e"/><stop offset="1" stop-color="#16191c"/></radialGradient>'+
+ '<filter id="'+u+'b" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.6"/></filter>'+
+ '<filter id="'+u+'f" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation=".55"/></filter>'+
+ '</defs>';}
+function epS(u,d,g,st,sw){return '<path d="'+d+'" fill="url(#'+u+g+')" stroke="'+(st||EPOL)+'" stroke-width="'+(sw||.9)+'" stroke-linejoin="round"/>';}
+function epFd(u,d,w,c,o){return '<path d="'+d+'" fill="none" stroke="'+(c||'#8a6608')+'" stroke-width="'+(w||1.6)+'" stroke-linecap="round" opacity="'+(o||.55)+'" filter="url(#'+u+'f)"/>';}
+function epHl(u,d,w,o){return '<path d="'+d+'" fill="none" stroke="#fff6c4" stroke-width="'+(w||1.4)+'" stroke-linecap="round" opacity="'+(o||.7)+'" filter="url(#'+u+'f)"/>';}
+function epSh(u,d,o){return '<path d="'+d+'" fill="#5c4404" opacity="'+(o||.28)+'" filter="url(#'+u+'b)"/>';}
+/* botas */
+function epBoots2(u,g){g=g||'k';return epS(u,'M70 358 L95 358 L95.4 375 C96 380 97.6 383 98 388 L62 388 C62 383 66 379 68.6 375 Z',g,'#111',.8)+epS(u,'M105 358 L130.6 358 L131.4 375 C134 379 138 383 138 388 L102 388 C102.4 383 104 380 104.6 375 Z',g,'#111',.8)+
+ '<path d="M61.5 386.6 H98.5 V392 H61.5 Z M101.5 386.6 H138.5 V392 H101.5 Z" fill="#1a1c1f"/><path d="M63 389.4 H97 M103 389.4 H137" stroke="#3d4248" stroke-width="1" stroke-dasharray="3 2"/>'+
+ '<path d="M74 362 L73.4 378 M109 362 L108.4 378" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".22"/>';}
+/* luvas (mão esquerda; a direita é espelhada) */
+function epGloveL(u,g){g=g||'r';return epS(u,'M34.6 222 C41 220 50 220 56.6 222 L57 238 C51 240 41 240 34.6 238 Z',g,'#111',.8)+
+ epS(u,'M34.4 236 L57 237 C58.6 241.6 61.6 245.6 62.6 250.6 C63.2 253.6 61 255.4 59 253.4 L57.4 250.4 C57.8 257.6 56.4 265 52.4 269 C48.4 272 42 272 38.4 268.6 C34.8 264.6 33.8 256.6 33.8 248.6 Z',g,'#111',.8)+
+ '<path d="M40.4 256 C40.4 261 41 265 42 268 M45.4 257 C45.4 262 45.8 266 46.4 269.4 M50.4 256.4 C50.8 261 51 265 51 268.6" stroke="#0e100e" stroke-width=".9" fill="none" opacity=".7"/><path d="M37.6 242 C37 250 37.4 258 38.6 263" stroke="#fff" stroke-width="1.6" opacity=".2" stroke-linecap="round"/>';}
+function epGloves2(u,g){var l=epGloveL(u,g);return l+'<g transform="translate(195.4 -2.4) scale(-1 1)">'+l+'</g>';}
+/* macacão (B, C, D) */
+function epLegs2(u,tape){var h=epS(u,'M61 188 C58 214 58 246 61 272 C62 290 64 308 65 326 C66 340 67 352 69 362 L96 362 C95 350 95 338 96 324 C97 304 98 280 98.5 258 C99 238 99.5 222 100 210 Z','y')+
+ epS(u,'M139 188 C142 214 142 246 139.5 272 C138 290 137 308 136 326 C135 340 134 352 132 362 L104 362 C105 350 105 338 104 324 C103 304 102 280 101.5 258 C101 238 100.5 222 100 210 Z','y');
+ h+=epFd(u,'M66 288 C74 292 84 292 94 288')+epHl(u,'M67 295 C75 298 84 298 92 295',1.2,.5)+epFd(u,'M98 222 C90 232 80 240 70 246',1.4)+epFd(u,'M97 238 C90 246 84 252 78 256',1.2)+epFd(u,'M69 338 C77 341 87 341 95 338',1.3)+epFd(u,'M68.6 346 C76 349 86 349 95.4 346',1.2)+epHl(u,'M70 222 C68 250 70 280 73 300',2,.55);
+ h+=epFd(u,'M106 288 C116 292 126 292 134 288')+epHl(u,'M108 295 C116 298 125 298 133 295',1.2,.4)+epFd(u,'M102 222 C110 232 120 240 130 246',1.4)+epFd(u,'M103 238 C110 246 116 252 122 256',1.2)+epFd(u,'M105 338 C113 341 123 341 131.4 338',1.3)+epFd(u,'M105 346 C113 349 123 349 131.6 346',1.2)+epHl(u,'M108 226 C107 252 108 280 110 300',1.6,.4);
+ if(tape)h+=epS(u,'M68.4 353 L96 353 L96 362 L69 362 Z','k','#111',.7)+epS(u,'M104 353 L132.4 353 L132 362 L104 362 Z','k','#111',.7);
+ return h;}
+function epTorso2(u){return epS(u,'M88 70 C80 72 66 76 58 82 C53 86 51 92 52 100 C56 106 60 110 62 116 C64 132 65 150 64 168 C63 178 62 186 61 196 C72 204 86 210 100 212 C114 210 128 204 139 196 C138 186 137 178 136 168 C135 150 136 132 138 116 C140 110 144 106 148 100 C149 92 147 86 142 82 C134 76 120 72 112 70 C106 72 94 72 88 70 Z','y')+
+ epSh(u,'M64 118 C66 140 66 170 63 196 L70 196 C71 170 71 140 69 118 Z',.3)+epSh(u,'M136 118 C134 140 134 170 137 196 L130 196 C129 170 129 140 131 118 Z',.38)+
+ epFd(u,'M66 120 C74 128 82 132 90 134',1.4)+epFd(u,'M134 120 C126 128 118 132 110 134',1.4)+epFd(u,'M72 152 C82 156 92 157 98 156',1.2,.4)+epFd(u,'M80 196 C88 202 94 206 99 208',1.3)+epFd(u,'M120 196 C112 202 106 206 101 208',1.3)+
+ '<path d="M100 78 V206" stroke="#a37a08" stroke-width="1.6"/><path d="M103 80 V204" stroke="#fff3b0" stroke-width="1" opacity=".6"/>'+epHl(u,'M76 90 C72 110 72 140 74 170',2.4,.5);}
+function epArms2(u,tape){var h=epS(u,'M62 80 C52 82 46 90 45 102 C43 124 41 146 39 164 C37 184 36 204 35.5 226 L55.5 228 C55.5 206 56.5 186 58 168 C59.5 150 61.5 132 63 116 C63.6 104 63.4 90 62 80 Z','y')+
+ epS(u,'M138 80 C148 82 154 90 155 102 C157 124 159 144 160 160 C161 178 161 198 159.5 224 L140 226 C141 204 141 186 141.5 168 C141 150 139 132 137 116 C136.4 104 136.6 90 138 80 Z','y');
+ h+=epFd(u,'M40 158 C45 162 51 163 57 161')+epHl(u,'M41 166 C46 169 51 169 56.5 167',1.1,.5)+epFd(u,'M55 148 C53 154 53 158 56 163',1.2)+epFd(u,'M36.4 206 C42 209 49 209 55.6 207',1.2)+epFd(u,'M36 214 C42 217 49 217 55.6 215',1.2)+epHl(u,'M49 100 C47 120 45 140 44 156',1.8,.55);
+ h+=epFd(u,'M143 156 C149 160 155 160 160 157')+epFd(u,'M144 146 C146 152 146 156 143.6 161',1.2)+epFd(u,'M141 204 C147 207 154 207 159.8 205',1.2)+epFd(u,'M140.6 212 C147 215 154 215 159.6 213',1.2)+epHl(u,'M146 100 C148 120 150 140 151 156',1.4,.35);
+ if(tape)h+=epS(u,'M35.4 218 L55.6 220 L55.5 228 L35.5 226 Z','k','#111',.7)+epS(u,'M140 218 L159.6 216 L159.5 224 L140 226 Z','k','#111',.7);
+ return h;}
+function epHood2(u){return epS(u,'M80 66 C72 72 64 78 60 84 C74 88 90 89 100 89 C110 89 126 88 140 84 C136 78 128 72 120 66 Z','y')+
+ epS(u,'M100 10 C119 10 129 24 129 43 C129 58 125 68 119 76 C111 82 89 82 81 76 C75 68 71 58 71 43 C71 24 81 10 100 10 Z','y')+
+ epHl(u,'M78 26 C74 38 74 54 78 66',2.4,.6)+epFd(u,'M124 28 C127 40 126 56 121 68',2,.45)+epSh(u,'M66 86 C80 94 120 94 134 86 L134 96 C120 101 80 101 66 96 Z',.32)+
+ '<ellipse cx="100" cy="48" rx="21.6" ry="26.4" fill="none" stroke="#b88a0a" stroke-width="2.4"/>'+epFd(u,'M79 40 L74 38 M78.6 56 L73.6 58 M121 40 L126 38 M121.4 56 L126.4 58 M90 23.6 L88 18.6 M110 23.6 L112 18.6',1.2,.5);}
+/* rosto realista (só a parte vista pela lente) */
+function epFace2(u){return '<rect x="76" y="20" width="48" height="56" fill="url(#'+u+'s)"/>'+
+ '<path d="M90.4 41.8 C92.2 40 95.2 40 97 41.8 C95.2 43.2 92.2 43.2 90.4 41.8 Z M103 41.8 C104.8 40 107.8 40 109.6 41.8 C107.8 43.2 104.8 43.2 103 41.8 Z" fill="#f3ece5"/>'+
+ '<circle cx="93.8" cy="41.7" r="1.25" fill="#3d2a1c"/><circle cx="106.2" cy="41.7" r="1.25" fill="#3d2a1c"/>'+
+ '<path d="M90.2 41.6 C92 39.6 95.4 39.6 97.2 41.6 M102.8 41.6 C104.6 39.6 108 39.6 109.8 41.6" stroke="#5b3d2a" stroke-width=".8" fill="none"/>'+
+ '<path d="M89.6 37.6 C92 36.4 95 36.4 97.4 37.4 M102.6 37.4 C105 36.4 108 36.4 110.4 37.6" stroke="#6b4a33" stroke-width="1.1" fill="none" stroke-linecap="round"/>'+
+ '<path d="M99.6 42.6 C98.8 46.4 98.2 49 100.6 50 C101.6 50.2 102.4 49.6 102.6 49" stroke="#b77d5c" stroke-width=".9" fill="none" opacity=".8"/>';}
+/* peça facial inteira: kind 'scba' | 'apr'; solo: sem cabeça (equipamento) */
+function epMask2(u,kind,solo){var id=u+'L'+(++EPN),lens='M100 27.5 C110.5 27.5 115 33.5 115 43 C115 52 109.5 58.5 100 59 C90.5 58.5 85 52 85 43 C85 33.5 89.5 27.5 100 27.5 Z',h='<clipPath id="'+id+'"><path d="'+lens+'"/></clipPath>';
+ if(solo)h+='<path d="M100 14 C121 14 128 30 127 48 C126 60 121 67 114 70 M100 14 C79 14 72 30 73 48 C74 60 79 67 86 70 M100 14 V25 M74 36 L82 37.6 M126 36 L118 37.6" fill="none" stroke="url(#'+u+'k)" stroke-width="5" stroke-linecap="round"/>';
+ else h+='<path d="M80 39 C77.4 38 76 36.4 75.4 34 M120 39 C122.6 38 124 36.4 124.6 34 M79.6 56 C77.4 56 76 55 75 53.6 M120.4 56 C122.6 56 124 55 125 53.6" fill="none" stroke="#202326" stroke-width="2.4" stroke-linecap="round" opacity=".85"/>';
+ h+='<path d="M100 23.4 C115.6 23.4 121 35 121 48 C121 62 113.4 73.4 100 74.4 C86.6 73.4 79 62 79 48 C79 35 84.4 23.4 100 23.4 Z" fill="url(#'+u+'g)" stroke="#0b0c0e" stroke-width=".8"/>';
+ h+='<path d="M83 34 C84.6 28 90 25.2 96 24.8" stroke="#fff" stroke-width="1.2" fill="none" opacity=".25" stroke-linecap="round"/>';
+ h+='<g clip-path="url(#'+id+')">'+epFace2(u)+'<path d="M92.6 52.6 C93 48.6 96 47 100 47 C104 47 107 48.6 107.4 52.6 C107 56.4 104 58.4 100 58.4 C96 58.4 93 56.4 92.6 52.6 Z" fill="#23282c" opacity=".78"/><rect x="76" y="20" width="48" height="44" fill="url(#'+u+'v)"/>'+
+  '<path d="M87.6 37 C88.4 32.4 91.4 29.6 96 29" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".85" filter="url(#'+u+'f)"/><path d="M110.6 50.4 C110 53 108.6 55 106.4 56.2" stroke="#fff" stroke-width="1.4" fill="none" stroke-linecap="round" opacity=".55"/></g>';
+ h+='<path d="'+lens+'" fill="none" stroke="#6b737c" stroke-width="2.4"/><path d="'+lens+'" fill="none" stroke="#2c3136" stroke-width=".7"/>';
+ if(kind==='apr'){
+  h+='<circle cx="100" cy="65.6" r="5.4" fill="url(#'+u+'g)" stroke="#0b0c0e" stroke-width=".8"/><path d="M97 64.6 h6 M97.6 66.8 h4.8" stroke="#8a939c" stroke-width=".9"/>';
+  var f='<g transform="rotate(34 84.4 68)"><rect x="76" y="58" width="16.8" height="20.6" rx="4.4" fill="url(#'+u+'k)" stroke="#0b0c0e" stroke-width=".8"/><rect x="76" y="64.6" width="16.8" height="5.4" fill="#8b5a2b" stroke="#0b0c0e" stroke-width=".6"/><text x="84.4" y="68.9" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="3.6" fill="#fff">A2</text><ellipse cx="84.4" cy="78.4" rx="8.4" ry="2.2" fill="#1a1d20" stroke="#0b0c0e" stroke-width=".6"/><path d="M79 61 V75" stroke="#fff" stroke-width="1.1" opacity=".25" stroke-linecap="round"/></g>';
+  h+=f+'<g transform="translate(200 0) scale(-1 1)">'+f.replace('<text x="84.4" y="68.9" text-anchor="middle"','<text x="84.4" y="68.9" text-anchor="middle" transform="translate(168.8 0) scale(-1 1)"')+'</g>';
+ }else{
+  h+='<path d="M91.6 59.6 L108.4 59.6 C110.6 63.6 111.6 68 110 71.4 C106.4 75.6 93.6 75.6 90 71.4 C88.4 68 89.4 63.6 91.6 59.6 Z" fill="url(#'+u+'g)" stroke="#0b0c0e" stroke-width=".8"/><path d="M94 66 h12 M94.6 68.8 h10.8 M95.6 71.4 h8.8" stroke="#8a939c" stroke-width=".8"/><circle cx="109" cy="62.6" r="2.4" fill="#e3b400" stroke="#0b0c0e" stroke-width=".6"/><path d="M93 61.6 C95 60.8 98 60.6 100 60.6" stroke="#fff" stroke-width=".9" opacity=".3"/>';
+ }
+ return h;}
 /* ---- figuras ---- */
 function epFig(k){
-  var X=EPX(),h='<svg class="epfig" viewBox="0 0 160 300" role="img" aria-label="'+esc(X.lv[k][0])+'">';
-  h+='<ellipse cx="80" cy="294" rx="44" ry="4.4" fill="#000" opacity=".1"/>';
+  var X=EPX(),u='ep'+(++EPN),h='<svg class="epfig" viewBox="0 0 200 400" role="img" aria-label="'+esc(X.lv[k][0])+'">'+epDefs(u);
+  h+='<ellipse cx="100" cy="391" rx="52" ry="5.4" fill="#000" opacity=".22" filter="url(#'+u+'b)"/>';
   if(k==='A'){
-    h+=epBoots();
-    var lg=epP('M45 166 C43 200 47 232 51.6 262 L77 262 C76.6 234 78.6 208 80 190 Z',EPY)+'<path d="M80 190 C78.6 208 76.6 234 77 262 L70 262 C71 234 73 210 76 192 Z" fill="'+EPY2+'" opacity=".6"/>'+epL('M52 210 q8 4.4 18 .6',EPY2,1.5)+epL('M51 230 q7 3 15 0',EPY2,1.2)+'<path d="M50.6 250 L77.4 250 L77.4 263 L51.6 263 Z" fill="'+EPY3+'" stroke="'+EPO+'" stroke-width="1.6"/>';
-    h+=lg+epM(lg);
-    h+=epP('M80 5 C99 5 109.6 16 111.4 34 L112.4 60 C120.4 62 126.4 68.4 127.4 79 L124.6 150 C124.6 163 122 173 116 181 C106 189 93 191 80 191 C67 191 54 189 44 181 C38 173 35.4 163 35.4 150 L32.6 79 C33.6 68.4 39.6 62 47.6 60 L48.6 34 C50.4 16 61 5 80 5 Z',EPY,2.2);
-    h+='<path d="M98 10 C106 16 110 24 111 34 L112 60 C120 62 125.4 68 126.4 78 L123.6 150 C123.6 162 121 172 116 180 C110 185 104 188 97 189.4 C107 160 108 110 106 60 C105.4 38 103 22 98 10 Z" fill="'+EPY2+'" opacity=".6"/>';
-    h+=epL('M47 76 C44 100 45 140 48 172',EPYH,3.4,' opacity=".75"');
-    h+='<path d="M77 70 C76.4 100 76.4 150 77.4 178 L83.6 178 C84.6 150 84.6 100 84 70 Z" fill="'+EPY2+'" opacity=".7"/>'+epL('M77 70 C76.4 100 76.4 150 77.4 178',EPY3,1.3)+epL('M80.6 74 V174',EPY3,.9,' stroke-dasharray="2.4 2"');
-    h+=epP('M57 16.4 C64 12.6 96 12.6 103 16.4 C108 20 109 29 109 40 C109 53 106.6 61 100.4 64.4 C93.4 68 66.6 68 59.6 64.4 C53.4 61 51 53 51 40 C51 29 52 20 57 16.4 Z','#2b3036',2.2);
-    h+='<path d="M59.6 19.6 C66 16.4 94 16.4 100.4 19.6 C104.6 22.6 105.6 30 105.6 40 C105.6 51 103.6 58 98.6 60.8 C92.6 64 67.4 64 61.4 60.8 C56.4 58 54.4 51 54.4 40 C54.4 30 55.4 22.6 59.6 19.6 Z" fill="#cfe6f2"/>';
-    h+='<g transform="translate(80 41) scale(.94) translate(-80 -46)">'+epMask('scba')+'</g>';
-    h+='<path d="M59.6 19.6 C66 16.4 94 16.4 100.4 19.6 C104.6 22.6 105.6 30 105.6 40 C105.6 51 103.6 58 98.6 60.8 C92.6 64 67.4 64 61.4 60.8 C56.4 58 54.4 51 54.4 40 C54.4 30 55.4 22.6 59.6 19.6 Z" fill="#7fc4e8" opacity=".22"/>';
-    h+=epL('M60 30 C61 25 64 22.4 69 21.4',"#fff",3,' opacity=".85"')+epL('M99.6 50 C99 55 97 58 94 59.4',"#fff",2,' opacity=".6"');
-    var vv='<circle cx="44" cy="96" r="5.2" fill="#5b626b" stroke="'+EPO+'" stroke-width="1.5"/><circle cx="44" cy="96" r="2.4" fill="#3a4047"/>';h+=vv+epM(vv);
-    var ar=epP('M52 64 C40 66 34 74 33 88 L26.6 130 L22.6 170 L42 171.4 L44 134 L48 106 C50 96 52 82 52 64 Z',EPY)+'<path d="M48 106 L44 134 L42 171.4 L37 171 L39 134 L43 108 C45 98 47 84 48 70 C51 76 50 96 48 106 Z" fill="'+EPY2+'" opacity=".6"/>'+epL('M29.6 126 q6.4 4 13 1.6',EPY2,1.6)+epL('M32 98 q5 2.4 10 1.4',EPY2,1.2)+'<path d="M22.4 163 L42.4 164.4 L42.2 172.4 L22 171 Z" fill="'+EPK+'" stroke="'+EPO+'" stroke-width="1.6"/>';
-    h+=ar+epM(ar);
-    h+='<g transform="translate(-5 2)">'+epGlove(EPG,EPG2,false)+'</g>'+epM('<g transform="translate(-5 2)">'+epGlove(EPG,EPG2,false)+'</g>');
+    h+=epBoots2(u);
+    h+=epS(u,'M58 200 C54 236 56 276 60 312 C62 330 63 346 64 362 L97 362 C96 340 97 314 98 290 C99 262 99.5 236 100 222 Z','y')+epS(u,'M142 200 C146 236 144 276 140 312 C138 330 137 346 136 362 L103 362 C104 340 103 314 102 290 C101 262 100.5 236 100 222 Z','y');
+    h+=epFd(u,'M62 290 C72 295 84 295 96 290',1.8)+epFd(u,'M104 290 C116 295 128 295 138 290',1.8)+epFd(u,'M98 232 C88 242 76 250 64 256',1.5)+epFd(u,'M102 232 C112 242 124 250 136 256',1.5)+epFd(u,'M64 334 C74 338 86 338 97 334',1.4)+epFd(u,'M63.6 344 C74 348 86 348 97 344',1.4)+epFd(u,'M103 334 C114 338 126 338 136.6 334',1.4)+epFd(u,'M103 344 C114 348 126 348 136.4 344',1.4)+epHl(u,'M66 236 C64 266 66 296 70 316',2.4,.5)+epHl(u,'M110 240 C109 268 110 296 112 316',1.8,.35);
+    h+=epS(u,'M62 352 L97.4 352 L97 362 L64 362 Z','k','#111',.7)+epS(u,'M102.6 352 L138 352 L136 362 L103 362 Z','k','#111',.7);
+    h+=epS(u,'M100 4 C122 4 133 17 135 37 L136 66 C148 68 158 76 160 90 C162 110 160 150 158 186 C157 200 152 210 142 216 C128 222 114 224 100 224 C86 224 72 222 58 216 C48 210 43 200 42 186 C40 150 38 110 40 90 C42 76 52 68 64 66 L65 37 C67 17 78 4 100 4 Z','y');
+    h+=epHl(u,'M52 96 C48 120 48 160 52 196',3.4,.55)+epHl(u,'M72 14 C68 22 66 32 66 44',2.6,.6)+epSh(u,'M64 82 C80 90 120 90 136 82 L136 92 C120 98 80 98 64 92 Z',.28);
+    h+=epFd(u,'M58 120 C70 130 82 136 94 138',1.6)+epFd(u,'M142 120 C130 130 118 136 106 138',1.6)+epFd(u,'M56 170 C70 176 84 178 96 176',1.3,.4)+epFd(u,'M70 204 C80 212 90 216 98 218',1.5)+epFd(u,'M130 204 C120 212 110 216 102 218',1.5);
+    h+='<path d="M95 88 C94.4 120 94.4 170 95.4 214 L105 214 C105.8 170 105.8 120 105 88 Z" fill="#e4b215" stroke="#a37a08" stroke-width=".9"/><path d="M100 90 V212" stroke="#a37a08" stroke-width=".8" stroke-dasharray="2.6 2"/><path d="M96.6 90 C96 130 96 170 96.8 212" stroke="#fff3b0" stroke-width=".9" opacity=".6"/>';
+    var vv='<circle cx="70" cy="104" r="6.4" fill="url(#'+u+'g)" stroke="#0b0c0e" stroke-width=".8"/><circle cx="70" cy="104" r="3.2" fill="#2b3036"/><path d="M66.4 101 A5 5 0 0 1 71 99.4" stroke="#fff" stroke-width="1" fill="none" opacity=".4"/>';
+    h+=vv+'<g transform="translate(200 0) scale(-1 1)">'+vv+'</g>';
+    h+='<path d="M78 20 C86 15 114 15 122 20 C128 24 129.4 34 129.4 48 C129.4 62 126.6 72 119.6 76 C111.6 80.6 88.4 80.6 80.4 76 C73.4 72 70.6 62 70.6 48 C70.6 34 72 24 78 20 Z" fill="#23282c" stroke="#0b0c0e" stroke-width="1"/>';
+    h+='<path d="M80.6 23 C88 18.6 112 18.6 119.4 23 C124.4 26.4 125.6 35 125.6 48 C125.6 60.6 123.4 69 117.6 72.4 C110 76.4 90 76.4 82.4 72.4 C76.6 69 74.4 60.6 74.4 48 C74.4 35 75.6 26.4 80.6 23 Z" fill="#d7edf7"/>';
+    h+='<g transform="translate(100 49) scale(.92) translate(-100 -49)">'+epMask2(u,'scba')+'</g>';
+    h+='<path d="M80.6 23 C88 18.6 112 18.6 119.4 23 C124.4 26.4 125.6 35 125.6 48 C125.6 60.6 123.4 69 117.6 72.4 C110 76.4 90 76.4 82.4 72.4 C76.6 69 74.4 60.6 74.4 48 C74.4 35 75.6 26.4 80.6 23 Z" fill="url(#'+u+'v)" opacity=".6"/>';
+    h+='<path d="M79 36 C80 29 84 24.4 92 22.6" stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round" opacity=".85" filter="url(#'+u+'f)"/><path d="M121.6 56 C121 63 119 67.6 114.6 70" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" opacity=".55"/>';
+    h+=epS(u,'M62 78 C48 80 40 90 38 104 C35 128 32 152 30 172 C28 190 27 206 27 222 L51 224 C51.5 206 53 190 55 172 C57 152 59.5 132 61 116 C62 104 63 90 62 78 Z','y')+epS(u,'M138 78 C152 80 160 90 162 104 C165 128 168 152 170 172 C172 190 173 206 173 222 L149 224 C148.5 206 147 190 145 172 C143 152 140.5 132 139 116 C138 104 137 90 138 78 Z','y');
+    h+=epFd(u,'M32 160 C39 165 47 166 55 163',1.8)+epFd(u,'M145 163 C153 166 161 165 168 160',1.8)+epFd(u,'M28 200 C35 204 44 204 52 201',1.4)+epFd(u,'M148 201 C156 204 165 204 172 200',1.4)+epHl(u,'M44 100 C40 124 37 148 35 166',2.2,.55)+epHl(u,'M152 104 C155 126 158 148 159 162',1.6,.35);
+    h+=epS(u,'M27 214 L51 216 L51 224 L27 222 Z','k','#111',.7)+epS(u,'M149 216 L173 214 L173 222 L149 224 Z','k','#111',.7);
+    h+='<g transform="translate(-6 -2) scale(1.06) translate(-1 -2)">'+epGloveL(u)+'</g><g transform="translate(206 -2) scale(-1.06 1.06) translate(-1 -2)">'+epGloveL(u)+'</g>';
   }else if(k==='B'||k==='C'){
-    if(k==='B'){h+=epP('M94 74 L113 74 C118 74 120 78 120 84 L120 156 C120 162 117 166 112 166 L100 166 Z','#c7ced8',1.8)+epL('M114 82 V158','#e8edf2',2.4)+'<rect x="102" y="164" width="12" height="9" rx="2" fill="#3a4047" stroke="'+EPO+'" stroke-width="1.4"/>';}
-    h+=epBoots()+epLegs(EPY,EPY2,EPK)+epTorso(EPY,EPY2,EPYH)+epHood(EPY,EPY2)+epArm(EPY,EPY2,EPK)+epGloves();
-    h+=epMask(k==='B'?'scba':'apr');
+    if(k==='B')h+='<path d="M84 74 L116 74 L118 84 L82 84 Z" fill="url(#'+u+'k)"/>'+epS(u,'M138 192 L150 192 L150 204 L138 204 Z','m','#4b535b',.8)+'<rect x="139.6" y="203" width="9" height="6" rx="1.4" fill="#2b2e32"/><ellipse cx="144" cy="212" rx="7" ry="2.6" fill="url(#'+u+'k)"/>';
+    h+=epBoots2(u)+epLegs2(u,true)+epTorso2(u)+epHood2(u)+epArms2(u,true)+epGloves2(u);
+    h+=epMask2(u,k==='B'?'scba':'apr');
     if(k==='B'){
-      var st=epP('M63 70 L72 70 L67.6 147 L58.6 147 Z',EPK,1.6)+'<rect x="60.4" y="118" width="7.6" height="6" rx="1.4" fill="#8a939c" stroke="'+EPO+'" stroke-width="1"/>';h+=st+epM(st);
-      h+=epP('M68 100 L92 100 L92 105 L68 105 Z',EPK,1.2)+'<rect x="76.6" y="98.6" width="6.8" height="7.8" rx="1.4" fill="#8a939c" stroke="'+EPO+'" stroke-width="1"/>';
-      h+=epP('M54.6 143 L105.4 143 L105.8 154 L54.2 154 Z',EPK,1.6)+'<rect x="73.6" y="141" width="12.8" height="15" rx="2.4" fill="#9aa3ad" stroke="'+EPO+'" stroke-width="1.3"/>';
-      h+=epL('M87 66 C97 72 100 84 97.6 100',EPK,3.4);
-      h+=epL('M64.6 92 C58 100 55.6 108 56.4 116',EPK,2.4)+'<circle cx="56.6" cy="121" r="6.2" fill="#fff" stroke="'+EPO+'" stroke-width="1.8"/><path d="M51.6 122.6 A5 5 0 0 1 54 117" stroke="#c8102e" stroke-width="1.6" fill="none"/><path d="M54 117 A5 5 0 0 1 61.4 120.6" stroke="#2e9d4f" stroke-width="1.6" fill="none"/><path d="M56.6 121 l3 -2.6" stroke="'+EPO+'" stroke-width="1.2" stroke-linecap="round"/>';
+      h+=epS(u,'M86 76 C84 92 80 112 76 132 C73 148 72 162 72 172 L82.4 172 C82.4 162 83.4 148 86.4 132 C89.6 112 92.6 92 94.6 78 Z','k','#0b0c0e',.7)+epS(u,'M114 76 C116 92 120 112 124 132 C127 148 128 162 128 172 L117.6 172 C117.6 162 116.6 148 113.6 132 C110.4 112 107.4 92 105.4 78 Z','k','#0b0c0e',.7);
+      h+='<path d="M89.4 80 C87.6 100 83.6 124 80 146 M110.6 80 C112.4 100 116.4 124 120 146" stroke="#8a939c" stroke-width=".7" stroke-dasharray="2 1.6" fill="none"/>';
+      h+=epS(u,'M74.6 138 L83.6 138 L83 144 L74 144 Z','m','#3d444b',.6)+epS(u,'M116.4 138 L125.4 138 L126 144 L117 144 Z','m','#3d444b',.6);
+      h+=epS(u,'M84 118 L116 118 L116 123.6 L84 123.6 Z','k','#0b0c0e',.6)+epS(u,'M96 116.4 L104 116.4 L104 125.2 L96 125.2 Z','m','#3d444b',.6);
+      h+=epS(u,'M62 166 C80 172 120 172 138 166 L139 180 C120 186 80 186 61 180 Z','k','#0b0c0e',.8)+epS(u,'M92 168 L108 168 L108.4 184 L91.6 184 Z','m','#3d444b',.8)+'<path d="M95 172 h10 M95 176 h10 M95 180 h10" stroke="#5b636c" stroke-width=".8"/>';
+      h+='<path d="M108 70 C118 76 122 90 119 106 C117 118 120 128 124 136" fill="none" stroke="url(#'+u+'k)" stroke-width="4.4" stroke-linecap="round"/><path d="M108 70 C118 76 122 90 119 106" fill="none" stroke="#fff" stroke-width=".8" opacity=".2"/>';
+      h+='<path d="M80 130 C72 136 68 144 68 150" fill="none" stroke="url(#'+u+'k)" stroke-width="3" stroke-linecap="round"/><circle cx="67.4" cy="156.6" r="8.4" fill="url(#'+u+'g)" stroke="#0b0c0e" stroke-width=".8"/><circle cx="67.4" cy="156.6" r="6.2" fill="#f7f9fa"/><path d="M62.2 159.4 A5.4 5.4 0 0 1 64.6 151.8" stroke="#c8102e" stroke-width="1.6" fill="none"/><path d="M64.6 151.8 A5.4 5.4 0 0 1 72.6 156" stroke="#2e9d4f" stroke-width="1.6" fill="none"/><path d="M67.4 156.6 l3.4 -3" stroke="#111" stroke-width="1" stroke-linecap="round"/><circle cx="67.4" cy="156.6" r=".9" fill="#111"/><path d="M62.4 153 A6 6 0 0 1 66 150.6" stroke="#fff" stroke-width="1" fill="none" opacity=".8"/>';
     }else{
-      h+=epP('M56.6 145 L103.4 145 L103.6 152 L56.4 152 Z',EPY2,1.4);
+      h+=epFd(u,'M64 168 C80 172 120 172 136 168',2,.5)+epHl(u,'M64 172 C80 176 120 176 136 172',1.2,.45);
     }
   }else if(k==='D'){
-    h+=epBoots('#6b4423','#2b2118')+epLegs(EPY,EPY2,null);
-    var rf='<path d="M57.4 228 L76.6 228 L76.4 234 L57.8 234 Z" fill="#c9ced6" stroke="'+EPO+'" stroke-width="1.1"/>';h+=rf+epM(rf);
-    var hem='<path d="M58.6 256 L77.2 256 L77 263 L59 263 Z" fill="'+EPY2+'" stroke="'+EPO+'" stroke-width="1.4"/>';h+=hem+epM(hem);
-    h+=epTorso(EPY,EPY2,EPYH);
-    h+=epP('M70 60 L90 60 L90 72 L70 72 Z',EPSK,1.4);
-    h+=epP('M66 68 L80 84 L94 68 L99 70 L80 96 L61 70 Z',EPY2,1.5)+epP('M70 69 L80 82 L90 69 Z','#f4f1ea',1.2);
-    var pk='<rect x="61" y="96" width="14" height="13" rx="1.6" fill="'+EPY+'" stroke="'+EPO+'" stroke-width="1.3"/><path d="M61 96 L75 96 L75 101 L61 101 Z" fill="'+EPY2+'" stroke="'+EPO+'" stroke-width="1.2"/>';h+=pk+epM(pk);
-    var cs='<path d="M57.8 118 L76 118 L76 123.6 L58.2 123.6 Z" fill="#c9ced6" stroke="'+EPO+'" stroke-width="1.1"/>';h+=cs+epM(cs);
-    h+=epP('M56.6 143 L103.4 143 L103.6 151 L56.4 151 Z','#6b4423',1.4)+'<rect x="75" y="141.6" width="10" height="10.6" rx="1.6" fill="#c9ced6" stroke="'+EPO+'" stroke-width="1.2"/>'+epP('M88 150 L99 150 L98.4 166 L88.6 166 Z','#7c5a35',1.3);
-    h+=epArm(EPY,EPY2,null);
-    var ab='<path d="M37.4 112 L51.6 113.6 L50.8 119 L36.6 117.4 Z" fill="#c9ced6" stroke="'+EPO+'" stroke-width="1.1"/>';h+=ab+epM(ab);
-    h+=epGloves('#c99a5b','#a87b42',true);
-    h+='<path d="M64 38 C64 24 70 18 80 18 C90 18 96 24 96 38" fill="#4a3426" stroke="'+EPO+'" stroke-width="1.4"/>'+epFacePlain();
-    h+=epP('M67 38.6 L93 38.6 L92.4 45.6 C90 47.4 86.4 47.4 84 45.6 L82 43.4 L78 43.4 L76 45.6 C73.6 47.4 70 47.4 67.6 45.6 Z','#cfe9f7',1.4,' fill-opacity=".85"')+epL('M69.6 41 l3 -1.4',"#fff",1.3);
-    h+=epP('M62.6 31 C62.6 17 70 9.6 80 9.6 C90 9.6 97.4 17 97.4 31 Z','#fafafa',1.8)+'<path d="M76.6 10.2 L83.4 10.2 L84.4 31 L75.6 31 Z" fill="#e3e7eb" stroke="'+EPO+'" stroke-width="1.1"/>'+epP('M57.4 30 L102.6 30 C104 30 104 34 102 34.4 L58 34.4 C56 34 56 30 57.4 30 Z','#fafafa',1.6)+epL('M90 14.6 C94 18 96 23 96.4 28','#d8dde3',2.2);
+    h+=epBoots2(u,'bw')+epLegs2(u,false);
+    var rb=function(d){return '<path d="'+d+'" fill="url(#'+u+'sv)" stroke="#6b737c" stroke-width=".6"/>';};
+    h+=rb('M64.4 300 L95.6 300 L95.4 306 L64.8 306 Z')+rb('M104.4 300 L135.6 300 L135.2 306 L104.6 306 Z');
+    h+=epS(u,'M68.6 354 L96 354 L96 362 L69 362 Z','yv')+epS(u,'M104 354 L132 354 L132 362 L104 362 Z','yv');
+    h+=epTorso2(u);
+    h+=rb('M62.6 130 L137.4 130 L137.2 137 L62.8 137 Z');
+    h+='<path d="M92 60 L108 60 L109 76 L91 76 Z" fill="url(#'+u+'s)"/><path d="M92 68 C96 71 104 71 108 68" stroke="#b77d5c" stroke-width="1" fill="none" opacity=".6"/>';
+    h+=epS(u,'M84 70 L100 92 L116 70 L124 73 L100 104 L76 73 Z','yv')+'<path d="M89 71 L100 86 L111 71 Z" fill="#e9e6df" stroke="#a9a49a" stroke-width=".7"/>';
+    var pk='<path d="M70 104 L90 104 L90 120 C90 122 89 123 87 123 L73 123 C71 123 70 122 70 120 Z" fill="url(#'+u+'y)" stroke="'+EPOL+'" stroke-width=".8"/><path d="M69.4 103 L90.6 103 L90.6 109.4 L69.4 109.4 Z" fill="url(#'+u+'yv)" stroke="'+EPOL+'" stroke-width=".8"/><circle cx="80" cy="107.6" r="1" fill="#7d5e06"/>';
+    h+=pk+'<g transform="translate(200 0) scale(-1 1)">'+pk+'</g>';
+    h+=epS(u,'M62 164 C80 169 120 169 138 164 L138.6 174 C120 179 80 179 61.4 174 Z','bw','#2e1e10',.8)+epS(u,'M94 165.6 L106 165.6 L106 177.6 L94 177.6 Z','m','#3d444b',.7)+epS(u,'M114 176 L128 175 L127.4 196 L114.6 197 Z','bw','#2e1e10',.7);
+    h+=epArms2(u,false);
+    h+=rb('M42.6 150 L59.4 151.6 L59 157.4 L42 156 Z')+rb('M140.6 151.6 L157.4 150 L158 156 L141 157.4 Z');
+    h+=epS(u,'M36 220 L55.6 222 L55.4 229 L35.6 227 Z','yv')+epS(u,'M140 222 L159.6 220 L159.4 227 L140 229 Z','yv');
+    h+=epGloves2(u,'l');
+    h+='<path d="M80.6 46 C78.6 46 77.4 42 78.8 39.6 L82 40.6 Z M119.4 46 C121.4 46 122.6 42 121.2 39.6 L118 40.6 Z" fill="url(#'+u+'s)" stroke="#b77d5c" stroke-width=".7"/>';
+    h+='<path d="M100 18 C111 18 118.6 27 118.6 40 C118.6 53 112.6 64.4 100 66.4 C87.4 64.4 81.4 53 81.4 40 C81.4 27 89 18 100 18 Z" fill="url(#'+u+'s)" stroke="#b77d5c" stroke-width=".8"/>';
+    h+='<path d="M82 40 C82 28 89 22 100 22 C111 22 118 28 118 40 C116 33 109 30.4 100 30.4 C91 30.4 84 33 82 40 Z" fill="#3a2717"/>';
+    h+='<path d="M90.4 43.6 C92.2 41.8 95.2 41.8 97 43.6 C95.2 45 92.2 45 90.4 43.6 Z M103 43.6 C104.8 41.8 107.8 41.8 109.6 43.6 C107.8 45 104.8 45 103 43.6 Z" fill="#f3ece5"/><circle cx="93.8" cy="43.5" r="1.25" fill="#3d2a1c"/><circle cx="106.2" cy="43.5" r="1.25" fill="#3d2a1c"/>';
+    h+='<path d="M89.6 39.6 C92 38.4 95 38.4 97.4 39.4 M102.6 39.4 C105 38.4 108 38.4 110.4 39.6" stroke="#4a3220" stroke-width="1.2" fill="none" stroke-linecap="round"/><path d="M99.6 44.6 C98.8 48.6 98.2 51.4 100.6 52.4 C101.6 52.6 102.4 52 102.6 51.4" stroke="#b77d5c" stroke-width=".9" fill="none"/><path d="M95.2 57.6 C98.4 58.8 101.6 58.8 104.8 57.6" stroke="#9b5a43" stroke-width="1.1" fill="none" stroke-linecap="round"/><path d="M86 52 C88 60 93 64 100 65" stroke="#c98d68" stroke-width="1.4" fill="none" opacity=".45" filter="url(#'+u+'f)"/>';
+    h+='<path d="M86.6 41.2 L113.4 41.2 L112.8 47.6 C110.4 50.2 106 50.2 103.8 48 L102 45.8 L98 45.8 L96.2 48 C94 50.2 89.6 50.2 87.2 47.6 Z" fill="#cfe9f7" fill-opacity=".45" stroke="#2b3036" stroke-width="1.1"/><path d="M89 43.4 l3.6 -1.2 M104.6 43.4 l3.6 -1.2" stroke="#fff" stroke-width="1" opacity=".9"/>';
+    h+='<path d="M80.6 34 C80.6 18 89 9 100 9 C111 9 119.4 18 119.4 34 Z" fill="url(#'+u+'w)" stroke="#8f99a4" stroke-width=".9"/><path d="M96.6 9.6 L103.4 9.6 L104.4 34 L95.6 34 Z" fill="#f4f6f8" stroke="#a3acb5" stroke-width=".7"/><path d="M74 34.6 C74 32.4 76 31.4 79 31.4 L121 31.4 C124 31.4 126 32.4 126 34.6 C126 37 124 38 121 38 L79 38 C76 38 74 37 74 34.6 Z" fill="url(#'+u+'w)" stroke="#8f99a4" stroke-width=".9"/><path d="M86 14 C83 18 82 24 82 30" stroke="#fff" stroke-width="2" fill="none" opacity=".9" stroke-linecap="round"/>';
   }
   return h+'</svg>';}
-/* ---- equipamentos (viewBox 0 0 160 140) ---- */
+/* ---- equipamentos (viewBox 0 0 200 170) ---- */
 function epGear(k){
-  var X=EPX(),h='<svg class="epfig gear" viewBox="0 0 160 140" role="img" aria-label="'+esc(X.lv[k][0])+'">';
+  var X=EPX(),u='ep'+(++EPN),h='<svg class="epfig gear" viewBox="0 0 200 170" role="img" aria-label="'+esc(X.lv[k][0])+'">'+epDefs(u);
   if(k==='S'){
-    h+=epP('M16 22 C16 14 22 10 30 10 L56 10 C64 10 70 14 70 22 L70 112 C70 120 64 124 56 124 L30 124 C22 124 16 120 16 112 Z',EPK,2);
-    h+=epL('M22 30 C10 38 8 60 14 78',EPK,6)+epL('M64 30 C76 38 78 60 72 78',EPK,6);
-    h+='<rect x="24" y="14" width="38" height="96" rx="16" fill="#c7ced8" stroke="'+EPO+'" stroke-width="2"/><rect x="24" y="44" width="38" height="24" fill="#e2b400" stroke="'+EPO+'" stroke-width="1.4"/>'+epL('M30.6 22 C28 34 28 80 30.6 102','#f3f6f9',3.4)+epL('M57 26 C59 40 59 84 57 100','#9aa3ad',2.4);
-    h+='<text x="43" y="60" text-anchor="middle" font-family="Archivo,Arial,sans-serif" font-weight="900" font-size="9" fill="'+EPO+'">AR</text>';
-    h+='<rect x="36" y="108" width="14" height="10" rx="2" fill="#3a4047" stroke="'+EPO+'" stroke-width="1.5"/><ellipse cx="43" cy="125" rx="10" ry="4" fill="'+EPK+'" stroke="'+EPO+'" stroke-width="1.6"/>'+epL('M35 125 h16','#5b626b',1.2);
-    h+=epL('M28 112 C12 118 8 102 12 92','#3a4047',3)+'<circle cx="12" cy="86" r="7.6" fill="#fff" stroke="'+EPO+'" stroke-width="2"/><path d="M6.6 88.4 A6 6 0 0 1 9.4 81" stroke="#c8102e" stroke-width="2" fill="none"/><path d="M9.4 81 A6 6 0 0 1 18.2 85.6" stroke="#2e9d4f" stroke-width="2" fill="none"/><path d="M12 86 l3.6 -3" stroke="'+EPO+'" stroke-width="1.5" stroke-linecap="round"/>';
-    h+=epL('M50 114 C80 132 104 120 108 100','#3a4047',3.6);
-    h+='<g transform="translate(116 60) scale(1.32) translate(-80 -44)">'+epMask('scba',1)+'</g>';
+    h+='<ellipse cx="100" cy="162" rx="84" ry="4" fill="#000" opacity=".18" filter="url(#'+u+'b)"/>';
+    h+=epS(u,'M22 26 C22 16 30 10 40 10 L72 10 C82 10 88 16 88 26 L88 136 C88 146 82 152 72 152 L40 152 C30 152 22 146 22 136 Z','k','#0b0c0e',.8);
+    h+='<path d="M28 32 C14 42 12 70 20 94 M82 32 C96 42 98 70 90 94" fill="none" stroke="url(#'+u+'k)" stroke-width="9" stroke-linecap="round"/><path d="M28 32 C14 42 12 70 20 94 M82 32 C96 42 98 70 90 94" fill="none" stroke="#8a939c" stroke-width=".7" stroke-dasharray="2 1.6"/>';
+    h+=epS(u,'M31 30 C31 20 38 14 46 14 L64 14 C72 14 79 20 79 30 L79 128 C79 136 74 140 66 140 L44 140 C36 140 31 136 31 128 Z','m','#4b535b',.9);
+    h+='<rect x="31" y="58" width="48" height="30" fill="#e3b400" opacity=".92"/><path d="M31 58 H79 M31 88 H79" stroke="#7d6300" stroke-width=".8"/><text x="55" y="77" text-anchor="middle" font-family="Archivo,Arial,sans-serif" font-weight="900" font-size="11" fill="#1f2328">AR</text>';
+    h+=epS(u,'M47 138 L63 138 L63 150 L47 150 Z','k','#0b0c0e',.8)+'<ellipse cx="55" cy="156" rx="13" ry="4.4" fill="url(#'+u+'k)" stroke="#0b0c0e" stroke-width=".8"/>';
+    h+='<path d="M37 142 C18 150 10 132 14 118" fill="none" stroke="url(#'+u+'k)" stroke-width="3.6" stroke-linecap="round"/><circle cx="15" cy="110" r="9.6" fill="url(#'+u+'g)" stroke="#0b0c0e" stroke-width=".8"/><circle cx="15" cy="110" r="7.2" fill="#f7f9fa"/><path d="M9 113.2 A6.2 6.2 0 0 1 11.8 104.4" stroke="#c8102e" stroke-width="1.8" fill="none"/><path d="M11.8 104.4 A6.2 6.2 0 0 1 21 109.4" stroke="#2e9d4f" stroke-width="1.8" fill="none"/><path d="M15 110 l4 -3.4" stroke="#111" stroke-width="1.1" stroke-linecap="round"/>';
+    h+='<path d="M64 146 C100 168 140 156 148 128" fill="none" stroke="url(#'+u+'k)" stroke-width="4.6" stroke-linecap="round"/>';
+    h+='<g transform="translate(146 70) scale(1.42) translate(-100 -46)">'+epMask2(u,'scba',1)+'</g>';
   }else{
-    h+='<g transform="translate(80 66) scale(1.66) translate(-80 -45)">'+epMask('apr',1)+'</g>';
+    h+='<ellipse cx="100" cy="162" rx="58" ry="4" fill="#000" opacity=".18" filter="url(#'+u+'b)"/>';
+    h+='<g transform="translate(100 78) scale(2.02) translate(-100 -46)">'+epMask2(u,'apr',1)+'</g>';
   }
   return h+'</svg>';}
 
@@ -1996,7 +2036,6 @@ function viewEPI(mode){
     h+='<div class="epnav"><button type="button" class="epbtn" id="epback">‹ '+esc(X.back)+'</button><button type="button" class="epbtn pri" id="epagain">'+esc(X.again)+'</button></div>';}
   else{var q=X.Q[W.cur==='pele2'?'pele':W.cur];
     h+='<div class="epq"><small>'+esc(X.q)+' '+(EP.a.length+1)+' '+esc(X.of)+' '+epDepth()+'</small><h2>'+esc(q[0])+'</h2><p>'+esc(q[1])+'</p><div class="epyn"><button type="button" data-epa="1">'+esc(X.yes)+'</button><button type="button" data-epa="0">'+esc(X.no)+'</button></div><button type="button" class="epdk" data-epa="u"><b>'+esc(X.dk)+'</b><span>'+esc(X.dkD)+': '+esc(EPCONS[W.cur]?X.yes:X.no)+'</span></button>'+(EP.a.length?'<button type="button" class="eplink" id="epback">‹ '+esc(X.back)+'</button>':'')+'</div>';}
-  h+=epMapHTML(W,X);
   h+='<p class="eyebrow">'+esc(X.lvT)+'</p><div class="eplv">'+['A','B','C','D'].map(function(k){var L=X.lv[k];return '<details class="lv'+k+'"><summary>'+epFig(k)+'<b>'+esc(L[0])+'</b><small>'+esc(L[1])+'</small></summary><ul>'+L[2].map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul></details>';}).join('')+'</div>';
   h+='<p class="note epsrc">'+esc(X.src)+'</p></div>';
   app.innerHTML=h;wireBack();
