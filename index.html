@@ -591,7 +591,7 @@ body[data-sec="p"] .body{background:linear-gradient(#f6f1fb,#fff 220px)}
 .mzlay button{font:inherit;font-weight:700;font-size:13px;border:0;background:#fff;color:var(--ink);padding:6px 10px;cursor:pointer}
 .mzlay button[aria-pressed="true"]{background:var(--ink);color:#fff}
 .mzmsg{font-size:14px;color:var(--muted);margin:0 0 10px}
-.mzpin span{display:block;box-sizing:border-box;width:16px;height:16px;border-radius:50%;background:#111;border:3px solid #fff;box-shadow:0 0 0 1.5px #111,0 2px 5px rgba(0,0,0,.4)}
+.mzpin span{display:block;box-sizing:border-box;width:10px;height:10px;border-radius:50%;background:#111;border:2px solid #fff;box-shadow:0 0 0 1px #111,0 1px 3px rgba(0,0,0,.4)}
 .mzhd span{display:block;box-sizing:border-box;width:28px;height:28px;border-radius:50%;background:#1f6fd1 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 7 29 29 20 24 11 29z' fill='%23fff'/%3E%3C/svg%3E") center/100% no-repeat;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.45);cursor:grab}
 .mzlbl{background:none;border:0}
 .mzlbl span{display:inline-block;transform:translate(-50%,-50%);white-space:nowrap;font:700 12px/1.2 Archivo,Arial,sans-serif;padding:3px 7px;border-radius:999px;background:#fff;border:2px solid;box-shadow:0 1px 4px rgba(0,0,0,.3)}
@@ -690,7 +690,7 @@ body[data-sec="p"] .body{background:linear-gradient(#f6f1fb,#fff 220px)}
 .mzin .zt.off{background:#f1f3f6;color:var(--muted)}.mzin .zt.off::before{opacity:.35}.mzin .zt.off .zl{color:var(--muted)}
 .mzin .zt:disabled{cursor:default;opacity:.6}
 .zv b{font-family:var(--font-display);font-weight:800;font-size:22px;line-height:1.1}
-.zf .zl svg{flex:none;color:var(--zc);margin-top:-1px}.zt.off .zl svg{opacity:.45}
+.zt .zl svg{flex:none;color:var(--zc);margin-top:-1px}.zt.off .zl svg{opacity:.45}
 .zs{font-size:11px;font-weight:700;line-height:1.15;color:var(--muted)}.zt.on .zs{color:var(--ink)}
 @media (max-width:400px){.zv b{font-size:19px}.mbart-w{width:104px}.mbt{padding:12px 10px 12px 13px}.mbt b{font-size:19px}.mbt small{font-size:12.5px}.zl{font-size:11px}.zv input{font-size:19px}}
 
@@ -1815,7 +1815,7 @@ function viewMap(arg){
 }
 function mzEff(){var D=MZ.d,O=MZ.on||{i:1,p:1,f:1};return {i:O.i?D.i:0,p:O.p?D.p:0,d:O.p?D.d:0,f:O.f?D.f:0};}
 function mzChip(k,cls,lab,v){var on=MZ.on[k]&&v,st=!v?zt('tNone'):on?zt('tOn'):zt('tOff');
-  return '<button type="button" class="zt '+cls+(on?' on':' off')+'" data-t="'+k+'" aria-pressed="'+(on?'true':'false')+'"'+(v?'':' disabled')+'><span class="zl">'+(k==='f'?qi('flame',16):'<i></i>')+esc(lab)+'</span><span class="zv"><b>'+(v?num(v):'—')+'</b><em>m</em></span><small class="zs">'+esc(st)+'</small></button>';}
+  return '<button type="button" class="zt '+cls+(on?' on':' off')+'" data-t="'+k+'" aria-pressed="'+(on?'true':'false')+'"'+(v?'':' disabled')+'><span class="zl">'+qi({f:'flame',i:'radius',p:'wind'}[k],16)+esc(lab)+'</span><span class="zv"><b>'+(v?num(v):'—')+'</b><em>m</em></span><small class="zs">'+esc(st)+'</small></button>';}
 function mzMsg(k,txt){var e=document.getElementById('mzmsg');if(e)e.textContent=txt||zt(k);}
 function mzInit(){
   var el=document.getElementById('mzmap');if(!el)return;el.innerHTML='';
@@ -1823,7 +1823,7 @@ function mzInit(){
   MZ.tiles={map:L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}),sat:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Esri, Maxar, Earthstar Geographics'})};
   MZ.tiles[MZ.layer].addTo(map);mzLayBtns();L.control.scale({imperial:false,position:'bottomleft'}).addTo(map);map.on('zoomend',function(){mzDraw();});
   MZ.gr=L.layerGroup().addTo(map);
-  MZ.pin=L.marker(MZ.c||[0,0],{draggable:true,icon:L.divIcon({className:'mzpin',html:'<span></span>',iconSize:[16,16],iconAnchor:[8,8]}),zIndexOffset:1000});
+  MZ.pin=L.marker(MZ.c||[0,0],{draggable:true,icon:L.divIcon({className:'mzpin',html:'<span></span>',iconSize:[10,10],iconAnchor:[5,5]}),zIndexOffset:1000});
   MZ.hd=L.marker([0,0],{draggable:true,icon:L.divIcon({className:'mzhd',html:'<span></span>',iconSize:[28,28],iconAnchor:[14,14]}),zIndexOffset:900});
   MZ.pin.on('dragend',function(){var p=MZ.pin.getLatLng();mzSet([p.lat,p.lng],false);});
   MZ.hd.on('drag',function(){var p=MZ.hd.getLatLng();MZ.brg=Math.round(mzBrg(MZ.c,[p.lat,p.lng]));MZ.auto=false;mzDraw(false,true);mzDirUI();});
