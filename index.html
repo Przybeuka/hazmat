@@ -328,7 +328,7 @@ details.full{border:2px solid var(--green);border-radius:6px;margin:0 0 12px}
 details.full>summary{background:var(--green);color:#fff;font-weight:700;text-transform:uppercase;padding:9px 10px;cursor:pointer;min-height:44px}
 details.full>div{padding:10px}
 details.qg{border:2px solid var(--orange);border-radius:6px;margin:0 0 12px;background:#fff}
-details.qg>summary{background:var(--orange);color:#1a1a1a;font-weight:800;text-transform:uppercase;padding:9px 10px;cursor:pointer;min-height:44px;display:flex;align-items:center;gap:10px;list-style:none}
+details.qg>summary{position:sticky;top:var(--toph,0px);z-index:5;box-shadow:0 2px 0 rgba(0,0,0,.18);background:var(--orange);color:#1a1a1a;font-weight:800;text-transform:uppercase;padding:9px 10px;cursor:pointer;min-height:44px;display:flex;align-items:center;gap:10px;list-style:none}
 details.qg>summary::-webkit-details-marker{display:none}
 details.qg>summary span{display:flex;flex-direction:column;line-height:1.1}details.qg>summary small{font-size:11px;font-weight:700;text-transform:none;opacity:.8}
 details.qg>summary .qch{margin-left:auto;flex:none;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.14);display:grid;place-items:center;transition:transform .2s}
@@ -2092,6 +2092,7 @@ LANGS.forEach(function(L){document.getElementById('lang-'+L).addEventListener('c
 document.getElementById('fab').addEventListener('click',function(){var sh=document.getElementById('sheet');sh.hidden=!sh.hidden;});
 document.getElementById('fabback').addEventListener('click',function(){if(history.length>1)history.back();else location.hash='#inicio';});
 window.addEventListener('hashchange',route);
+(function(){var tp=document.querySelector('.top');if(!tp)return;var f=function(){document.documentElement.style.setProperty('--toph',Math.round(tp.getBoundingClientRect().height)+'px');};f();window.addEventListener('resize',f);if(window.ResizeObserver)new ResizeObserver(f).observe(tp);})();
 document.getElementById('brand').addEventListener('click',function(e){e.preventDefault();state.q='';state.cls='';state.tih=false;state.lim=40;if(location.hash==='#inicio'||location.hash===''){route();window.scrollTo(0,0);}else location.hash='#inicio';});
 route();
 })();
