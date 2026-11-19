@@ -875,15 +875,13 @@ details.qgg .gbox>h3{background:#dcebc8;color:var(--ink);font-size:15px;border-b
 .idname{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;font-weight:700;font-size:16px;line-height:1.2;text-align:left;overflow-wrap:anywhere}
 .idname small{font-size:11.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
 .idlbl{flex:none;display:flex;gap:4px;align-items:center}.idlbl .lbl{width:42px;height:42px}.idlbl .lbl:not(:first-child){width:28px;height:28px}
-details.qgg>summary{display:block}
-details.qgg>summary .sumrow{display:flex;align-items:center;gap:10px}
-details.qgg>summary .sumrow>span:nth-child(2){flex:1;display:block;line-height:1.1}
-details.qgg>summary .idstrip{margin:8px 0 0;padding:6px 8px;color:var(--ink);text-transform:none;font-weight:700;border-color:#fff}
-details.qgg[open]>summary .idstrip{padding:4px 6px;margin-top:6px}
-details.qgg[open]>summary .idplate{width:44px}details.qgg[open]>summary .idplate i{font-size:11px;min-height:15px;padding:1px 0}details.qgg[open]>summary .idplate b{font-size:12px;padding:1px 0}
-details.qgg[open]>summary .idname{font-size:14px}details.qgg[open]>summary .idname small{display:none}
-details.qgg[open]>summary .idlbl .lbl{width:30px;height:30px}details.qgg[open]>summary .idlbl .lbl:not(:first-child){width:22px;height:22px}
-details.qgg>summary>span.sumrow{display:flex;flex-direction:row;align-items:center;gap:10px;width:100%}details.qgg>summary>span.sumrow>span:nth-child(2){flex:1;text-align:left}details.qgg>summary>span.sumrow>.qch{flex:none;margin-left:auto}details.qgg>summary .idlbl{flex-direction:row}details.qgg>summary .idstrip .idname{text-align:left}
+.gbox.t3d>summary{list-style:none;cursor:pointer;display:block}.gbox.t3d>summary::-webkit-details-marker{display:none}
+.t3d .t3h{display:flex;align-items:center;gap:10px;background:#dcebc8;color:var(--ink);font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.02em;padding:8px 10px;border-bottom:2px solid var(--green)}
+.t3d .t3h>span:first-child{flex:1;text-align:left;line-height:1.15}
+.t3d .t3h .qch{flex:none;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.14);display:grid;place-items:center;transition:transform .2s}
+.t3d[open] .t3h .qch{transform:rotate(180deg)}
+.t3d .idstrip{margin:8px;}
+.t3d[open]>summary .idstrip{border-color:var(--green)}
 </style>
 </head>
 <body data-sec="o">
@@ -1253,13 +1251,13 @@ function idStrip(id){var R=RK[id],b=bestName(id);if(!b)return '';
   return '<div class="idstrip"><span class="idplate"><i>'+esc(rk)+'</i><b>'+esc(id)+'</b></span><span class="idname"><small>'+esc(t('un'))+' '+esc(id)+'</small>'+esc(b[2])+'</span>'+(R?'<span class="idlbl">'+lbl(R[0])+(R[1].length?R[1].slice(0,2).map(function(c){return lbl(c);}).join(''):'')+'</span>':'')+'</div>';}
 function t3HTML(id){
   var g=t3group(id);if(!g)return '';
-  var h='<div class="gbox"><h3>'+esc(t('t3'))+'</h3><div class="in">';
+  var h='<details class="gbox t3d"><summary><span class="t3h"><span>'+esc(t('t3'))+'</span><span class="qch" aria-hidden="true">'+QCH+'</span></span>'+idStrip(id)+'</summary><div class="in">';
   g.rows.forEach(function(row){
     h+='<div class="dgroup"><p class="who wc">'+cicon(row[0])+'<strong>'+esc(contName(row[0]))+'</strong></p><div class="wind">'+wlab('i',t('isoS'))+'<span class="wv wide iso"><b>'+esc(num(row[1][0]))+' m</b> <i>'+esc(num(row[1][1]))+' '+esc(t('ft'))+'</i></span><span class="wl"></span>';
     ['low','mod','high'].forEach(function(w){h+='<span class="wh"><b>'+esc(t(w))+'</b><br>'+esc(t(w+'D'))+'</span>';});
     [['dayS',2],['nightS',5]].forEach(function(p){h+=wlab(p[1]===2?'d':'n',t(p[0]));for(var i=p[1];i<p[1]+3;i++)h+='<span class="wv pr"><b>'+esc(num(row[i][0]))+' km</b><i>'+esc(num(row[i][1]))+' mi</i></span>';});
     h+='</div></div>';});
-  return h+'<p class="note" style="margin:8px 0 0">'+esc(t('plus'))+'</p></div></div>';
+  return h+'<p class="note" style="margin:8px 0 0">'+esc(t('plus'))+'</p></div></details>';
 }
 function t1Groups(T){var groups={},go=[];T.forEach(function(r){var k=r[3]+'|'+r[2];if(!groups[k]){groups[k]={d:DB.D[r[3]],c:r[2],n:[]};go.push(k);}groups[k].n.push(r[1]);});return go.map(function(k){return groups[k];});}
 function wlab(k,txt){var ic={i:'radius',p:'wind',d:'sun',n:'moon'}[k];return '<span class="wl l'+k+'">'+qi(ic,16)+'<em>'+esc(txt)+'</em></span>';}
@@ -1360,7 +1358,7 @@ function viewUN(id,keep){
   var T=DB.T1[state.lang].filter(function(r){return r[0]===id;});
   if(T.length){
     var gs=t1Groups(T);
-    h+='<details class="full qg qgg"><summary><span class="sumrow">'+qi('tbl',24)+'<span>'+esc(t('full'))+'</span><span class="qch" aria-hidden="true">'+QCH+'</span></span>'+idStrip(id)+'</summary><div><p class="note">'+esc(t('hl'))+'</p>'+gs.map(t1Block).join('')+'<p class="note" style="margin:8px 0 0">'+esc(t('plus'))+'</p>'+(gs.some(function(g){return g.d[3]==='T3';})?t3HTML(id):'')+'</div></details>';
+    h+='<details class="full qg qgg"><summary>'+qi('tbl',24)+'<span>'+esc(t('full'))+'</span><span class="qch" aria-hidden="true">'+QCH+'</span></summary><div><p class="note">'+esc(t('hl'))+'</p>'+gs.map(t1Block).join('')+'<p class="note" style="margin:8px 0 0">'+esc(t('plus'))+'</p>'+(gs.some(function(g){return g.d[3]==='T3';})?t3HTML(id):'')+'</div></details>';
   }
   order.forEach(function(g){h+=qgHTML(gnum(g),g);});
   h+=calcBox(id,M);
