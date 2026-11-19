@@ -324,11 +324,9 @@ body.home .body{padding:14px 12px 90px;font-family:var(--ui)}
 .cg.off{opacity:.45}
 .opts button:disabled{cursor:not-allowed}
 .calc .result{margin:4px 0 0}
-details.full{border:2px solid var(--green);border-radius:6px;margin:0 0 12px}
-details.full>summary{background:var(--green);color:#fff;font-weight:700;text-transform:uppercase;padding:9px 10px;cursor:pointer;min-height:44px}
-details.full>div{padding:10px}
-details.qg{border:2px solid var(--orange);border-radius:6px;margin:0 0 12px;background:#fff}
-details.qg>summary{position:sticky;top:var(--toph,0px);z-index:5;box-shadow:0 2px 0 rgba(0,0,0,.18);background:var(--orange);color:#1a1a1a;font-weight:800;text-transform:uppercase;padding:9px 10px;cursor:pointer;min-height:44px;display:flex;align-items:center;gap:10px;list-style:none}
+details.qgg{--qc:var(--green);--qt:#fff}details.qgg>div{padding:10px}
+details.qg{border:2px solid var(--qc,var(--orange));border-radius:6px;margin:0 0 12px;background:#fff}
+details.qg>summary{position:sticky;top:var(--toph,0px);z-index:5;box-shadow:0 2px 0 rgba(0,0,0,.18);background:var(--qc,var(--orange));color:var(--qt,#1a1a1a);font-weight:800;text-transform:uppercase;padding:9px 10px;cursor:pointer;min-height:44px;display:flex;align-items:center;gap:10px;list-style:none}
 details.qg>summary::-webkit-details-marker{display:none}
 details.qg>summary span{display:flex;flex-direction:column;line-height:1.1}details.qg>summary small{font-size:11px;font-weight:700;text-transform:none;opacity:.8}
 details.qg>summary .qch{margin-left:auto;flex:none;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.14);display:grid;place-items:center;transition:transform .2s}
@@ -431,14 +429,14 @@ details.qg>summary:hover{filter:brightness(.97)}
 .mxempty p,.mxempty .note,.glbl p,.hint,.cover .strip,.thumbs a,.quick a{text-align:center}
 .prose blockquote,.prose .caution,.prose .note,.prose .step span,.caution,.eyebrow+p{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
 /* hover suave */
-.quick a,.recs a,.secs a,.lgrid a,.sheet a,.glbl a,.rc,.calc .opts button,.rks button,.vlist button,.sh button,.lang button,.tabs a,.fab,.fabback,.sin2 .go,.more,details.full>summary{transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,filter .18s ease,border-color .18s ease}
+.quick a,.recs a,.secs a,.lgrid a,.sheet a,.glbl a,.rc,.calc .opts button,.rks button,.vlist button,.sh button,.lang button,.tabs a,.fab,.fabback,.sin2 .go,.more,details.qg>summary{transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,filter .18s ease,border-color .18s ease}
 @media (hover:hover) and (pointer:fine){
 .quick a:hover,.recs a:hover,.secs a:hover,.sheet a:hover,.glbl a:hover,.rc:hover,.calc .opts button:hover,.rks button:hover,.vlist button:hover,.more:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.14);filter:brightness(1.03)}
 .lgrid a:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 6px 16px rgba(0,0,0,.16)}
 .tabs a:not([aria-current="page"]):hover{filter:brightness(1.08);transform:translateY(-1px)}
 .sh button:hover,.lang button:hover,.sin2 .go:hover{filter:brightness(1.1);transform:scale(1.05)}
 .fab:hover,.fabback:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 8px 20px rgba(0,0,0,.28)}
-details.full>summary:hover{filter:brightness(.97)}
+
 .quick a:active,.recs a:active,.secs a:active,.sheet a:active,.lgrid a:active,.rc:active,.fab:active,.fabback:active{transform:translateY(0) scale(.99);box-shadow:none}
 }
 @media (prefers-reduced-motion:reduce){.quick a,.recs a,.secs a,.lgrid a,.sheet a,.glbl a,.rc,.calc .opts button,.rks button,.vlist button,.sh button,.lang button,.tabs a,.fab,.fabback,.sin2 .go,.more{transition:none;transform:none!important}}
@@ -1316,7 +1314,7 @@ function viewUN(id,keep){
   var T=DB.T1[state.lang].filter(function(r){return r[0]===id;});
   if(T.length){
     var gs=t1Groups(T);
-    h+='<details class="full"><summary>'+esc(t('full'))+'</summary><div><p class="note">'+esc(t('hl'))+'</p>'+gs.map(t1Block).join('')+'<p class="note" style="margin:8px 0 0">'+esc(t('plus'))+'</p>'+(gs.some(function(g){return g.d[3]==='T3';})?t3HTML(id):'')+'</div></details>';
+    h+='<details class="full qg qgg"><summary>'+qi('tbl',24)+'<span>'+esc(t('full'))+'</span><span class="qch" aria-hidden="true">'+QCH+'</span></summary><div><p class="note">'+esc(t('hl'))+'</p>'+gs.map(t1Block).join('')+'<p class="note" style="margin:8px 0 0">'+esc(t('plus'))+'</p>'+(gs.some(function(g){return g.d[3]==='T3';})?t3HTML(id):'')+'</div></details>';
   }
   order.forEach(function(g){h+=qgHTML(gnum(g),g);});
   h+=calcBox(id,M);
@@ -1337,7 +1335,7 @@ function viewUN(id,keep){
 }
 
 /* ---------- guia rápido laranja ---------- */
-var QI={flame:'<g transform="translate(12 12) scale(1.22) translate(-12 -11.5)"><path d="M12.5 2.5c.4 3 4.2 5.2 4.2 9.8a4.7 4.7 0 0 1-9.4 0c0-1.9.8-3.2 1.9-4.2.2 1.3.9 2 1.8 2.2-.3-3 .3-5.6 1.5-7.8z"/><path style="fill:var(--ic,#fff)" d="M12 20.4a2.5 2.5 0 0 1-2.5-2.5c0-1.4 1.1-2.3 2.5-3.7 1.4 1.4 2.5 2.3 2.5 3.7a2.5 2.5 0 0 1-2.5 2.5z"/></g>',
+var QI={tbl:'<path fill-rule="evenodd" d="M3 4h18v16H3z M5 9h6v4H5z M13 9h6v4h-6z M5 15h6v3H5z M13 15h6v3h-6z"/>',flame:'<g transform="translate(12 12) scale(1.22) translate(-12 -11.5)"><path d="M12.5 2.5c.4 3 4.2 5.2 4.2 9.8a4.7 4.7 0 0 1-9.4 0c0-1.9.8-3.2 1.9-4.2.2 1.3.9 2 1.8 2.2-.3-3 .3-5.6 1.5-7.8z"/><path style="fill:var(--ic,#fff)" d="M12 20.4a2.5 2.5 0 0 1-2.5-2.5c0-1.4 1.1-2.3 2.5-3.7 1.4 1.4 2.5 2.3 2.5 3.7a2.5 2.5 0 0 1-2.5 2.5z"/></g>',
 burst:'<path d="M12 1.5l2.6 5.6 5.9-2.2-2.2 5.8 4.2 1.3-4.2 1.3 2.2 5.8-5.9-2.2-2.6 5.6-2.6-5.6-5.9 2.2 2.2-5.8L1.5 12l4.2-1.3-2.2-5.8 5.9 2.2z"/><circle cx="12" cy="12" r="2.6" style="fill:var(--ic,#fff)"/>',
 drop:'<path d="M12 2.5s6.5 6.6 6.5 11.5a6.5 6.5 0 0 1-13 0C5.5 9.1 12 2.5 12 2.5z"/><path style="fill:var(--ic,#fff)" d="M13.2 8.6l-3.9 5.2h2.6l-.8 4.2 4-5.6h-2.6z"/>',
 dropx:'<path d="M12 2.5s6.5 6.6 6.5 11.5a6.5 6.5 0 0 1-13 0C5.5 9.1 12 2.5 12 2.5z"/>',
@@ -1353,6 +1351,7 @@ ext:'<rect x="7.5" y="8.5" width="9" height="13" rx="2.2"/><path d="M10 8.5V6h4v
 cross:'<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/>',
 radius:'<g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3.2 2.8"/><path d="M12 12l5-4"/></g><circle cx="12" cy="12" r="2.4"/>',
 open:'<g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></g>'};
+var QCH='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
 function qi(n,z){return '<svg viewBox="0 0 24 24" width="'+z+'" height="'+z+'" fill="currentColor" stroke="none" aria-hidden="true">'+QI[n]+'</svg>';}
 var QGT={pt:{t:'Guia rápido laranja',g:'Guia',alert:'Alertas desta guia',det:'Detalhes do manual',rm:'Ler mais',rl:'Ler menos',dws:'A favor do vento',fl:'Se houver fogo',dist:'Distâncias da guia',iso:'Isolar',fire:'Fogo',dw:'Derramamento grande, a favor do vento',water:'Água',wh:'Perigo',wn:'No combate',fe:'Fogo e explosão',he:'Saúde',ppe:'Proteção',rf:'Combate ao fogo',sp:'Derramamento ou vazamento',fa:'Primeiros socorros',more:'Abrir a guia completa',note:'Resumo dos trechos da guia laranja do manual. Leia a guia completa antes de agir.',
 cWx:'Reage violentamente ou explode com água',cWr:'Reage com água',cNw:'Restrição de água',cFl:'Inflamável',cEx:'Risco de explosão',cTx:'Tóxico',cCo:'Corrosivo',cSp:'Inflama sozinho / ar úmido',cHv:'Vapor mais pesado que o ar',cPo:'Polimeriza (P)',cRa:'Radioativo'},
