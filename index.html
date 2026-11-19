@@ -1519,7 +1519,7 @@ function viewGreen(){
 function viewT1(){
   setSec('g');var T=DB.T1[state.lang],h=band(t('t1s')+' · '+t('t1d'))+'<div class="body"><p class="note">'+esc(t('small'))+': '+esc(t('smallD'))+'. '+esc(t('large'))+': '+esc(t('largeD'))+'.</p><p class="note">'+esc(t('plus'))+'</p>';
   var by={},ids=[];T.forEach(function(r){if(!by[r[0]]){by[r[0]]=[];ids.push(r[0]);}by[r[0]].push(r);});
-  ids.forEach(function(id){h+='<div class="gbox"><h3><a href="#un-'+id+'" style="color:#fff">'+esc(t('idno'))+' '+id+' ›</a></h3><div class="in">'+t1Groups(by[id]).map(t1Block).join('')+'</div></div>';});
+  ids.forEach(function(id){h+='<details class="gbox t3d"><summary>'+idStrip(id,1)+'</summary><div class="in">'+t1Groups(by[id]).map(t1Block).join('')+'</div></details>';});
   app.innerHTML=h+'</div>';wireBack();
 }
 function viewT2(){
