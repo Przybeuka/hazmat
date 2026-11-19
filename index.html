@@ -1229,7 +1229,7 @@ nurse:'<rect x="9" y="9" width="46" height="13" rx="6.5" fill="#e6efd8"/><path d
 smallc:'<g fill="#e6efd8"><rect x="6" y="9" width="9" height="19" rx="3.5"/><rect x="19" y="9" width="9" height="19" rx="3.5"/><rect x="32" y="9" width="9" height="19" rx="3.5"/><rect x="45" y="9" width="9" height="19" rx="3.5"/></g><path d="M9.5 9V5h2.5v4M22.5 9V5h2.5v4M35.5 9V5h2.5v4M48.5 9V5h2.5v4"/>',
 ton:'<rect x="5" y="5" width="54" height="10" rx="5" fill="#e6efd8"/><rect x="5" y="18" width="54" height="10" rx="5" fill="#e6efd8"/><path d="M16 5v10M48 5v10M16 18v10M48 18v10"/>',
 smallton:'<g fill="#e6efd8"><rect x="5" y="9" width="8" height="19" rx="3.2"/><rect x="16" y="9" width="8" height="19" rx="3.2"/><rect x="28" y="12" width="32" height="14" rx="7"/></g><path d="M8 9V5h2.5v4M19 9V5h2.5v4M36 12v14M52 12v14"/>'};
-function cicon(k){var b=CI[k];return b?'<svg class="cico" viewBox="0 0 64 32" width="64" height="32" fill="none" stroke="#2f4a14" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+b+'</svg>':'';}
+function cicon(k){var b=CI[k==='small'?'smallc':k];return b?'<svg class="cico" viewBox="0 0 64 32" width="64" height="32" fill="none" stroke="#2f4a14" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+b+'</svg>':'';}
 function contName(c){return t(c==='small'?'smallc':c);}
 function t3HTML(id){
   var g=t3group(id);if(!g)return '';
