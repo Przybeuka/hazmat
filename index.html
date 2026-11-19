@@ -1280,15 +1280,15 @@ function viewUN(id,keep){
   if(R){h+='<div class="lbls"><a href="#classe-'+R[0]+'">'+lbl(R[0])+'</a>'+(R[1].length?'<div class="sub">'+R[1].map(function(s){return '<a href="#classe-'+s+'" title="'+esc(t('subs'))+' '+s+'">'+lbl(s)+'</a>';}).join('')+'</div>':'')+'</div>';}
   h+='</div>';
   h+='<h2 style="font-size:24px;font-weight:700;margin-bottom:4px">'+esc(b[2])+'</h2><p style="margin:0 0 8px">'+(hl?'<span class="tag tih">'+esc(t('tih'))+'</span> ':'')+(poly?'<span class="tag p">P</span>':'')+'</p>';
-  h+='<ul class="facts">';
+  var rh='';h+='<ul class="facts">';
   if(R){
     h+='<li><b>'+esc(t('cls'))+' '+R[0]+'</b> · '+esc(clsDesc(R[0]))+(R[1].length?' · '+esc(t('subs'))+': '+R[1].join(', '):'')+'</li>';
-    if(rk){var mean=riskMeaning(rk);h+='<li><b>'+esc(t('riskNo'))+' '+esc(rk)+'</b>'+(mean?' · '+esc(mean):'')+' <a href="#info-numeros-risco">'+esc(t('riskMean'))+'</a>';
-      if(R[2].length>1)h+='<br><span class="note">'+esc(t('riskVar'))+'</span><span class="rks">'+R[2].map(function(x,i){return '<button type="button" data-rk="'+i+'" aria-pressed="'+(x===rk?'true':'false')+'">'+esc(x)+'</button>';}).join('')+'</span>';
-      h+='</li>';}
-    h+='<li class="note">'+esc(t('riskSrc'))+(R[3]===2?' '+esc(t('risk1')):'')+'</li>';
-  }else h+='<li class="note">'+esc(t('riskNone'))+'</li>';
-  h+='</ul>'+pnote()+calcBox(id,M);
+    if(rk){var mean=riskMeaning(rk);rh+='<li><b>'+esc(t('riskNo'))+' '+esc(rk)+'</b>'+(mean?' · '+esc(mean):'')+' <a href="#info-numeros-risco">'+esc(t('riskMean'))+'</a>';
+      if(R[2].length>1)rh+='<br><span class="note">'+esc(t('riskVar'))+'</span><span class="rks">'+R[2].map(function(x,i){return '<button type="button" data-rk="'+i+'" aria-pressed="'+(x===rk?'true':'false')+'">'+esc(x)+'</button>';}).join('')+'</span>';
+      rh+='</li>';}
+    rh+='<li class="note">'+esc(t('riskSrc'))+(R[3]===2?' '+esc(t('risk1')):'')+'</li>';
+  }else rh+='<li class="note">'+esc(t('riskNone'))+'</li>';
+  h+='</ul>'+pnote();
   var byG={},order=[];M.forEach(function(m){if(!byG[m[1]]){byG[m[1]]=[];order.push(m[1]);}byG[m[1]].push(m);});
   order.forEach(function(g){var G=DB.G[gnum(g)];
     if(order.length>1)h+='<a class="gbtn" href="#guia-'+gnum(g)+'"><span class="num">'+esc(g)+'</span><span class="t"><small>'+esc(t('guide'))+' '+esc(g)+'</small>'+esc(G.e?t('emptyGuide'):G.t[state.lang])+'</span><span class="go" aria-hidden="true">›</span></a>';h+='<ul class="names">'+byG[g].map(function(m){return '<li>'+esc(m[2])+(m[3]?' <span class="tag tih">'+esc(t('tih'))+'</span>':'')+'</li>';}).join('')+'</ul>'+(/P$/.test(g)?'<p class="note">'+esc(t('poly'))+'</p>':'');});
@@ -1298,7 +1298,9 @@ function viewUN(id,keep){
     h+='<details class="full"><summary>'+esc(t('full'))+'</summary><div><p class="note">'+esc(t('hl'))+'</p>'+gs.map(t1Block).join('')+'<p class="note" style="margin:8px 0 0">'+esc(t('plus'))+'</p>'+(gs.some(function(g){return g.d[3]==='T3';})?t3HTML(id):'')+'</div></details>';
   }
   order.forEach(function(g){h+=qgHTML(gnum(g),g);});
+  h+=calcBox(id,M);
   if(DB.T2[id])h+='<div class="gbox"><h3>'+esc(t('t2'))+'</h3><div class="in"><p style="margin:0">'+esc(t('t2txt'))+' '+DB.T2[id].map(function(g){return '<strong>'+sub2(g)+'</strong> ('+esc(GAS[g][state.lang])+')';}).join(', ')+'.</p></div></div>';
+  if(rh)h+='<ul class="facts rfacts">'+rh+'</ul>';
   var y=window.scrollY;
   app.innerHTML=h+'</div>';wireBack();
   if(keep)window.scrollTo(0,y);
@@ -1307,7 +1309,7 @@ function viewUN(id,keep){
     if(k==='v'){cs.where=null;cs.cont=null;cs.wind=null;viewUN(id,true);return;}
     if(k==='size'){cs.cont=null;cs.wind=null;}
     viewUN(id,true);
-    var r=document.getElementById('cres');if(r&&!r.querySelector('.empty')&&k!=='fire')r.scrollIntoView({block:'nearest',behavior:'smooth'});});});
+    var r=document.getElementById('cres');if(r&&!r.querySelector('.empty')&&k!=='fire'){var tp=document.querySelector('.top'),off=(tp?tp.getBoundingClientRect().height:0)+8;window.scrollTo({top:Math.max(0,r.getBoundingClientRect().top+window.scrollY-off),behavior:'smooth'});}});});
   var cv=document.getElementById('cvar');if(cv)cv.addEventListener('change',function(){cs.v=Number(cv.value);cs.where=null;cs.cont=null;cs.wind=null;viewUN(id,true);});
   Array.prototype.forEach.call(app.querySelectorAll('[data-rk]'),function(bt){bt.addEventListener('click',function(){cs.rk=Number(bt.getAttribute('data-rk'));viewUN(id,true);});});
 }
