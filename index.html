@@ -872,7 +872,7 @@ details.qgg .gbox>h3{background:#dcebc8;color:var(--ink);font-size:15px;border-b
 .idplate{flex:none;width:56px;border:2px solid #111;background:#f58220;color:#111;text-align:center;font-family:var(--font-display);line-height:1;display:flex;flex-direction:column}
 .idplate i{font-style:normal;font-size:14px;font-weight:800;padding:3px 0 2px;border-bottom:2px solid #111;min-height:20px}
 .idplate b{font-size:15px;font-weight:800;padding:3px 0}
-.idname{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;font-weight:700;font-size:16px;line-height:1.2;text-align:left;overflow-wrap:anywhere}
+.idname{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;font-weight:700;font-size:16px;line-height:1.2;text-align:left;overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
 .idname small{font-size:11.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
 .idlbl{flex:none;display:flex;gap:4px;align-items:center}.idlbl .lbl{width:42px;height:42px}.idlbl .lbl:not(:first-child){width:28px;height:28px}
 .gbox.t3d>summary{list-style:none;cursor:pointer;display:block}.gbox.t3d>summary::-webkit-details-marker{display:none}
@@ -1517,10 +1517,13 @@ function viewGreen(){
   app.innerHTML=h+'</ul></div>';wireBack();
 }
 function viewT1(){
-  setSec('g');var T=DB.T1[state.lang],h=band(t('t1s')+' · '+t('t1d'))+'<div class="body"><p class="note">'+esc(t('small'))+': '+esc(t('smallD'))+'. '+esc(t('large'))+': '+esc(t('largeD'))+'.</p><p class="note">'+esc(t('plus'))+'</p>';
+  setSec('g');var T=DB.T1[state.lang],h=band(t('t1s')+' · '+t('t1d'))+'<div class="body"><input class="t2q" id="t1q" type="search" placeholder="'+esc({pt:'Filtrar por nº ONU ou nome',en:'Filter by UN no. or name',es:'Filtrar por n.º ONU o nombre'}[state.lang])+'" autocomplete="off"><p class="t2n" id="t1n"></p><div id="t1l">';
   var by={},ids=[];T.forEach(function(r){if(!by[r[0]]){by[r[0]]=[];ids.push(r[0]);}by[r[0]].push(r);});
-  ids.forEach(function(id){h+='<details class="gbox t3d"><summary>'+idStrip(id,1)+'</summary><div class="in">'+t1Groups(by[id]).map(t1Block).join('')+'</div></details>';});
-  app.innerHTML=h+'</div>';wireBack();
+  ids.forEach(function(id){h+='<details class="gbox t3d" data-q="'+esc(norm(id+' '+by[id].map(function(r){return r[1];}).join(' ')))+'"><summary>'+idStrip(id,1)+'</summary><div class="in">'+t1Groups(by[id]).map(t1Block).join('')+'</div></details>';});
+  app.innerHTML=h+'</div></div>';wireBack();
+  var q=document.getElementById('t1q'),cards=[].slice.call(document.querySelectorAll('#t1l>details')),n=document.getElementById('t1n'),W={pt:'produtos',en:'materials',es:'materiales'}[state.lang];
+  function f(){var v=norm(q.value.trim()),c=0;cards.forEach(function(e){var ok=!v||e.getAttribute('data-q').indexOf(v)>-1;e.style.display=ok?'':'none';if(ok)c++;});n.textContent=c+' '+W;}
+  q.addEventListener('input',f);f();
 }
 function viewT2(){
   setSec('g');var L={pt:['Filtrar por nº ONU, nome ou gás','materiais'],en:['Filter by UN no., name or gas','materials'],es:['Filtrar por n.º ONU, nombre o gas','materiales']}[state.lang];
