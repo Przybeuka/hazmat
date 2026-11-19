@@ -883,6 +883,8 @@ details.qgg .gbox>h3{background:#dcebc8;color:var(--ink);font-size:15px;border-b
 .t3d .idstrip{margin:8px;}
 .t3d[open]>summary .idstrip{border-color:var(--green)}
 .t3d .idstrip{margin:0;border:0;border-radius:0;padding:10px 10px}.idstrip .qch{flex:none;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.14);display:grid;place-items:center;transition:transform .2s;color:var(--ink)}.t3d[open] .idstrip .qch{transform:rotate(180deg)}.t3d[open]>summary{border-bottom:2px solid var(--green)}
+.qwrap{position:relative;display:block}.qwrap .t2q{padding-right:92px;margin-bottom:12px;-webkit-appearance:none;appearance:none}.qwrap .t2q::-webkit-search-cancel-button,.qwrap .t2q::-webkit-search-decoration{-webkit-appearance:none;display:none}
+.qx{position:absolute;right:8px;top:7px;height:34px;display:inline-flex;align-items:center;gap:4px;padding:0 10px;border:0;border-radius:17px;background:#e8e8e8;color:var(--ink);font:inherit;font-weight:700;font-size:13px;cursor:pointer}.qx[hidden]{display:none}.qx:active{background:#d4d4d4}
 </style>
 </head>
 <body data-sec="o">
@@ -1516,6 +1518,8 @@ function viewGreen(){
   DB.W.forEach(function(s){if(s.g==='g')h+='<li><a href="#info-'+s.s+'">'+sico(s.s,'var(--green)')+esc(s.t[state.lang])+'</a></li>';});
   app.innerHTML=h+'</ul></div>';wireBack();
 }
+function addClear(q){var w=document.createElement('span');w.className='qwrap';q.parentNode.insertBefore(w,q);w.appendChild(q);var b=document.createElement('button');b.type='button';b.className='qx';b.setAttribute('aria-label',{pt:'Limpar',en:'Clear',es:'Borrar'}[state.lang]);b.innerHTML='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><span>'+{pt:'Limpar',en:'Clear',es:'Borrar'}[state.lang]+'</span>';w.appendChild(b);
+  function sync(){b.hidden=!q.value;}q.addEventListener('input',sync);b.addEventListener('click',function(){q.value='';sync();q.dispatchEvent(new Event('input'));q.focus();});sync();}
 function viewT1(){
   setSec('g');var T=DB.T1[state.lang],h=band(t('t1s')+' · '+t('t1d'))+'<div class="body"><input class="t2q" id="t1q" type="search" placeholder="'+esc({pt:'Filtrar por nº ONU ou nome',en:'Filter by UN no. or name',es:'Filtrar por n.º ONU o nombre'}[state.lang])+'" autocomplete="off"><p class="t2n" id="t1n"></p><div id="t1l">';
   var by={},ids=[];T.forEach(function(r){if(!by[r[0]]){by[r[0]]=[];ids.push(r[0]);}by[r[0]].push(r);});
@@ -1523,7 +1527,7 @@ function viewT1(){
   app.innerHTML=h+'</div></div>';wireBack();
   var q=document.getElementById('t1q'),cards=[].slice.call(document.querySelectorAll('#t1l>details')),n=document.getElementById('t1n'),W={pt:'produtos',en:'materials',es:'materiales'}[state.lang];
   function f(){var v=norm(q.value.trim()),c=0;cards.forEach(function(e){var ok=!v||e.getAttribute('data-q').indexOf(v)>-1;e.style.display=ok?'':'none';if(ok)c++;});n.textContent=c+' '+W;}
-  q.addEventListener('input',f);f();
+  q.addEventListener('input',f);f();addClear(q);
 }
 function viewT2(){
   setSec('g');var L={pt:['Filtrar por nº ONU, nome ou gás','materiais'],en:['Filter by UN no., name or gas','materials'],es:['Filtrar por n.º ONU, nombre o gas','materiales']}[state.lang];
@@ -1534,7 +1538,7 @@ function viewT2(){
   app.innerHTML=h+'</div></div>';wireBack();
   var q=document.getElementById('t2q'),cards=[].slice.call(document.querySelectorAll('.t2c')),n=document.getElementById('t2n');
   function f(){var v=norm(q.value.trim()),c=0;cards.forEach(function(e){var ok=!v||e.getAttribute('data-q').indexOf(v)>-1;e.style.display=ok?'':'none';if(ok)c++;});n.textContent=c+' '+L[1];}
-  q.addEventListener('input',f);f();
+  q.addEventListener('input',f);f();addClear(q);
 }
 function viewT3(){
   setSec('g');var h=band(t('t3s')+' · '+t('t3d'))+'<div class="body">';
