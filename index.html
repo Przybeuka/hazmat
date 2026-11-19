@@ -1271,7 +1271,7 @@ function calcBox(id,M){
     h+=cgrp(t('q7'),'<div class="opts three">'+copt('wind',0,t('low'),'',true)+copt('wind',1,t('mod'),'',true)+copt('wind',2,t('high'),'',true)+'</div>',true);
     var GD=guideDist(g),GD0=GD||{};if(GD){GD={iso:GD.iso,dw:cs.size==='l'?GD.dw:0,fire:cs.fire==1?GD.fire:0};}res='<p class="caution">'+esc(t('notT1b'))+'</p>'+((GD&&(GD.iso||GD.dw||GD.fire)||GD0.fire)?evacSVG(GD,m[1])+mapBtn({i:GD.iso,d:GD.dw,f:GD0.fire||0,k:cs.fire?1:0,u:id,g:m[1]}):'');
   }
-  var ev=evacHTML(g);
+  var ev='';
   h+='<div class="result" id="cres"><h3>'+esc(t('res'))+' · '+esc(t('un'))+' '+id+'</h3><div class="in">';
   if(need.length)h+='<p class="empty" style="margin:0 0 8px">'+esc(t('pick'))+': '+need.map(esc).join(' · ')+'</p>';
   h+=res+(ev?'<p class="eyebrow" style="margin-top:10px">'+esc(t('resGuide'))+' · '+esc(t('guide'))+' '+esc(m[1])+'</p>'+ev:'')+(cs.fire&&LPG.indexOf(id)>=0?'<p class="caution"><a href="#info-bleve">'+esc(t('bleve'))+'</a></p>':'')+(/P$/.test(m[1])?'<p class="note">'+esc(t('poly'))+'</p>':'');
