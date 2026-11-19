@@ -331,6 +331,8 @@ details.qg{border:2px solid var(--orange);border-radius:6px;margin:0 0 12px;back
 details.qg>summary{background:var(--orange);color:#1a1a1a;font-weight:800;text-transform:uppercase;padding:9px 10px;cursor:pointer;min-height:44px;display:flex;align-items:center;gap:10px;list-style:none}
 details.qg>summary::-webkit-details-marker{display:none}
 details.qg>summary span{display:flex;flex-direction:column;line-height:1.1}details.qg>summary small{font-size:11px;font-weight:700;text-transform:none;opacity:.8}
+details.qg>summary .qch{margin-left:auto;flex:none;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.14);display:grid;place-items:center;transition:transform .2s}
+details.qg[open]>summary .qch{transform:rotate(180deg)}
 details.qg>summary:hover{filter:brightness(.97)}
 .qin{padding:10px}
 .qlist{display:flex;flex-direction:column;gap:6px;margin:0 0 4px}
@@ -1364,7 +1366,7 @@ function qgHTML(g,code){var sec=qgParse(g);if(!sec)return '';
   if(/P$/.test(code||''))C.push(['cPo','poly','#8e24aa','']);
   function blk(ic,col,title,body){return '<div class="qb"><span class="qi" style="background:'+col+'">'+qi(ic,22)+'</span><div class="qx"><h4>'+esc(title)+'</h4>'+body+'</div></div>';}
   function ul(a){return '<ul>'+a.map(function(x){return '<li>'+sub2(x)+'</li>';}).join('')+'</ul>';}
-  var h='<details class="qg"><summary>'+qi('flame',24)+'<span>'+esc(qq('t'))+'<small>'+esc(qq('g'))+' '+esc(code||g)+'</small></span></summary><div class="qin">';
+  var h='<details class="qg"><summary>'+qi('flame',24)+'<span>'+esc(qq('t'))+'<small>'+esc(qq('g'))+' '+esc(code||g)+'</small></span><span class="qch" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary><div class="qin">';
   if(C.length)h+='<div class="qlist" role="list" aria-label="'+esc(qq('alert'))+'">'+C.map(function(c){return '<div class="qr" role="listitem" style="--c:'+c[2]+'"><span class="qri">'+qi(c[1],30)+'</span><span class="qrt"><b>'+esc(qq(c[0]))+'</b>'+(c[3]?'<small>'+sub2(c[3])+'</small>':'')+'</span></div>';}).join('')+'</div>';
   var D=guideDist(g);
   if(D&&(D.iso||D.fire||D.dw)){var dl=[];if(D.iso)dl.push('<li><b>'+esc(qq('iso'))+' '+num(D.iso)+' m</b></li>');if(D.dw)dl.push('<li><b>'+num(D.dw)+' m</b> · '+esc(qq('dw'))+'</li>');if(D.fire)dl.push('<li><b>'+esc(qq('fire'))+': '+num(D.fire)+' m</b></li>');h+=blk('radius','#111',qq('dist'),'<ul>'+dl.join('')+'</ul>');}
