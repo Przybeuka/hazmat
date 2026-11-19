@@ -890,6 +890,7 @@ details.qgg .gbox>h3{background:#dcebc8;color:var(--ink);font-size:15px;border-b
 .legend2 .tag{flex:none}.legend2 p{flex:1 1 180px;margin:0;font-size:14px;line-height:1.3;text-align:left}
 .legend2 a{flex:none;font-weight:800;font-size:14px;color:#1f4d0a;text-decoration:none;border-bottom:2px solid currentColor}
 .idx tr.tih td:last-child{background-color:var(--tih);padding-right:34px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23111' d='M12 2C7.6 2 4.5 5 4.5 9.2c0 2.4 1 4 2.5 5V19h2.2v-2h1.8v2h3v-2h1.8v2H17v-4.8c1.5-1 2.5-2.6 2.5-5C19.5 5 16.4 2 12 2z'/><circle cx='9' cy='10' r='2.1' fill='%2380cc28'/><circle cx='15' cy='10' r='2.1' fill='%2380cc28'/></svg>");background-repeat:no-repeat;background-position:right 8px center;background-size:20px 20px}
+.tag.tih.sk{display:inline-block;width:30px;height:20px;padding:0;vertical-align:middle;background-position:center;font-size:0}
 </style>
 </head>
 <body data-sec="o">
@@ -1362,11 +1363,11 @@ function viewUN(id,keep){
   h+='</ul>'+pnote();
   var byG={},order=[];M.forEach(function(m){if(!byG[m[1]]){byG[m[1]]=[];order.push(m[1]);}byG[m[1]].push(m);});
   order.forEach(function(g){var G=DB.G[gnum(g)];
-    if(order.length>1)h+='<a class="gbtn" href="#guia-'+gnum(g)+'"><span class="num">'+esc(g)+'</span><span class="t"><small>'+esc(t('guide'))+' '+esc(g)+'</small>'+esc(G.e?t('emptyGuide'):G.t[state.lang])+'</span><span class="go" aria-hidden="true">›</span></a>';h+='<ul class="names">'+byG[g].map(function(m){return '<li>'+esc(m[2])+(m[3]?' <span class="tag tih">'+esc(t('tih'))+'</span>':'')+'</li>';}).join('')+'</ul>'+(/P$/.test(g)?'<p class="note">'+esc(t('poly'))+'</p>':'');});
+    if(order.length>1)h+='<a class="gbtn" href="#guia-'+gnum(g)+'"><span class="num">'+esc(g)+'</span><span class="t"><small>'+esc(t('guide'))+' '+esc(g)+'</small>'+esc(G.e?t('emptyGuide'):G.t[state.lang])+'</span><span class="go" aria-hidden="true">›</span></a>';h+='<ul class="names">'+byG[g].map(function(m){return '<li>'+esc(m[2])+(m[3]?' <span class="tag tih sk" role="img" aria-label="'+esc(t('tih'))+'" title="'+esc(t('tih'))+'"></span>':'')+'</li>';}).join('')+'</ul>'+(/P$/.test(g)?'<p class="note">'+esc(t('poly'))+'</p>':'');});
   var T=DB.T1[state.lang].filter(function(r){return r[0]===id;});
   if(T.length){
     var gs=t1Groups(T);
-    h+='<details class="full qg qgg"><summary>'+qi('tbl',24)+'<span>'+esc(t('full'))+'</span><span class="qch" aria-hidden="true">'+QCH+'</span></summary><div>'+legend()+gs.map(t1Block).join('')+'<p class="note" style="margin:8px 0 0">'+esc(t('plus'))+'</p>'+(gs.some(function(g){return g.d[3]==='T3';})?t3HTML(id):'')+'</div></details>';
+    h+='<details class="full qg qgg"><summary>'+qi('tbl',24)+'<span>'+esc(t('full'))+'</span><span class="qch" aria-hidden="true">'+QCH+'</span></summary><div>'+gs.map(t1Block).join('')+'<p class="note" style="margin:8px 0 0">'+esc(t('plus'))+'</p>'+(gs.some(function(g){return g.d[3]==='T3';})?t3HTML(id):'')+'</div></details>';
   }
   order.forEach(function(g){h+=qgHTML(gnum(g),g);});
   h+=calcBox(id,M);
