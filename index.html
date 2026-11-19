@@ -868,6 +868,13 @@ details.qgg .gbox>h3{background:#dcebc8;color:var(--ink);font-size:15px;border-b
 .who.wc{display:flex;align-items:center;gap:10px}.who.wc strong{text-align:left;hyphens:manual;-webkit-hyphens:manual}.who.wc .cico{flex:none;width:64px;height:32px;background:#fff;border-radius:4px;padding:2px}
 .wind:not(.two) .wh{display:flex;flex-direction:column;justify-content:flex-start;align-items:center;align-self:stretch;text-align:center}.wind:not(.two) .wh b{display:flex;align-items:flex-end;justify-content:center;min-height:2.5em;line-height:1.2}.wind:not(.two) .wh br{display:none}
 .wind .wv.iso,.wind .wv.wide.iso{text-align:center;padding-left:3px;padding-right:3px}
+.idstrip{display:flex;align-items:center;gap:10px;margin:0 0 10px;padding:8px;border:2px solid var(--line);border-radius:8px;background:#fff}
+.idplate{flex:none;width:56px;border:2px solid #111;background:#f58220;color:#111;text-align:center;font-family:var(--font-display);line-height:1;display:flex;flex-direction:column}
+.idplate i{font-style:normal;font-size:14px;font-weight:800;padding:3px 0 2px;border-bottom:2px solid #111;min-height:20px}
+.idplate b{font-size:15px;font-weight:800;padding:3px 0}
+.idname{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;font-weight:700;font-size:16px;line-height:1.2;text-align:left;overflow-wrap:anywhere}
+.idname small{font-size:11.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.idlbl{flex:none;display:flex;gap:4px;align-items:center}.idlbl .lbl{width:42px;height:42px}.idlbl .lbl:not(:first-child){width:28px;height:28px}
 </style>
 </head>
 <body data-sec="o">
@@ -1232,9 +1239,12 @@ ton:'<rect x="5" y="5" width="54" height="10" rx="5" fill="#e6efd8"/><rect x="5"
 smallton:'<g fill="#e6efd8"><rect x="5" y="9" width="8" height="19" rx="3.2"/><rect x="16" y="9" width="8" height="19" rx="3.2"/><rect x="28" y="12" width="32" height="14" rx="7"/></g><path d="M8 9V5h2.5v4M19 9V5h2.5v4M36 12v14M52 12v14"/>'};
 function cicon(k){var b=CI[k==='small'?'smallc':k];return b?'<svg class="cico" viewBox="0 0 64 32" width="64" height="32" fill="none" stroke="#2f4a14" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+b+'</svg>':'';}
 function contName(c){return t(c==='small'?'smallc':c);}
+function idStrip(id){var R=RK[id],b=bestName(id);if(!b)return '';
+  var rk=R&&R[2]&&R[2].length?R[2][0]:'';
+  return '<div class="idstrip"><span class="idplate"><i>'+esc(rk)+'</i><b>'+esc(id)+'</b></span><span class="idname"><small>'+esc(t('un'))+' '+esc(id)+'</small>'+esc(b[2])+'</span>'+(R?'<span class="idlbl">'+lbl(R[0])+(R[1].length?R[1].slice(0,2).map(function(c){return lbl(c);}).join(''):'')+'</span>':'')+'</div>';}
 function t3HTML(id){
   var g=t3group(id);if(!g)return '';
-  var h='<div class="gbox"><h3>'+esc(t('t3'))+'</h3><div class="in">';
+  var h='<div class="gbox"><h3>'+esc(t('t3'))+'</h3><div class="in">'+idStrip(id);
   g.rows.forEach(function(row){
     h+='<div class="dgroup"><p class="who wc">'+cicon(row[0])+'<strong>'+esc(contName(row[0]))+'</strong></p><div class="wind">'+wlab('i',t('isoS'))+'<span class="wv wide iso"><b>'+esc(num(row[1][0]))+' m</b> <i>'+esc(num(row[1][1]))+' '+esc(t('ft'))+'</i></span><span class="wl"></span>';
     ['low','mod','high'].forEach(function(w){h+='<span class="wh"><b>'+esc(t(w))+'</b><br>'+esc(t(w+'D'))+'</span>';});
@@ -1341,7 +1351,7 @@ function viewUN(id,keep){
   var T=DB.T1[state.lang].filter(function(r){return r[0]===id;});
   if(T.length){
     var gs=t1Groups(T);
-    h+='<details class="full qg qgg"><summary>'+qi('tbl',24)+'<span>'+esc(t('full'))+'</span><span class="qch" aria-hidden="true">'+QCH+'</span></summary><div><p class="note">'+esc(t('hl'))+'</p>'+gs.map(t1Block).join('')+'<p class="note" style="margin:8px 0 0">'+esc(t('plus'))+'</p>'+(gs.some(function(g){return g.d[3]==='T3';})?t3HTML(id):'')+'</div></details>';
+    h+='<details class="full qg qgg"><summary>'+qi('tbl',24)+'<span>'+esc(t('full'))+'</span><span class="qch" aria-hidden="true">'+QCH+'</span></summary><div>'+idStrip(id)+'<p class="note">'+esc(t('hl'))+'</p>'+gs.map(t1Block).join('')+'<p class="note" style="margin:8px 0 0">'+esc(t('plus'))+'</p>'+(gs.some(function(g){return g.d[3]==='T3';})?t3HTML(id):'')+'</div></details>';
   }
   order.forEach(function(g){h+=qgHTML(gnum(g),g);});
   h+=calcBox(id,M);
