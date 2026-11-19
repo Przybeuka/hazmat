@@ -882,6 +882,7 @@ details.qgg .gbox>h3{background:#dcebc8;color:var(--ink);font-size:15px;border-b
 .t3d[open] .t3h .qch{transform:rotate(180deg)}
 .t3d .idstrip{margin:8px;}
 .t3d[open]>summary .idstrip{border-color:var(--green)}
+.t3d .idstrip{margin:0;border:0;border-radius:0;padding:10px 10px}.idstrip .qch{flex:none;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.14);display:grid;place-items:center;transition:transform .2s;color:var(--ink)}.t3d[open] .idstrip .qch{transform:rotate(180deg)}.t3d[open]>summary{border-bottom:2px solid var(--green)}
 </style>
 </head>
 <body data-sec="o">
@@ -1246,12 +1247,12 @@ ton:'<rect x="5" y="5" width="54" height="10" rx="5" fill="#e6efd8"/><rect x="5"
 smallton:'<g fill="#e6efd8"><rect x="5" y="9" width="8" height="19" rx="3.2"/><rect x="16" y="9" width="8" height="19" rx="3.2"/><rect x="28" y="12" width="32" height="14" rx="7"/></g><path d="M8 9V5h2.5v4M19 9V5h2.5v4M36 12v14M52 12v14"/>'};
 function cicon(k){var b=CI[k==='small'?'smallc':k];return b?'<svg class="cico" viewBox="0 0 64 32" width="64" height="32" fill="none" stroke="#2f4a14" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+b+'</svg>':'';}
 function contName(c){return t(c==='small'?'smallc':c);}
-function idStrip(id){var R=RK[id],b=bestName(id);if(!b)return '';
+function idStrip(id,ch){var R=RK[id],b=bestName(id);if(!b)return '';
   var rk=R&&R[2]&&R[2].length?R[2][0]:'';
-  return '<div class="idstrip"><span class="idplate"><i>'+esc(rk)+'</i><b>'+esc(id)+'</b></span><span class="idname"><small>'+esc(t('un'))+' '+esc(id)+'</small>'+esc(b[2])+'</span>'+(R?'<span class="idlbl">'+lbl(R[0])+(R[1].length?R[1].slice(0,2).map(function(c){return lbl(c);}).join(''):'')+'</span>':'')+'</div>';}
+  return '<div class="idstrip"><span class="idplate"><i>'+esc(rk)+'</i><b>'+esc(id)+'</b></span><span class="idname"><small>'+esc(t('un'))+' '+esc(id)+'</small>'+esc(b[2])+'</span>'+(R?'<span class="idlbl">'+lbl(R[0])+(R[1].length?R[1].slice(0,2).map(function(c){return lbl(c);}).join(''):'')+'</span>':'')+(ch?'<span class="qch" aria-hidden="true">'+QCH+'</span>':'')+'</div>';}
 function t3HTML(id){
   var g=t3group(id);if(!g)return '';
-  var h='<details class="gbox t3d"><summary><span class="t3h"><span>'+esc(t('t3'))+'</span><span class="qch" aria-hidden="true">'+QCH+'</span></span>'+idStrip(id)+'</summary><div class="in">';
+  var h='<details class="gbox t3d"><summary>'+idStrip(id,1)+'</summary><div class="in">';
   g.rows.forEach(function(row){
     h+='<div class="dgroup"><p class="who wc">'+cicon(row[0])+'<strong>'+esc(contName(row[0]))+'</strong></p><div class="wind">'+wlab('i',t('isoS'))+'<span class="wv wide iso"><b>'+esc(num(row[1][0]))+' m</b> <i>'+esc(num(row[1][1]))+' '+esc(t('ft'))+'</i></span><span class="wl"></span>';
     ['low','mod','high'].forEach(function(w){h+='<span class="wh"><b>'+esc(t(w))+'</b><br>'+esc(t(w+'D'))+'</span>';});
@@ -1533,8 +1534,8 @@ function viewT2(){
   q.addEventListener('input',f);f();
 }
 function viewT3(){
-  setSec('g');var h=band(t('t3s')+' · '+t('t3d'))+'<div class="body"><p class="note"><a href="#info-tabela3-uso">'+esc(wsec('tabela3-uso').t[state.lang])+'</a></p>';
-  DB.T3.forEach(function(g){h+='<p class="who"><strong>'+g.ids.map(function(id){var b=bestName(id);return '<a href="#un-'+id+'">'+t('un')+' '+id+'</a> '+esc(b?b[2]:'');}).join(' · ')+'</strong></p>'+t3HTML(g.ids[0]);});
+  setSec('g');var h=band(t('t3s')+' · '+t('t3d'))+'<div class="body">';
+  DB.T3.forEach(function(g){h+=t3HTML(g.ids[0]);});
   app.innerHTML=h+'</div>';wireBack();
 }
 
