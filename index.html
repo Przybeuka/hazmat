@@ -866,6 +866,7 @@ body[data-sec="e"] .body.epi{background:linear-gradient(#eef8f6,#fff 240px)}
 .wind:not(.two) .wh{display:block}
 details.qgg .gbox{border-color:var(--green);margin-top:10px}
 details.qgg .gbox>h3{background:#dcebc8;color:var(--ink);font-size:15px;border-bottom:2px solid var(--green)}
+.who.wc{display:flex;align-items:center;gap:10px}.who.wc strong{text-align:left;hyphens:manual;-webkit-hyphens:manual}.who.wc .cico{flex:none;width:64px;height:32px;background:#fff;border-radius:4px;padding:2px}
 </style>
 </head>
 <body data-sec="o">
@@ -1221,12 +1222,20 @@ function viewBlue(k){
 /* ---------- distances ---------- */
 function cell(k,d){return '<div class="cell"><span class="k">'+esc(k)+'</span><span class="v">'+esc(num(d[0]))+'</span><span class="i">'+esc(imp(d[1]))+'</span></div>';}
 function t3group(id){var g=null;DB.T3.forEach(function(x){if(x.ids.indexOf(id)>=0)g=x;});return g;}
+var CI={
+rail:'<rect x="5" y="9" width="54" height="12" rx="6" fill="#e6efd8"/><path d="M29 9v-3h6v3M3 23h58"/><path d="M8 23v2M56 23v2"/><circle cx="13" cy="27" r="2.6"/><circle cx="19" cy="27" r="2.6"/><circle cx="45" cy="27" r="2.6"/><circle cx="51" cy="27" r="2.6"/><path d="M32 6v-2" />',
+road:'<path d="M3 24V15l5-4h6v13z" fill="#fff"/><path d="M5 15h8" /><rect x="17" y="8" width="44" height="14" rx="7" fill="#e6efd8"/><path d="M15 24h46"/><circle cx="10" cy="26.5" r="3.2" fill="#fff"/><circle cx="43" cy="26.5" r="3.2" fill="#fff"/><circle cx="52" cy="26.5" r="3.2" fill="#fff"/>',
+nurse:'<rect x="9" y="9" width="46" height="13" rx="6.5" fill="#e6efd8"/><path d="M2 21h8M30 9V6h5v3"/><circle cx="36" cy="25.5" r="4.2" fill="#fff"/><path d="M52 22v3h8"/>',
+smallc:'<g fill="#e6efd8"><rect x="6" y="9" width="9" height="19" rx="3.5"/><rect x="19" y="9" width="9" height="19" rx="3.5"/><rect x="32" y="9" width="9" height="19" rx="3.5"/><rect x="45" y="9" width="9" height="19" rx="3.5"/></g><path d="M9.5 9V5h2.5v4M22.5 9V5h2.5v4M35.5 9V5h2.5v4M48.5 9V5h2.5v4"/>',
+ton:'<rect x="5" y="5" width="54" height="10" rx="5" fill="#e6efd8"/><rect x="5" y="18" width="54" height="10" rx="5" fill="#e6efd8"/><path d="M16 5v10M48 5v10M16 18v10M48 18v10"/>',
+smallton:'<g fill="#e6efd8"><rect x="5" y="9" width="8" height="19" rx="3.2"/><rect x="16" y="9" width="8" height="19" rx="3.2"/><rect x="28" y="12" width="32" height="14" rx="7"/></g><path d="M8 9V5h2.5v4M19 9V5h2.5v4M36 12v14M52 12v14"/>'};
+function cicon(k){var b=CI[k];return b?'<svg class="cico" viewBox="0 0 64 32" width="64" height="32" fill="none" stroke="#2f4a14" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+b+'</svg>':'';}
 function contName(c){return t(c==='small'?'smallc':c);}
 function t3HTML(id){
   var g=t3group(id);if(!g)return '';
   var h='<div class="gbox"><h3>'+esc(t('t3'))+'</h3><div class="in">';
   g.rows.forEach(function(row){
-    h+='<div class="dgroup"><p class="who"><strong>'+esc(contName(row[0]))+'</strong></p><div class="wind">'+wlab('i',t('isoS'))+'<span class="wv wide iso"><b>'+esc(num(row[1][0]))+' m</b> <i>'+esc(num(row[1][1]))+' '+esc(t('ft'))+'</i></span><span class="wl"></span>';
+    h+='<div class="dgroup"><p class="who wc">'+cicon(row[0])+'<strong>'+esc(contName(row[0]))+'</strong></p><div class="wind">'+wlab('i',t('isoS'))+'<span class="wv wide iso"><b>'+esc(num(row[1][0]))+' m</b> <i>'+esc(num(row[1][1]))+' '+esc(t('ft'))+'</i></span><span class="wl"></span>';
     ['low','mod','high'].forEach(function(w){h+='<span class="wh"><b>'+esc(t(w))+'</b><br>'+esc(t(w+'D'))+'</span>';});
     [['dayS',2],['nightS',5]].forEach(function(p){h+=wlab(p[1]===2?'d':'n',t(p[0]));for(var i=p[1];i<p[1]+3;i++)h+='<span class="wv pr"><b>'+esc(num(row[i][0]))+' km</b><i>'+esc(num(row[i][1]))+' mi</i></span>';});
     h+='</div></div>';});
